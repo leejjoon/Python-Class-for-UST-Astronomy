@@ -49,3 +49,11 @@ div.presenter_notes {
 .red {
   color: red
 }
+
+body {
+  font: 24px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  background: #778;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}

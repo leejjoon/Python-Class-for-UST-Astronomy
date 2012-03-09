@@ -17,4 +17,4 @@ Week 01
 
   - Reading : Python tutorial - from the beginning to section 3
 
-  - Watch lecture 1 & 2 of the MIT course.
+  - Watch lecture 2 of the MIT course (lecture 1 is optional).

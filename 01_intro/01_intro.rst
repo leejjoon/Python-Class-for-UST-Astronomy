@@ -1,6 +1,6 @@
 .. raw:: html
 
-   <link rel="stylesheet" href="jj.css" type="text/css">
+   <link rel="stylesheet" href="../aux/jj.css" type="text/css">
 
 .. raw:: html
 

@@ -161,10 +161,6 @@ Python as a Calculator I
  - operators
  - expression
 
-.. raw:: html
-
-   <iframe src='http://127.0.0.1:8888/bd7f7c65-6a0f-42d9-b4e3-3e1436c49558' width=800 height=400></iframe>
-
 
 ----
 
@@ -176,10 +172,6 @@ Python as a Calculator II
  - string operations : indexing, slicing (`Python Tutorial`_)
 
 .. _Python Tutorial: http://docs.python.org/tutorial/introduction.html#strings
-
-.. raw:: html
-
-   <iframe src='http://127.0.0.1:8888/e78ef50e-f160-4658-83fd-5985c26fa2f5' width=800 height=400></iframe>
 
 
 ----

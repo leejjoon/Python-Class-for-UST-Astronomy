@@ -240,6 +240,16 @@ import antigravity
 
 ----
 
+ .. image:: computing.jpg
+    :width: 700
+
+
+----
+
+Check fperez_euroscipy_2011_page3-4.pdf
+
+----
+
 What is Python?
 ===============
 

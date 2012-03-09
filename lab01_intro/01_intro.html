@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="./theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="./theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="./theme/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><link rel="stylesheet" href="jj.css" type="text/css"><script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+ extensions: ["tex2jax.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+ });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+Introduction to Python for Astronomers : Lab 01
+
+Jae-Joon Lee (KASI)</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Journey to Python.org</h1></header>
+            
+            
+            <section><blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>Python home page</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://python.org">http://python.org</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Before you try Python</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first">Python : a language specification</p>
+<pre><span class="k">print</span> <span class="s">&quot;Hello world!&quot;</span>
+</pre>
+</li>
+<li><p class="first">Python implementation</p>
+<ul class="simple">
+<li>CPython</li>
+<li>IronPython</li>
+<li>Jython</li>
+<li>etc</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Python 2 vs. Python 3?</h1></header>
+            
+            
+            <section><p>Short version: Python 2.x is the status quo, Python 3.x is the present
+and future of the language.</p>
+<p>Benevolent Dictator for Life (BDFL; Guido van Rossum; the original
+creator of the Python language) decided to clean up Python language
+and to create Python 3.</p>
+<blockquote>
+<ul class="simple">
+<li>with <span class="red">less regard for backwards compatibility</span> than is the
+case for new releases in the 2.x range.</li>
+<li>The most drastic improvement is the better unicode support (with
+all text strings being unicode by default) as well as saner
+bytes/unicode separation.</li>
+</ul>
+</blockquote>
+<p><span class="red">We will primarily use Python 2.7 in this class</span>. But some Python 3
+features will be introduced.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Python packages</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Python : Python + Standard Library</li>
+<li>Python distribution : Re-packaged Python, often with more libraries</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Python Program vs. Python Packages</h1></header>
+            
+            
+            <section><blockquote>
+<ul>
+<li><p class="first">Packages, Module, Library, etc.</p>
+<ul class="simple">
+<li>Reusable python modules created by 3rd party.</li>
+</ul>
+</li>
+<li><p class="first">Python package index</p>
+<blockquote>
+<ul class="simple">
+<li>The Python Package Index is a repository of software for the Python programming language.</li>
+<li><a class="reference external" href="http://pypi.python.org/pypi">http://pypi.python.org/pypi</a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Installing Python</h1></header>
+            
+            
+            <section><blockquote>
+<ul class="simple">
+<li>Windows</li>
+<li>Mac OS X</li>
+<li>Linux</li>
+</ul>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Invoking the interpreter</h1></header>
+            
+            
+            <section><blockquote>
+<ul class="simple">
+<li>interpreter only</li>
+</ul>
+<blockquote>
+<pre>python
+</pre>
+</blockquote>
+<ul class="simple">
+<li>excute a python file</li>
+</ul>
+<blockquote>
+<pre>python filename.py
+</pre>
+</blockquote>
+<ul class="simple">
+<li>interpreter with gui</li>
+</ul>
+<blockquote>
+<pre>idle
+</pre>
+</blockquote>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Python as a Calculator I</h1></header>
+            
+            
+            <section><blockquote>
+<ul class="simple">
+<li>numbers</li>
+<li>operators</li>
+<li>expression</li>
+</ul>
+</blockquote>
+<iframe src='http://127.0.0.1:8888/bd7f7c65-6a0f-42d9-b4e3-3e1436c49558' width=800 height=400></iframe></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Python as a Calculator II</h1></header>
+            
+            
+            <section><blockquote>
+<ul class="simple">
+<li>assignment</li>
+<li>strings</li>
+<li>string operations : indexing, slicing (<a class="reference external" href="http://docs.python.org/tutorial/introduction.html#strings">Python Tutorial</a>)</li>
+</ul>
+</blockquote>
+<iframe src='http://127.0.0.1:8888/e78ef50e-f160-4658-83fd-5985c26fa2f5' width=800 height=400></iframe></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>String Indexing</h1></header>
+            
+            
+            <section><blockquote>
+<img alt="./string_diagram.png" src="./string_diagram.png" style="width: 700px;" />
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 01_intro.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>H/W</h1></header>
+            
+            
+            <section><p>Read Python tutorial from beginning of section 3 to 3.1.2.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="01_intro.rst">01_intro.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">Journey to Python.org</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Before you try Python</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Python 2 vs. Python 3?</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Python packages</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Python Program vs. Python Packages</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Installing Python</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Invoking the interpreter</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Python as a Calculator I</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Python as a Calculator II</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">String Indexing</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">H/W</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

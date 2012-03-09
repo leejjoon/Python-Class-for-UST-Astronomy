@@ -29,7 +29,7 @@
 
 .. container:: centeredtitle
 
-   Introduction to Python for Astronomers
+   Python as a Programming Language
 
 .. container:: centeredauthor
 

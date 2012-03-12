@@ -6,6 +6,13 @@ Course Syllabus
 
 https://docs.google.com/document/pub?id=1X4IdnvdOVZljWnJGD8pZM3pxH0zsZD-LKQaolhOcFBo
 
+Installing Python and other Libraries
+-------------------------------------
+
+See the Install_ page for info.
+
+.. _Install: install.html
+
 
 Week 01
 -------

@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="Docutils 0.7: http://docutils.sourceforge.net/" />
-<title>Slides for Python Class for UST 2012</title>
+<title>Install Python</title>
 <style type="text/css">
 
 /*
@@ -310,28 +310,78 @@ ul.auto-toc {
 </style>
 </head>
 <body>
-<div class="document" id="slides-for-python-class-for-ust-2012">
-<h1 class="title">Slides for Python Class for UST 2012</h1>
+<div class="document" id="install-python">
+<h1 class="title">Install Python</h1>
 
-<div class="section" id="course-syllabus">
-<h1>Course Syllabus</h1>
-<p><a class="reference external" href="https://docs.google.com/document/pub?id=1X4IdnvdOVZljWnJGD8pZM3pxH0zsZD-LKQaolhOcFBo">https://docs.google.com/document/pub?id=1X4IdnvdOVZljWnJGD8pZM3pxH0zsZD-LKQaolhOcFBo</a></p>
+<p>Adopted from</p>
+<p><a class="reference external" href="http://fperez.org/py4science/starter_kit.html">http://fperez.org/py4science/starter_kit.html</a></p>
+<div class="section" id="on-linux">
+<h1>On Linux</h1>
+<p>On a reasonably recent Linux distribution, all the tools you need are
+available via the package management system. On Ubuntu or other
+Debian-based distributions, type at the shell:</p>
+<pre class="literal-block">
+sudo apt-get install ipython python-scipy python-matplotlib \
+  cython python-nose python-setuptools python-sphinx build-essential
+
+sudo apt-get build-dep python python-scipy python-matplotlib cython
+</pre>
+<p>These two commands give you all the core packages to get started with
+scientific Python work, including development tools like compilers. On
+Fedora, the equivalent commands are (tested on Fedora 12):</p>
+<pre class="literal-block">
+sudo yum install yum-utils
+
+sudo yum install ipython scipy python-matplotlib Cython \
+  python-nose python-setuptools python-sphinx
+
+sudo yum-builddep python scipy python-matplotlib Cython
+</pre>
 </div>
-<div class="section" id="installing-python-and-other-libraries">
-<h1>Installing Python and other Libraries</h1>
-<p>See the <a class="reference external" href="install.html">Install</a> page for info.</p>
-</div>
-<div class="section" id="week-01">
-<h1>Week 01</h1>
+<div class="section" id="on-mac-osx">
+<h1>On Mac OSX</h1>
+<p>You may install required packages using fink or macports, but your
+mileage will vary. Alternatively, you can install the Enthought Python
+Distribution (EPD). This has all of the above, and much more, in a single
+installer. Unless you know fink or macports well, I recommend you to
+install the EPD.</p>
+<p>You will also want to have:</p>
+<blockquote>
 <ul class="simple">
-<li>Lab 01 : <a class="reference external" href="lab01_intro/01_intro.html">Things you better know before tyring Python</a></li>
-<li>Lecture 01 : <a class="reference external" href="01_intro/01_intro.html">Python as a Programming Language</a></li>
-<li>HW<ul>
-<li>Reading : Python tutorial - from the beginning to section 3</li>
-<li>Watch lecture 2 of the MIT course (lecture 1 is optional).</li>
+<li>The Apple Xcode development toolkit. Once you register, it’s a free
+(but fairly large) download.</li>
+<li>The GNU Fortran compiler.</li>
 </ul>
-</li>
+</blockquote>
+</div>
+<div class="section" id="on-windows">
+<h1>On Windows</h1>
+<p>Install EPD.</p>
+</div>
+<div class="section" id="epd">
+<h1>EPD</h1>
+<p><strong>If you want to install academic version of the Enthought Python
+Distribution, check my google group post (or send me an email at
+lee.j.joon&#64;gmail.com)</strong>.</p>
+</div>
+<div class="section" id="code-editor">
+<h1>Code Editor</h1>
+<p>Python is a programming language, so at some point you’ll need to type
+code. <strong>Learning how to use a good, powerful text editor is one of the
+best investments of time you can make in terms of computing-related
+skills</strong>. I(=fperez)’m a life <strong>emacs</strong> user, but <strong>vi</strong> is equally
+sophisticated (in a very different style). These editors, however,
+aren’t the easiest to get started with (if you’re serious about
+computing though, I strongly recommend you do learn how to use them).</p>
+<p>If you want something with a slightly easier learning curve to begin
+with, the following are all free, good options:</p>
+<blockquote>
+<ul class="simple">
+<li>Linux: gedit (typically installed by default).</li>
+<li>OSX: Text Wrangler, TextMate (not free)</li>
+<li>Windows: Notepad++</li>
 </ul>
+</blockquote>
 </div>
 </div>
 </body>

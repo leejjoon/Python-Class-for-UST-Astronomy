@@ -1,3 +1,42 @@
+.. raw:: html
+
+   <link rel="stylesheet" href="../aux/jj.css" type="text/css">
+
+.. raw:: html
+
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+.. role:: tex(raw)
+   :format: latex html
+
+.. role:: strike
+    :class: strike
+
+.. role:: red
+    :class: red
+
+.. container:: centeredtitle
+
+   Statements and Control Flows
+
+.. container:: centeredauthor
+
+   Jae-Joon Lee (KASI)
+
+----
 
 Statements
 ----------
@@ -15,6 +54,16 @@ Statements
     print b
 
 - An expressions is a statement, but not vice versa.
+
+- Assignment is a statement
+
+----
+
+Selection and Repetition
+------------------------
+
+ .. image:: selection_repetition.svg
+    :width: 800
 
 ----
 
@@ -58,18 +107,39 @@ What happen if we use integer for a test?
 
 From the Python Language Reference,
 
-  .. code-block:: text
+  .. container:: yellow-bg
+
+   .. code-block:: text
 
      if_stmt ::=  "if" expression ":" suite
-             ( "elif" expression ":" suite )*
-             ["else" ":" suite]
+                  ( "elif" expression ":" suite )*
+                  ["else" ":" suite]
 
 - You can not use a statement for a test (only expressions are allowed).
 
 ----
 
-Blocks
-------
+Compound Statements
+-------------------
+
+- Compound statements consist of one or more "clauses". A clause consists of a "header" and a "suite". 
+
+- The headers (of a particular compound statement) are all at the :red:`same indentation level`.
+
+- Each clause header begins with a :red:`uniquely identifying keyword` and ends with a :red:`colon`. 
+
+- A suite is a group of statements controlled by a clause. 
+
+- A suite can be 
+
+  - one or more :red:`semicolon-separated simple statements` on the 
+    same line as the header, following the header’s colon.
+
+  - one or more :red:`indented statements` on subsequent lines. 
+
+- Only the latter form of suite can contain nested compound statements
+
+----
 
 - colon(":") : beginning of a new statement block
 
@@ -84,16 +154,17 @@ Blocks
         b = a * 2
         c = b + 1
 
-From the Python Language Reference,
 
-  .. code-block:: text
+Again, from the Python Language Reference,
 
-     if_stmt ::=  "if" expression ":" suite
-             ( "elif" expression ":" suite )*
-             ["else" ":" suite]
+  .. container:: yellow-bg
 
-     suite  ::=  stmt_list NEWLINE | NEWLINE INDENT statement+ DEDENT
+   .. code-block:: text
 
+      if_stmt ::=  "if" expression ":" suite
+                   ( "elif" expression ":" suite )*
+                   ["else" ":" suite]
+      suite         ::=  stmt_list NEWLINE | NEWLINE INDENT statement+ DEDENT
 
 ----
 
@@ -110,4 +181,157 @@ From the Python Language Reference,
     else:
         do_somthing_else
 
+
+- Can have any number of elif clauses (including none)
+
+- And the else clause is optional
+
+- Always tested in order
+
+----
+
+while loop
+----------
+
+ .. code-block:: python
+
+    num_moons = 3
+    while num_moons > 0:
+        print num_moons
+        num_moons -= 1
+
+----
+
+while loop
+----------
+
+  .. container:: yellow-bg
+
+   .. code-block:: text
+
+      while_stmt ::=  "while" expression ":" suite
+                      ["else" ":" suite]
+
+      break_stmt ::=  "break"
+      continue_stmt ::=  "continue"
+
+- This repeatedly tests the expression and, if it is true, executes the first suite
+
+- If the expression is false (which may be the first time it is tested) the suite of the else clause, if present, is executed and the loop terminates.
+
+- A break statement executed in the first suite terminates the loop without executing the else clause’s suite. 
+
+- A continue statement executed in the first suite skips the rest of the suite and goes back to testing the expression.
+
+----
+
+While loop may execute zero times
+---------------------------------
+
+ .. code-block:: python
+
+    num_moons = -3
+    while num_moons > 0:
+        print num_moons
+        num_moons -= 1
+
+
+Use else 
+
+ .. code-block:: python
+
+    num_moons = -3
+    while num_moons > 0:
+        print num_moons
+        num_moons -= 1
+    else:
+        print "skipping the loop"
+
+----
+
+Infinite loop
+-------------
+
+ .. code-block:: python
+
+    num_moons = 3
+    while num_moons > 0:
+        print num_moons
+
+- Usually not the desired behavior…
+- …but there are cases where it's useful
+
+ .. code-block:: python
+
+    num_moons = 3
+    while True:
+        print num_moons
+        num_moons -= 1
+	if num_moons > 0:
+           continue
+        else:
+           break
+
+----
+
+Why use "while..else"?
+----------------------
+
+- "else" clause is not excuted with "break".
+
+.. code-block:: python
+
+   value = 0. # initial value
+   residual = 1.e10 # large enough value
+   old_residual = 1.e11 
+   threshold = 1.e-2 # small enough value
+
+   residual = calculate_residual(value)
+
+   while redsidual > threshold:
+      value = update_value(value)
+      residual = calculate_residual(value)
+
+      if residual > old_residual:
+          print "something went wrong, breaking out of the loop."
+          break
+      else:
+          old_residual = residual
+
+   else:
+       print "residual reached a threshold:", value
+
+----
+
+Print out primes
+----------------
+
+.. code-block:: python
+
+   num = 2
+   while num <= 10:
+       is_prime = True
+       trial = 2
+       while trial**2 <= num:
+           if (num % trial) == 0:
+               is_prime = False
+           trial += 1
+       if is_prime:
+           print num
+       num += 1
+
+----
+
+.. code-block:: python
+
+   num = 2
+   while num <= 10:
+       trial = 2
+       while trial**2 <= num:
+           if (num % trial) == 0:
+               break
+           trial += 1
+       else:
+           print num
+       num += 1
 

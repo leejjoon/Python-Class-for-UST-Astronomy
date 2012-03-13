@@ -38,6 +38,24 @@
 
 ----
 
+Expression
+----------
+
+ - simple expressions
+
+  - 10
+
+  - 10 + 2
+
+  - 10 + a
+
+ - We will learn other forms of expressions through out this course.
+
+  - e.g., f(3) : function call
+
+
+----
+
 Statements
 ----------
 
@@ -59,10 +77,28 @@ Statements
 
 ----
 
-Selection and Repetition
-------------------------
+Simple Statement
+----------------
 
- .. image:: selection_repetition.svg
+ - Assignment Statement
+
+   - a = (b = 3)
+
+   - a = b = 3
+
+ - Print Statement
+
+   - print 3
+
+   - print a
+
+
+----
+
+Branching and Loop
+------------------
+
+ .. image:: SelectionRepetition.png
     :width: 800
 
 ----
@@ -175,7 +211,7 @@ Again, from the Python Language Reference,
         do_somthing
     elif a == 2:
         do_somthing
-    elif a == 3: do_somthing
+    elif a == 3: do_somthing; do_somthing_else
     elif a == 4:
         do_somthing
     else:
@@ -279,6 +315,53 @@ Why use "while..else"?
 
 - "else" clause is not excuted with "break".
 
+----
+
+ .. image:: WhileLoop.png
+    :height: 600
+
+
+
+----
+
+Print out primes
+----------------
+
+  - w/ Else
+
+  .. code-block:: python
+     
+          num = 2
+          while num <= 10:
+              is_prime = True
+              trial = 2
+              while trial**2 <= num:
+                  if (num % trial) == 0:
+                      is_prime = False
+                  trial += 1
+              if is_prime:
+                  print num
+              num += 1
+
+----
+
+  - w/ Else
+
+  .. code-block:: python
+     
+       num = 2
+       while num <= 10:
+           trial = 2
+           while trial**2 <= num:
+               if (num % trial) == 0:
+                   break
+               trial += 1
+           else:
+               print num
+           num += 1
+
+----
+
 .. code-block:: python
 
    value = 0. # initial value
@@ -301,37 +384,5 @@ Why use "while..else"?
    else:
        print "residual reached a threshold:", value
 
-----
 
-Print out primes
-----------------
-
-.. code-block:: python
-
-   num = 2
-   while num <= 10:
-       is_prime = True
-       trial = 2
-       while trial**2 <= num:
-           if (num % trial) == 0:
-               is_prime = False
-           trial += 1
-       if is_prime:
-           print num
-       num += 1
-
-----
-
-.. code-block:: python
-
-   num = 2
-   while num <= 10:
-       trial = 2
-       while trial**2 <= num:
-           if (num % trial) == 0:
-               break
-           trial += 1
-       else:
-           print num
-       num += 1
 

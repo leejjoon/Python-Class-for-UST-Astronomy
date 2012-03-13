@@ -25,3 +25,8 @@ Week 01
   - Reading : Python tutorial - from the beginning to section 3
 
   - Watch lecture 2 of the MIT course (lecture 1 is optional).
+
+Week 02
+-------
+
+- Lecture 02 : `Branching and Loop <02/02.html>`_

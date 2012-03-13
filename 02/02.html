@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="../aux/theme_jj/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../aux/theme_jj/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="../aux/theme_jj/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><link rel="stylesheet" href="../aux/jj.css" type="text/css" /><script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+ extensions: ["tex2jax.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+ });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="centeredtitle container">
+Statements and Control Flows</div>
+<div class="centeredauthor container">
+Jae-Joon Lee (KASI)</div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Expression</h1></header>
+            
+            
+            <section><blockquote>
+<ul class="simple">
+<li>simple expressions</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>10</li>
+<li>10 + 2</li>
+<li>10 + a</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>We will learn other forms of expressions through out this course.</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>e.g., f(3) : function call</li>
+</ul>
+</blockquote>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Statements</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Statements : legal commands that python can interpret</li>
+<li>A python program is a list of statements.</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="mi">2</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">print</span> <span class="n">b</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>An expressions is a statement, but not vice versa.</li>
+<li>Assignment is a statement</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Simple Statement</h1></header>
+            
+            
+            <section><blockquote>
+<ul class="simple">
+<li>Assignment Statement<ul>
+<li>a = (b = 3)</li>
+<li>a = b = 3</li>
+</ul>
+</li>
+<li>Print Statement<ul>
+<li>print 3</li>
+<li>print a</li>
+</ul>
+</li>
+</ul>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Branching and Loop</h1></header>
+            
+            
+            <section><blockquote>
+<img alt="../02/SelectionRepetition.png" src="../02/SelectionRepetition.png" style="width: 800px;" />
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Branching</h1></header>
+            
+            
+            <section><p>Change order of instructions based on some test</p>
+<ul class="simple">
+<li>Conditional statements</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">remainder</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="n">remainder</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;odd&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;even&quot;</span>
+</pre></div>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>IF statement</h1></header>
+            
+            
+            <section><p>What happen if we use integer for a test?</p>
+<blockquote>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">remainder</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="n">remainder</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;odd&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;even&quot;</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>expression is converted to boolean value<ul>
+<li>bool(0), bool(0.), bool(&quot;&quot;) $\rightarrow$ False</li>
+</ul>
+</li>
+</ul>
+<p>From the Python Language Reference,</p>
+<blockquote>
+<div class="yellow-bg container">
+<div class="highlight"><pre>if_stmt ::=  &quot;if&quot; expression &quot;:&quot; suite
+             ( &quot;elif&quot; expression &quot;:&quot; suite )*
+             [&quot;else&quot; &quot;:&quot; suite]
+</pre></div>
+</div>
+</blockquote>
+<ul class="simple">
+<li>You can not use a statement for a test (only expressions are allowed).</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Compound Statements</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Compound statements consist of one or more &quot;clauses&quot;. A clause consists of a &quot;header&quot; and a &quot;suite&quot;.</li>
+<li>The headers (of a particular compound statement) are all at the <span class="red">same indentation level</span>.</li>
+<li>Each clause header begins with a <span class="red">uniquely identifying keyword</span> and ends with a <span class="red">colon</span>.</li>
+<li>A suite is a group of statements controlled by a clause.</li>
+<li>A suite can be<ul>
+<li>one or more <span class="red">semicolon-separated simple statements</span> on the
+same line as the header, following the header’s colon.</li>
+<li>one or more <span class="red">indented statements</span> on subsequent lines.</li>
+</ul>
+</li>
+<li>Only the latter form of suite can contain nested compound statements</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><ul class="simple">
+<li>colon(&quot;:&quot;) : beginning of a new statement block</li>
+<li>statement grouping is done by indentation</li>
+<li>a block ends when indentation changes (dedented)</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">a</span><span class="p">:</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</blockquote>
+<p>Again, from the Python Language Reference,</p>
+<blockquote>
+<div class="yellow-bg container">
+<div class="highlight"><pre>if_stmt ::=  &quot;if&quot; expression &quot;:&quot; suite
+             ( &quot;elif&quot; expression &quot;:&quot; suite )*
+             [&quot;else&quot; &quot;:&quot; suite]
+suite         ::=  stmt_list NEWLINE | NEWLINE INDENT statement+ DEDENT
+</pre></div>
+</div>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><blockquote>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">do_somthing</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">do_somthing</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span> <span class="n">do_somthing</span><span class="p">;</span> <span class="n">do_somthing_else</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="n">do_somthing</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">do_somthing_else</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>Can have any number of elif clauses (including none)</li>
+<li>And the else clause is optional</li>
+<li>Always tested in order</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>while loop</h1></header>
+            
+            
+            <section><blockquote>
+<div class="highlight"><pre><span class="n">num_moons</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">while</span> <span class="n">num_moons</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">num_moons</span>
+    <span class="n">num_moons</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></div>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>while loop</h1></header>
+            
+            
+            <section><blockquote>
+<div class="yellow-bg container">
+<div class="highlight"><pre>while_stmt ::=  &quot;while&quot; expression &quot;:&quot; suite
+                [&quot;else&quot; &quot;:&quot; suite]
+
+break_stmt ::=  &quot;break&quot;
+continue_stmt ::=  &quot;continue&quot;
+</pre></div>
+</div>
+</blockquote>
+<ul class="simple">
+<li>This repeatedly tests the expression and, if it is true, executes the first suite</li>
+<li>If the expression is false (which may be the first time it is tested) the suite of the else clause, if present, is executed and the loop terminates.</li>
+<li>A break statement executed in the first suite terminates the loop without executing the else clause’s suite.</li>
+<li>A continue statement executed in the first suite skips the rest of the suite and goes back to testing the expression.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>While loop may execute zero times</h1></header>
+            
+            
+            <section><blockquote>
+<div class="highlight"><pre><span class="n">num_moons</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="k">while</span> <span class="n">num_moons</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">num_moons</span>
+    <span class="n">num_moons</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></div>
+</blockquote>
+<p>Use else</p>
+<blockquote>
+<div class="highlight"><pre><span class="n">num_moons</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="k">while</span> <span class="n">num_moons</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">num_moons</span>
+    <span class="n">num_moons</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;skipping the loop&quot;</span>
+</pre></div>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Infinite loop</h1></header>
+            
+            
+            <section><blockquote>
+<div class="highlight"><pre><span class="n">num_moons</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">while</span> <span class="n">num_moons</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">num_moons</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>Usually not the desired behavior…</li>
+<li>…but there are cases where it's useful</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="n">num_moons</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">num_moons</span>
+    <span class="n">num_moons</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">num_moons</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+       <span class="k">continue</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="k">break</span>
+</pre></div>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Why use &quot;while..else&quot;?</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>&quot;else&quot; clause is not excuted with &quot;break&quot;.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><blockquote>
+<img alt="../02/WhileLoop.png" src="../02/WhileLoop.png" style="height: 600px;" />
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Print out primes</h1></header>
+            
+            
+            <section><blockquote>
+<ul class="simple">
+<li>w/ Else</li>
+</ul>
+<div class="highlight"><pre><span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">is_prime</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">trial</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">trial</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="n">trial</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">is_prime</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">trial</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">is_prime</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">num</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><blockquote>
+<ul class="simple">
+<li>w/ Else</li>
+</ul>
+<div class="highlight"><pre><span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">trial</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">trial</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="n">trial</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">trial</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">num</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 02.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><div class="highlight"><pre><span class="n">value</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c"># initial value</span>
+<span class="n">residual</span> <span class="o">=</span> <span class="mf">1.e10</span> <span class="c"># large enough value</span>
+<span class="n">old_residual</span> <span class="o">=</span> <span class="mf">1.e11</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mf">1.e-2</span> <span class="c"># small enough value</span>
+
+<span class="n">residual</span> <span class="o">=</span> <span class="n">calculate_residual</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">redsidual</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+   <span class="n">value</span> <span class="o">=</span> <span class="n">update_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+   <span class="n">residual</span> <span class="o">=</span> <span class="n">calculate_residual</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+   <span class="k">if</span> <span class="n">residual</span> <span class="o">&gt;</span> <span class="n">old_residual</span><span class="p">:</span>
+       <span class="k">print</span> <span class="s">&quot;something went wrong, breaking out of the loop.&quot;</span>
+       <span class="k">break</span>
+   <span class="k">else</span><span class="p">:</span>
+       <span class="n">old_residual</span> <span class="o">=</span> <span class="n">residual</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;residual reached a threshold:&quot;</span><span class="p">,</span> <span class="n">value</span>
+</pre></div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="02.rst">02.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">-</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">Expression</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Statements</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Simple Statement</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Branching and Loop</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Branching</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">IF statement</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Compound Statements</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">-</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">-</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">while loop</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">while loop</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">While loop may execute zero times</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Infinite loop</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">Why use &quot;while..else&quot;?</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">-</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">Print out primes</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">-</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">-</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

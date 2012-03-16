@@ -30,3 +30,6 @@ Week 02
 -------
 
 - Lecture 02 : `Branching and Loop <02/02.html>`_
+
+- Lecture 02-1 : `Functions <02/02_1.html>`_
+

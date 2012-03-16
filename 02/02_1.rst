@@ -1,0 +1,466 @@
+.. raw:: html
+
+   <link rel="stylesheet" href="../aux/jj.css" type="text/css">
+
+.. raw:: html
+
+    <link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.style.css" media="screen" />
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/popeye/jquery.popeye-2.1.min.js"></script>
+
+.. raw:: html
+
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+.. role:: tex(raw)
+   :format: latex html
+
+.. role:: strike
+    :class: strike
+
+.. role:: red
+    :class: red
+
+.. container:: centeredtitle
+
+   Statements and Control Flows
+
+.. container:: centeredauthor
+
+   Jae-Joon Lee (KASI)
+
+----
+
+Function
+--------
+
+- A function is a block of :red:`organized`, :red:`reusable` code that is used to
+  perform a single, related action. 
+
+- Functions provides better modularity
+  for your application and a high degree of code reusing.
+
+
+----
+
+A function as a black box
+-------------------------
+
+- How does the black box work? 
+
+ 1. It takes some inputs, 
+
+ 2. swirls them around inside the box, 
+
+ 3. produces some kind of output. 
+
+- What matter is :red:`inputs` and :red:`outputs`
+
+----
+
+How to use functions
+--------------------
+
+- function call is an expression
+
+.. code-block:: python
+
+    a = 2
+    b = sqrt(a)
+
+- **sqrt** is a function
+
+- **a** is an input
+
+- **b** is an output
+
+.. code-block:: python
+
+    a = 2
+    b = pow(a, 2.4)
+
+- **a** and **2.4** are inputs
+
+----
+
+ .. image:: functions_02.png
+    :height: 600
+
+----
+
+ .. image:: functions_01.png
+    :height: 600
+
+----
+
+How to define functions
+-----------------------
+
+.. code-block:: python
+
+    def mysqrt(a):
+        r = sqrt(a)
+        return r
+
+.. code-block:: python
+
+    def mypow(a, b):
+        r = pow(a, b)
+        return r
+
+According to the language reference,
+
+.. container:: yellow-bg
+
+   .. code-block:: text
+
+      funcdef        ::=  "def" funcname "(" [parameter_list] ")" ":" suite
+
+----
+
+Pass by reference
+-----------------
+
+- All parameters (arguments) in the Python language are passed by reference. 
+
+- It means if you change :red:`what a parameter refers to` within a function,
+  the change also reflects back in the calling function.
+
+- Python manages variables using a :red:`call stack`. Essentially, each time
+  a function is called, a new stack frame is put on the top of the
+  stack to hold that function's local variables (names). When the
+  function returns, the stack frame is discarded.
+
+----
+
+.. code-block:: python
+
+    def mysqrt(a1):
+        r = sqrt(a1)
+        return r
+
+    a = 10
+    b = mysqrt(a)
+
+
+----
+
+.. raw:: html
+
+    <iframe src="iframe1/demo.html" width=840 height=550></iframe>
+
+
+----
+
+- Note that chaning the name binding does not change the value itself.
+
+.. code-block:: python
+
+    def mysqrt(a1):
+        r = sqrt(a1)
+        a1 = 0
+        return r
+
+    a = 10
+    b = mysqrt(a)
+
+
+
+----
+
+Namespace and Scope
+-------------------
+
+- Outside of functions, names are stored in the global names space.
+
+- A new namespace (:red:`local`, stack frame) is created upon entering a function.
+
+  - not during the function definition, but when the function is called!
+
+- The namespace is deleted when function returns.
+
+- Variable names are looked up, first in the local namespace  than global namespace.
+
+.. code-block:: python
+
+    def a():
+        print c # ??
+        aa = 3
+
+    c = 10     
+    a()
+    print aa # ??
+
+----
+
+Name Lookup
+-----------
+
+.. code-block:: python
+
+    def a():
+        aa = 3
+     
+        print bb
+     
+    def b():
+        bb = 20
+        a()
+     
+    def c():
+        def a():
+            print bb
+            
+        bb = 20
+        a()
+     
+    bb = 10
+    a()
+    b() # ??
+    c() # ??
+
+
+----
+
+Function is an object!
+----------------------
+
+
+.. code-block:: python
+
+    def a():
+        return 3
+
+    a2 = a
+
+    print a2()
+
+    def myprint(f):
+        print f()
+
+    myprint(a)
+
+
+- In Python, everything is an object in the sense that it can be
+  assigned to a variable or passed as an argument to a function.
+
+
+----
+
+Nested Function
+---------------
+
+.. code-block:: python
+
+    from math import exp
+     
+    def make_gaussian_function(A, x0, sigma):
+     
+        def my_gaussian(x):
+            r = A*exp(-(x-x0)**2/(2*sigma**2))
+            return r
+        
+        return my_gaussian
+     
+     
+    gauss = make_gaussian_function(1, 10, 30)
+     
+    print gauss(10), gauss(10+2.3548*30/2.)
+
+
+----
+
+Comments and Function Docstring
+-------------------------------
+
+- Comments in Python start with the hash character, #, and extend to the end of the physical line. 
+
+- A docstring of a function is a string literal that occurs as the first statement in the function.
+
+.. code-block:: python
+
+    def a():
+        " my function document. a simple function that returns 3"
+        return 3
+
+    help(a)
+
+
+
+----
+
+Simple root finding
+-------------------
+
+.. code-block:: python
+
+    def bisect(f, a, b, tol):
+        """ given a function f, find a root between a and b with tolerence of tol"""
+        f_a = f(a)
+        f_b = f(b)
+     
+        if f_a * f_b > 0:
+            return None
+     
+        while True:
+            c = 0.5*(a + b)
+            f_c = f(c)
+     
+            if abs(f_c) < tol:
+                return c
+                
+            if f_a * f_c < 0: # root between a and b
+                b = c
+            else:
+                a = c
+                
+    def simple_x(x):
+        return x - 1
+     
+    x0 = bisect(simple_x, -10, 10, 1.e-10)
+    print x0
+
+
+----
+
+Recursion
+---------
+
+The Fibonacci sequence is a classic example of recursion
+
+
+ - Fib(0) is 0 [base case]
+
+ - Fib(1) is 1 [base case]
+
+ - For all integers n > 1: Fib(n) is (Fib(n-1) + Fib(n-2))
+
+.. code-block:: python
+
+    # 0, 1, 1, 2, 3, 5
+     
+    def fib(n):
+        if n == 0: return 0
+        elif n == 1: return 1
+        else:
+            return fib(n-1)+fib(n-2)
+        
+    print fib(0), fib(1), fib(2), fib(3), fib(4), fib(5)
+
+----
+
+.. code-block:: python
+
+    def factorial(n):
+        if n == 1:
+            return 1
+        return n*factorial(n-1)
+
+- However, the memory linearly increase during its excution.
+
+.. code-block:: text
+
+    factorial(6)
+    = 6 * factorial(5)
+    = 6 * 5 * factorial(4)
+    = 6 * 5 * 4 * factorial(3)
+    = 6 * 5 * 4 * 3 * factorial(2)
+    = 6 * 5 * 4 * 3 * 2 * factorial(1)
+    = 6 * 5 * 4 * 3 * 2 * 1
+    = 6 * 5 * 4 * 3 * 2
+    = 6 * 5 * 4 * 6
+    = 6 * 5 * 24
+    = 6 * 120
+    = 720
+
+----
+
+Tail Recursion
+--------------
+
+.. code-block:: python
+
+    def fatorial(n):
+        return fact_iter(1, 1, n)
+     
+    def fact_iter(product, counter, max_count):
+        if counter > max_count:
+            return product
+        else:
+            return fact_iter((counter*product), (counter+1), max_count)
+
+
+.. code-block:: text
+
+    factorial(6)
+    = fact_iter(1, 1, 6)
+    = fact_iter(1, 2, 6)
+    = fact_iter(2, 3, 6)
+    = fact_iter(6, 4, 6)
+    = fact_iter(24, 5, 6)
+    = fact_iter(120, 6, 6)
+    = fact_iter(720, 7, 6)
+    = 720
+
+----
+
+w/ Recursion
+------------
+
+.. code-block:: python
+
+    def bisect(f, a, b, tol):
+        """ given a function f, find a root between a and b with tolerence of tol"""
+        
+        f_a = f(a)
+        f_b = f(b)
+     
+        return bisect1(f, f_a, f_b, a, b, tol)
+     
+    def bisect1(f, f_a, f_b, a, b, tol):
+        """ given a function f, find a root between a and b with tolerence of tol"""
+     
+        c = 0.5*(a + b)
+        f_c = f(c)
+        
+        if abs(f_c) < tol:
+            return c
+                
+        if f_a * f_c < 0: # root between a and b
+            return bisect1(f, f_a, f_c, a, c, tol)
+        else:
+            return bisect1(f, f_c, f_b, c, b, tol)
+                
+    x0 = bisect(simple_x1, -10, 10, 1.e-10)
+    print x0
+
+
+----
+
+H/W
+---
+
+1. Write a function named "mysqrt" which takes two arguments of :red:`y` and :red:`tol`
+   that finds sqrt(:red:`y`) using bracket method with tolerence of :red:`tol`.
+
+2. Write a same function, but using a Newton-Raphson iteration.
+
+   $$x_{n+1} = (x_n + y/x_n)/2$$
+
+3. Write a function that finds root of a function (similar to the
+   bisection method) but using a secant method. 

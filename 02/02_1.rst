@@ -38,7 +38,7 @@
 
 .. container:: centeredtitle
 
-   Statements and Control Flows
+   Functions
 
 .. container:: centeredauthor
 

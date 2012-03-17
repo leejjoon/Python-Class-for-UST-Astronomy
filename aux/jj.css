@@ -75,6 +75,7 @@ body {
 .highlight {
   font-family: 'Droid Sans Mono', 'Courier New', monospace;
 
+  background: #ffffff;
   font-size: 20px;
   padding: 5px 10px;
   
@@ -93,3 +94,20 @@ body {
   background: #ffffff;
 }
 
+img.autofit {
+    max-width: 840px;
+    max-height: 600px;
+}
+
+img.full {
+  display: inline;
+  position: absolute;
+  overflow: hidden;
+  width: 901px;
+  height: 700px;
+  margin-top: -350px;
+  margin-left: -450px;
+  left: 50%;
+  top: 50%;
+   -webkit-mask-box-image: url(vignette-mask.png) 33 stretch;
+}

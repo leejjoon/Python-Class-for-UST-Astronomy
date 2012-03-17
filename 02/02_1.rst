@@ -1,40 +1,10 @@
 .. raw:: html
-
-   <link rel="stylesheet" href="../aux/jj.css" type="text/css">
-
-.. raw:: html
-
-    <link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.style.css" media="screen" />
-    
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/popeye/jquery.popeye-2.1.min.js"></script>
+   :file: default.html
 
 .. raw:: html
+   :file: popeye.html
 
-   <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-       processEscapes: true
-    },
-    "HTML-CSS": { availableFonts: ["TeX"] }
-    });
-   </script>
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-.. role:: tex(raw)
-   :format: latex html
-
-.. role:: strike
-    :class: strike
-
-.. role:: red
-    :class: red
+.. include:: default_roles.rst
 
 .. container:: centeredtitle
 
@@ -99,12 +69,12 @@ How to use functions
 ----
 
  .. image:: functions_02.png
-    :height: 600
+    :class: autofit
 
 ----
 
  .. image:: functions_01.png
-    :height: 600
+    :class: autofit
 
 ----
 
@@ -125,11 +95,10 @@ How to define functions
 
 According to the language reference,
 
-.. container:: yellow-bg
+.. code-block:: text
+   :class: yellow-bg
 
-   .. code-block:: text
-
-      funcdef        ::=  "def" funcname "(" [parameter_list] ")" ":" suite
+   funcdef        ::=  "def" funcname "(" [parameter_list] ")" ":" suite
 
 ----
 

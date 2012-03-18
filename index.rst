@@ -33,3 +33,4 @@ Week 02
 
 - Lecture 02-1 : `Functions <02/02_1.html>`_
 
+- `Homework <02/02_hw.html>`_

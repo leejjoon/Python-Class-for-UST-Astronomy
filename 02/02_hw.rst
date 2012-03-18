@@ -1,0 +1,69 @@
+.. raw:: html
+
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+.. role:: red
+    :class: red
+
+
+Week 2 H/W
+==========
+
+1. Write a function named "mysqrt" which takes two arguments of **y** and **tol**
+   that finds sqrt(**y**) using the bisection method with tolerence of **tol**.
+
+   - By definition, we need to estimate $x$ where $y=x^2$. 
+     For a given $y$, $x$ is a positive root of $f(x) = x^2 - y$.
+
+   - You may utilize the bisect function from the lecture note, or you
+     may develop your own bisect function.
+
+   - For **tol**, the return value need to satisfy $|f(x_n) - y| < tol$. 
+
+2. Write a same function, but using a Newton-Raphson iteration.
+
+   - For $x_n$ near the root of function $f$,  Newton-Raphson
+     method estimate the next approximation $x_{n+1}$ by
+
+     $$ x_{n+1} = x_n - \\frac{f(x_n)}{f^{\\prime}(x_n)}$$.
+
+   - For sqrt, 
+      
+     $$x_{n+1} = (x_n + \\frac{y}{x_n})/2$$
+
+
+3. Write a function that finds root of a function (similar to the
+   bisection method) but using a :red:`regula falsi` method. 
+
+   - :red:`regula falsi` method is similat to the bisect method, but 
+     the bisecting point is selected as
+
+       $$c = a - f(a) \\frac{b - a}{f(b) - f(a)}$$
+
+     for the given interval of $a$ and $b$.
+
+   - Note that, during the lecture, I called it as a secant method
+     and this seems to be a mistake. The secant method refers to a
+     different method (although very similar).
+     
+For this homework, you may find following link useful.
+
+http://pathfinder.scar.utoronto.ca/~dyer/csca57/book_P/node31.html
+
+The homework must be submitted via email by March 27, 11am.
+And you need to submit the python code files.
+

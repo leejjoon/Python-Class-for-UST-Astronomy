@@ -1,4 +1,4 @@
-all: 02.html 02_1.html
+all: 02.html 02_1.html 02_hw.html
 
 02.html: 02.rst
 	landslide -t ../aux/theme_jj -d 02_orig.html 02.rst
@@ -8,3 +8,7 @@ all: 02.html 02_1.html
 02_1.html: 02_1.rst
 	landslide -t ../aux/theme_jj -d 02_1_orig.html 02_1.rst
 	cat 02_1_orig.html | sed "s#file://`(cd ..;pwd)`#..#g" > 02_1.html
+
+
+02_hw.html: 02_hw.rst
+	rst2html 02_hw.rst  > 02_hw.html

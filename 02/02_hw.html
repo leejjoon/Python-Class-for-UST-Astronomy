@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="Docutils 0.7: http://docutils.sourceforge.net/" />
-<title>Slides for Python Class for UST 2012</title>
+<title>Week 2 H/W</title>
 <style type="text/css">
 
 /*
@@ -310,37 +310,65 @@ ul.auto-toc {
 </style>
 </head>
 <body>
-<div class="document" id="slides-for-python-class-for-ust-2012">
-<h1 class="title">Slides for Python Class for UST 2012</h1>
+<div class="document" id="week-2-h-w">
+<h1 class="title">Week 2 H/W</h1>
 
-<div class="section" id="course-syllabus">
-<h1>Course Syllabus</h1>
-<p><a class="reference external" href="https://docs.google.com/document/pub?id=1X4IdnvdOVZljWnJGD8pZM3pxH0zsZD-LKQaolhOcFBo">https://docs.google.com/document/pub?id=1X4IdnvdOVZljWnJGD8pZM3pxH0zsZD-LKQaolhOcFBo</a></p>
-</div>
-<div class="section" id="installing-python-and-other-libraries">
-<h1>Installing Python and other Libraries</h1>
-<p>See the <a class="reference external" href="install.html">Install</a> page for info.</p>
-</div>
-<div class="section" id="week-01">
-<h1>Week 01</h1>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+ extensions: ["tex2jax.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+ });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><ol class="arabic">
+<li><p class="first">Write a function named &quot;mysqrt&quot; which takes two arguments of <strong>y</strong> and <strong>tol</strong>
+that finds sqrt(<strong>y</strong>) using the bisection method with tolerence of <strong>tol</strong>.</p>
 <ul class="simple">
-<li>Lab 01 : <a class="reference external" href="lab01_intro/01_intro.html">Things you better know before tyring Python</a></li>
-<li>Lecture 01 : <a class="reference external" href="01_intro/01_intro.html">Python as a Programming Language</a></li>
-<li>HW<ul>
-<li>Reading : Python tutorial - from the beginning to section 3</li>
-<li>Watch lecture 2 of the MIT course (lecture 1 is optional).</li>
+<li>By definition, we need to estimate $x$ where $y=x^2$.
+For a given $y$, $x$ is a positive root of $f(x) = x^2 - y$.</li>
+<li>You may utilize the bisect function from the lecture note, or you
+may develop your own bisect function.</li>
+<li>For <strong>tol</strong>, the return value need to satisfy $|f(x_n) - y| &lt; tol$.</li>
 </ul>
 </li>
+<li><p class="first">Write a same function, but using a Newton-Raphson iteration.</p>
+<ul>
+<li><p class="first">For $x_n$ near the root of function $f$,  Newton-Raphson
+method estimate the next approximation $x_{n+1}$ by</p>
+<p>$$ x_{n+1} = x_n - \frac{f(x_n)}{f^{\prime}(x_n)}$$.</p>
+</li>
+<li><p class="first">For sqrt,</p>
+<p>$$x_{n+1} = (x_n + \frac{y}{x_n})/2$$</p>
+</li>
 </ul>
-</div>
-<div class="section" id="week-02">
-<h1>Week 02</h1>
-<ul class="simple">
-<li>Lecture 02 : <a class="reference external" href="02/02.html">Branching and Loop</a></li>
-<li>Lecture 02-1 : <a class="reference external" href="02/02_1.html">Functions</a></li>
-<li><a class="reference external" href="02/02_hw.html">Homework</a></li>
+</li>
+<li><p class="first">Write a function that finds root of a function (similar to the
+bisection method) but using a <span class="red">regula falsi</span> method.</p>
+<ul>
+<li><p class="first"><span class="red">regula falsi</span> method is similat to the bisect method, but
+the bisecting point is selected as</p>
+<blockquote>
+<p>$$c = a - f(a) \frac{b - a}{f(b) - f(a)}$$</p>
+</blockquote>
+<p>for the given interval of $a$ and $b$.</p>
+</li>
+<li><p class="first">Note that, during the lecture, I called it as a secant method
+and this seems to be a mistake. The secant method refers to a
+different method (although very similar).</p>
+</li>
 </ul>
-</div>
+</li>
+</ol>
+<p>For this homework, you may find following link useful.</p>
+<p><a class="reference external" href="http://pathfinder.scar.utoronto.ca/~dyer/csca57/book_P/node31.html">http://pathfinder.scar.utoronto.ca/~dyer/csca57/book_P/node31.html</a></p>
+<p>The homework must be submitted via email by March 27, 11am.
+And you need to submit the python code files.</p>
 </div>
 </body>
 </html>

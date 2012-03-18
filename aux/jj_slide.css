@@ -1,0 +1,12 @@
+div.fullslide {
+  display: inline;
+  position: absolute;
+  overflow: hidden;
+  width: 901px;
+  height: 700px;
+  margin-top: -350px;
+  margin-left: -450px;
+  left: 50%;
+  top: 50%;
+}
+

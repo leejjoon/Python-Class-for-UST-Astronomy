@@ -68,13 +68,17 @@ How to use functions
 
 ----
 
- .. image:: functions_02.png
-    :class: autofit
+.. container:: fullslide
+
+   .. image:: functions_02.png
+      :class: autofit
 
 ----
 
- .. image:: functions_01.png
-    :class: autofit
+.. container:: fullslide
+
+   .. image:: functions_01.png
+      :class: autofit
 
 ----
 

@@ -14,10 +14,28 @@
 
 ----
 
-Data Type (class or type)
+Class and Instance
+------------------
 
-Data types. A data type is a set of values and a set of operations on
-those values.
+- Class (or Type) is the name given to a generic description of an object.
+
+- Instance (or object) : An individual object of a certain class
+
+- For example,
+
+   - "Banana" is an instance of the class "Fruit"
+
+   - "X220" is an instance of the class "Laptop Computer"
+
+
+----
+
+
+Class (also called as type)
+----------------------------------------
+
+A class is a set of :red:`values` and a set of :red:`operations` on those
+values.
 
  - :red:`attributes`
 
@@ -28,11 +46,11 @@ those values.
 
  - :red:`methods`
 
-   - Functions associated with the Data Type
+   - Functions associated with the class
 
 ----
 
-Computer (class, type)
+Computer (as a class)
 ----------------------
 
 - attributes
@@ -51,10 +69,10 @@ Computer (class, type)
 
 ----
 
-An instance of the Computer class
----------------------------------
+Instance of the Computer class
+------------------------------
 
-- My Computer (object, instance)
+- My X220 (object, instance)
 
  - output displays : LCD (1280 x 720)
 
@@ -93,13 +111,13 @@ Classes in Python
 
 - instances
 
- - 0, 1, 2, 3, ..
+  - 0, 1, 2, 3, ..
 
- - 0.1, 1.3e-10
+  - 0.1, 1.3e-10
 
- - "abc", "Hello world!"
+  - "abc", "Hello world!"
 
- - True, False
+  - True, False
 
 ----
 
@@ -134,12 +152,15 @@ Complex
     print c2.imag
     print 2+3j == complex(2, 3)
 
-----
+.. image:: ComplexDataType.png
+      :height: 400
 
-.. container:: fullslide
+.. ----
 
-   .. image:: ComplexDataType.png
-      :class: autofit
+.. .. container:: fullslide
+
+..    .. image:: ComplexDataType.png
+..       :class: autofit
 
 
 ----
@@ -149,7 +170,7 @@ string
 
 a string is a sequence of characters
 
-- "abcdefghijk"
+- "abc"
 
   - :red:`str` is a class, and "abc" is an instance of :red:`str`.
 
@@ -161,6 +182,8 @@ a string is a sequence of characters
 	  s.find("c") # 2
 	  s.find("gh") # 6
 	  s.find("ghb") # -1, search failed
+	  s1 = s.capitalize().replace("Abc","ABC")
+	  print s1 # 'ABCdefghijk'
 
 ----
 
@@ -185,7 +208,9 @@ finite :red:`ordered` sets of :red:`arbitrary` Python objects.
 
 - indexed by non-negative numbers
 
-- The built-in function len() returns the number of items
+- The built-in function :red:`len()` returns the number of items
+
+    - len([1,2,3]) $\\rightarrow$ 3
 
 ----
 
@@ -198,7 +223,6 @@ list vs. str
 
  - str : :red:`ordered` sets of characters.
 
-- But they have quite different set of methods
 
 
 ----
@@ -216,6 +240,8 @@ finite :red:`ordered` sets of something
 
 Indexing and Slicings
 ---------------------
+
+Use "[]"
 
 - Indexing (Subscriptions)
 
@@ -237,9 +263,26 @@ Indexing and Slicings
 Example
 -------
 
+ .. code-block:: python
+
+        a = [1, 2, 3, 4, 5]
+        print a[2] # 3
+	print a[1:4] # [2, 3, 4]
+
+        a[3] = 0
+        a[4:5] = ["a", "b", "c"]
+
+.. image:: string_diagram.png
+      :height: 300
+
+----
+
+Caveats
+-------
+
 - slicing with negative strides can be confusing.
 
-   .. code-block:: python
+.. code-block:: python
 
         a = [1, 2, 3, 4, 5]
         print a[::-1]
@@ -247,13 +290,9 @@ Example
 	print a[4:0:-1] # ??
 	print a[1:4:-1] # ??
 
+
+
 - slicing returns a new list
-
-    .. code-block:: python
-
-        a[3] = 0
-        a[4:5] = ["a", "b", "c"]
-
 
 .. code-block:: python
 
@@ -262,13 +301,13 @@ Example
 
 ----
 
-.. image:: string_diagram.png
-      :class: autofit
-
-----
-
 Method of lists
 ---------------
+
+.. container:: floatright
+
+    .. image :: http://www.laurentluce.com/images/blog/list/list_4.png
+       :height: 450
 
 - append, pop, insert, remove
 
@@ -276,23 +315,9 @@ Method of lists
 
 Python’s lists are :red:`variable-length arrays`, not Lisp-style linked lists.
 
-----
+See `here <http://www.laurentluce.com/posts/python-list-implementation/>`_ for
+the implementation of Python lists.
 
-Dictionary
-----------
-
-
-:red:`dict` represent finite sets of objects indexed by :red:`arbitrary index`
-sets.
-
-- The subscript notation '[]' selects the item indexed by k from the
-  dictionary.
-
-  .. code-block:: python
-
-        d = {"one":1, "two":2, "three":3}
-	print d["one"]
-	d["two"] = 20 # {"one":1, "two":20, "three":3}
 
 ----
 
@@ -326,6 +351,24 @@ List vs. Tuples
 
 ----
 
+Dictionary
+----------
+
+
+:red:`dict` represent finite sets of objects indexed by :red:`arbitrary index`
+sets.
+
+- The subscript notation '[]' selects the item indexed by k from the
+  dictionary.
+
+  .. code-block:: python
+
+        d = {"one":1, "two":2, "three":3}
+	print d["one"]
+	d["two"] = 20 # {"one":1, "two":20, "three":3}
+
+----
+
 Dictionary Implementation
 -------------------------
 
@@ -339,25 +382,47 @@ Dictionary Implementation
 
 ----
 
-an algorithm is an :red:`effective` method expressed as a
-:red:`finite` list of :red:`well-defined` instructions for calculating
-something.
+:red:`for` statement
+--------------------
 
-Often, Algorithms define Data Types
+:red:`for` loop is most common control flow in Python.
+
+.. container:: yellow-bg
+
+    .. code-block:: text
+
+        for_stmt ::=  "for" target_list "in" expression_list ":" suite
+                      ["else" ":" suite]
+
+
+For example,
+
+ .. code-block:: python
+
+     a = ['cat', 'window', 'defenestrate']
+     for x in a:
+        print x, len(x)
+
+Make a copy when the list is modified during the loop
+
+ .. code-block:: python
+
+     for x in a[:]: # make a slice copy of the entire list
+         if len(x) > 6: a.insert(0, x)
 
 ----
 
-Further readings
-----------------
+H/W
+---
 
+- Tutorial 4.1 - 4.4
 
+- Tutorial 5 - 5.1.1, 5.2 - 5.8
 
-Tutorial 5 - 5.1.1, 5.2 - 5.8
+From software-carpentry.org, watch/or read followings
 
-----
+ - `lists  <http://software-carpentry.org/4_0/python/lists/>`_
 
+ - `strings <http://software-carpentry.org/4_0/python/strings/>`_
 
-tree
-
-dictionary
-
+ - `aliasing <http://software-carpentry.org/4_0/python/alias/>`_

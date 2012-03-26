@@ -1,10 +1,10 @@
 .. raw:: html
-   :file: default.html
+   :file: ../aux/default.html
 
 .. raw:: html
-   :file: popeye.html
+   :file: ../aux/popeye.html
 
-.. include:: default_roles.rst
+.. include:: ../aux/default_roles.rst
 
 .. container:: centeredtitle
 

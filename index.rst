@@ -34,3 +34,9 @@ Week 02
 - Lecture 02-1 : `Functions <02/02_1.html>`_
 
 - `Homework <02/02_hw.html>`_
+
+Week 03
+-------
+
+- Lecture 03 : `Data Type <03/03.html>`_
+

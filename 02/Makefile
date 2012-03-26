@@ -11,4 +11,4 @@ all: 02.html 02_1.html 02_hw.html
 
 
 02_hw.html: 02_hw.rst
-	rst2html 02_hw.rst  > 02_hw.html
+	rst2html 02_hw.rst --stylesheet-path=../style.css > 02_hw.html

@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="../aux/theme_jj/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../aux/theme_jj/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="../aux/theme_jj/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><link rel="stylesheet" href="../aux/jj_common.css" type="text/css" />
+<link rel="stylesheet" media="screen" href="../aux/jj_screen.css" type="text/css" />
+<link rel="stylesheet" media="print" href="../aux/jj_print.css" type="text/css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<div class="centeredtitle container">
+Data Types</div>
+<div class="centeredauthor container">
+Jae-Joon Lee (KASI)</div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Class and Instance</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first">Class (or Type) is the name given to a generic description of an object.</p>
+</li>
+<li><p class="first">Instance (or object) : An individual object of a certain class</p>
+</li>
+<li><p class="first">For example,</p>
+<blockquote>
+<ul class="simple">
+<li>&quot;Banana&quot; is an instance of the class &quot;Fruit&quot;</li>
+<li>&quot;X220&quot; is an instance of the class &quot;Laptop Computer&quot;</li>
+</ul>
+</blockquote>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Class (also called as type)</h1></header>
+            
+            
+            <section><p>A class is a set of <span class="red">values</span> and a set of <span class="red">operations</span> on those
+values.</p>
+<blockquote>
+<ul class="simple">
+<li><span class="red">attributes</span><ul>
+<li>Data that refers to the object's state</li>
+<li>Internal representation of the Data</li>
+</ul>
+</li>
+<li><span class="red">methods</span><ul>
+<li>Functions associated with the class</li>
+</ul>
+</li>
+</ul>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Computer (as a class)</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>attributes<ul>
+<li>output displays, input devices, ram, hard disk, etc.</li>
+</ul>
+</li>
+<li>methods<ul>
+<li>turn on/off</li>
+<li>connect a mouse</li>
+<li>connet to an external projector</li>
+<li>print a file</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Instance of the Computer class</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>My X220 (object, instance)</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>output displays : LCD (1280 x 720)</li>
+<li>input devices : keyboard, track point</li>
+<li>ram : 4 Gbyte</li>
+<li>hard disk : 300 Gbyte</li>
+<li>external storage : []</li>
+</ul>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Attributes and Methods</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Each instance of the class has its own attributes.</li>
+<li>Methods are often shared among instances of the class.</li>
+</ul>
+<p>Often, it is better to distinguish between</p>
+<ul class="simple">
+<li>class attributes : shared among instances.</li>
+<li>instance attributes : different for different instances.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Classes in Python</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>all the types you have learned so far are classes.<ul>
+<li>int, float, str, bool</li>
+</ul>
+</li>
+<li>instances<ul>
+<li>0, 1, 2, 3, ..</li>
+<li>0.1, 1.3e-10</li>
+<li>&quot;abc&quot;, &quot;Hello world!&quot;</li>
+<li>True, False</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Referencing Attribute</h1></header>
+            
+            
+            <section><p>Use &quot;.&quot;</p>
+<ul class="simple">
+<li>primary.identifier</li>
+<li>If the primary is an object (instance), it first checks if the
+object has an instance attribute of &quot;identifier&quot;.</li>
+<li>If there is no instance attribute or if the primary is a class, it
+checks for a class attribute of &quot;identifier&quot;.</li>
+<li>Similar to name space look up (local , global)</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Complex</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">c1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span>
+<span class="k">print</span> <span class="n">c1</span>
+<span class="k">print</span> <span class="n">c1</span><span class="o">.</span><span class="n">real</span> <span class="c"># 2</span>
+<span class="k">print</span> <span class="n">c1</span><span class="o">.</span><span class="n">imag</span> <span class="c"># 3</span>
+<span class="k">print</span> <span class="n">c1</span><span class="o">.</span><span class="n">conjugate</span> <span class="c"># &lt;built-in method conjugate of complex object ..</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span> <span class="c"># call the method (function) &quot;c1.conjugate&quot;</span>
+<span class="k">print</span> <span class="n">c2</span><span class="o">.</span><span class="n">imag</span>
+<span class="k">print</span> <span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="n">j</span> <span class="o">==</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+<img alt="../03/ComplexDataType.png" src="../03/ComplexDataType.png" style="height: 400px;" />
+<!--<!-- - - - - -->-->
+<!--<!-- .. container:: fullslide -->-->
+<!--<!-- .. image:: ../03/ComplexDataType.png -->-->
+<!--<!-- :class: autofit -->--></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>string</h1></header>
+            
+            
+            <section><p>a string is a sequence of characters</p>
+<ul>
+<li><p class="first">&quot;abc&quot;</p>
+<ul class="simple">
+<li><span class="red">str</span> is a class, and &quot;abc&quot; is an instance of <span class="red">str</span>.</li>
+<li>find, replace, etc</li>
+</ul>
+<div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;abcdefghijk&quot;</span>
+<span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;c&quot;</span><span class="p">)</span> <span class="c"># 2</span>
+<span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;gh&quot;</span><span class="p">)</span> <span class="c"># 6</span>
+<span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;ghb&quot;</span><span class="p">)</span> <span class="c"># -1, search failed</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;Abc&quot;</span><span class="p">,</span><span class="s">&quot;ABC&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">s1</span> <span class="c"># &#39;ABCdefghijk&#39;</span>
+</pre></div>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+            <section><ul class="simple">
+<li>Strings are <span class="red">immutable</span>!</li>
+<li>More about this later.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Lists</h1></header>
+            
+            
+            <section><p>finite <span class="red">ordered</span> sets of <span class="red">arbitrary</span> Python objects.</p>
+<ul>
+<li><p class="first">created by placing a comma-separated list of expressions in square
+brackets.</p>
+<blockquote>
+<ul class="simple">
+<li>[1, 2, 3]</li>
+<li>[1, &quot;abc&quot;, 3.]</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">indexed by non-negative numbers</p>
+</li>
+<li><p class="first">The built-in function <span class="red">len()</span> returns the number of items</p>
+<blockquote>
+<ul class="simple">
+<li>len([1,2,3]) $\rightarrow$ 3</li>
+</ul>
+</blockquote>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>list vs. str</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Data representation</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>list : <span class="red">ordered</span> sets of <span class="red">arbitrary</span> Python objects.</li>
+<li>str : <span class="red">ordered</span> sets of characters.</li>
+</ul>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Sequences</h1></header>
+            
+            
+            <section><p>finite <span class="red">ordered</span> sets of something</p>
+<ul class="simple">
+<li>indexed by non-negative numbers</li>
+<li>The built-in function len() returns the number of items</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Indexing and Slicings</h1></header>
+            
+            
+            <section><p>Use &quot;[]&quot;</p>
+<ul>
+<li><p class="first">Indexing (Subscriptions)</p>
+<blockquote>
+<div class="highlight"><pre><span class="n">primary</span><span class="p">[</span><span class="n">expression</span><span class="p">]</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">Slicings</p>
+<blockquote>
+<div class="highlight"><pre><span class="n">primary</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+<span class="n">primary</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">stride</span><span class="p">]</span>
+</pre></div>
+<ul class="simple">
+<li><span class="red">stride</span> is optional and default is 1</li>
+</ul>
+</blockquote>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Example</h1></header>
+            
+            
+            <section><blockquote>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c"># 3</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="c"># [2, 3, 4]</span>
+
+<span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">]</span>
+</pre></div>
+</blockquote>
+<img alt="../03/string_diagram.png" src="../03/string_diagram.png" style="height: 300px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Caveats</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>slicing with negative strides can be confusing.</li>
+</ul>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># ??</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># ??</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># ??</span>
+</pre></div>
+<ul class="simple">
+<li>slicing returns a new list</li>
+</ul>
+<div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;123&quot;</span>
+</pre></div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Method of lists</h1></header>
+            
+            
+            <section><div class="floatright container">
+<img alt="http://www.laurentluce.com/images/blog/list/list_4.png" src="http://www.laurentluce.com/images/blog/list/list_4.png" style="height: 450px;" />
+</div>
+<ul class="simple">
+<li>append, pop, insert, remove</li>
+<li>reverse, sort</li>
+</ul>
+<p>Python’s lists are <span class="red">variable-length arrays</span>, not Lisp-style linked lists.</p>
+<p>See <a class="reference external" href="http://www.laurentluce.com/posts/python-list-implementation/">here</a> for
+the implementation of Python lists.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Tuples</h1></header>
+            
+            
+            <section><p>Similar to the list, but is immutable.</p>
+<ul>
+<li><p class="first">immutable object</p>
+<blockquote>
+<ul class="simple">
+<li>an object whose state(attributes) cannot be modified after it is created.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="s">&quot;two&quot;</span><span class="p">,</span> <span class="s">&quot;three&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c"># &quot;one&quot;</span>
+<span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;twenty&quot;</span> <span class="c"># exception is raised</span>
+</pre></div></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>List vs. Tuples</h1></header>
+            
+            
+            <section><p><span class="red">Tuples have structure, lists have order.</span></p>
+<ul class="simple">
+<li><span class="red">Tuples</span> (generally) are sequences of different kinds of stuff, and
+you deal with the tuple as a coherent unit.</li>
+<li><span class="red">Lists</span> (generally) are sequences of the same kind of stuff, and you
+deal with the items individually.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Dictionary</h1></header>
+            
+            
+            <section><p><span class="red">dict</span> represent finite sets of objects indexed by <span class="red">arbitrary index</span>
+sets.</p>
+<ul>
+<li><p class="first">The subscript notation '[]' selects the item indexed by k from the
+dictionary.</p>
+<div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;two&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;three&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="k">print</span> <span class="n">d</span><span class="p">[</span><span class="s">&quot;one&quot;</span><span class="p">]</span>
+<span class="n">d</span><span class="p">[</span><span class="s">&quot;two&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span> <span class="c"># {&quot;one&quot;:1, &quot;two&quot;:20, &quot;three&quot;:3}</span>
+</pre></div>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Dictionary Implementation</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Lisa Smith&quot;</span><span class="p">:</span><span class="s">&quot;521-8976&quot;</span><span class="p">,</span>
+     <span class="s">&quot;John Smith&quot;</span><span class="p">:</span><span class="s">&quot;521-1234&quot;</span><span class="p">}</span>
+</pre></div>
+<img alt="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Hash_table_5_0_1_1_1_1_0_SP.svg/380px-Hash_table_5_0_1_1_1_1_0_SP.svg.png" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Hash_table_5_0_1_1_1_1_0_SP.svg/380px-Hash_table_5_0_1_1_1_1_0_SP.svg.png" style="height: 450px;" /></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1><span class="red">for</span> statement</h1></header>
+            
+            
+            <section><p><span class="red">for</span> loop is most common control flow in Python.</p>
+<div class="yellow-bg container">
+<div class="highlight"><pre>for_stmt ::=  &quot;for&quot; target_list &quot;in&quot; expression_list &quot;:&quot; suite
+              [&quot;else&quot; &quot;:&quot; suite]
+</pre></div>
+</div>
+<p>For example,</p>
+<blockquote>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;cat&#39;</span><span class="p">,</span> <span class="s">&#39;window&#39;</span><span class="p">,</span> <span class="s">&#39;defenestrate&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+   <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+<p>Make a copy when the list is modified during the loop</p>
+<blockquote>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">[:]:</span> <span class="c"># make a slice copy of the entire list</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 03.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>H/W</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Tutorial 4.1 - 4.4</li>
+<li>Tutorial 5 - 5.1.1, 5.2 - 5.8</li>
+</ul>
+<p>From software-carpentry.org, watch/or read followings</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="http://software-carpentry.org/4_0/python/lists/">lists</a></li>
+<li><a class="reference external" href="http://software-carpentry.org/4_0/python/strings/">strings</a></li>
+<li><a class="reference external" href="http://software-carpentry.org/4_0/python/alias/">aliasing</a></li>
+</ul>
+</blockquote></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="03.rst">03.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/24
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">-</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">Class and Instance</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Class (also called as type)</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Computer (as a class)</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Instance of the Computer class</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Attributes and Methods</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Classes in Python</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Referencing Attribute</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Complex</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">string</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">-</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Lists</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">list vs. str</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Sequences</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">Indexing and Slicings</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">Example</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">Caveats</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Method of lists</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">Tuples</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">List vs. Tuples</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">Dictionary</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">Dictionary Implementation</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23"><span class="red">for</span> statement</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">H/W</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

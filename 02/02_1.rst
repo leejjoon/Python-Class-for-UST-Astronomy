@@ -20,7 +20,7 @@ Function
 --------
 
 - A function is a block of :red:`organized`, :red:`reusable` code that is used to
-  perform a single, related action. 
+  perform a single, related action.
 
 - Functions provides better modularity
   for your application and a high degree of code reusing.
@@ -31,13 +31,13 @@ Function
 A function as a black box
 -------------------------
 
-- How does the black box work? 
+- How does the black box work?
 
- 1. It takes some inputs, 
+ 1. It takes some inputs,
 
- 2. swirls them around inside the box, 
+ 2. swirls them around inside the box,
 
- 3. produces some kind of output. 
+ 3. produces some kind of output.
 
 - What matter is :red:`inputs` and :red:`outputs`
 
@@ -109,7 +109,7 @@ According to the language reference,
 Pass by reference
 -----------------
 
-- All parameters (arguments) in the Python language are passed by reference. 
+- All parameters (arguments) in the Python language are passed by reference.
 
 - It means if you change :red:`what a parameter refers to` within a function,
   the change also reflects back in the calling function.
@@ -175,7 +175,7 @@ Namespace and Scope
         print c # ??
         aa = 3
 
-    c = 10     
+    c = 10
     a()
     print aa # ??
 
@@ -188,20 +188,20 @@ Name Lookup
 
     def a():
         aa = 3
-     
+
         print bb
-     
+
     def b():
         bb = 20
         a()
-     
+
     def c():
         def a():
             print bb
-            
+
         bb = 20
         a()
-     
+
     bb = 10
     a()
     b() # ??
@@ -241,18 +241,18 @@ Nested Function
 .. code-block:: python
 
     from math import exp
-     
+
     def make_gaussian_function(A, x0, sigma):
-     
+
         def my_gaussian(x):
             r = A*exp(-(x-x0)**2/(2*sigma**2))
             return r
-        
+
         return my_gaussian
-     
-     
+
+
     gauss = make_gaussian_function(1, 10, 30)
-     
+
     print gauss(10), gauss(10+2.3548*30/2.)
 
 
@@ -261,7 +261,7 @@ Nested Function
 Comments and Function Docstring
 -------------------------------
 
-- Comments in Python start with the hash character, #, and extend to the end of the physical line. 
+- Comments in Python start with the hash character, #, and extend to the end of the physical line.
 
 - A docstring of a function is a string literal that occurs as the first statement in the function.
 
@@ -286,25 +286,25 @@ Simple root finding
         """ given a function f, find a root between a and b with tolerence of tol"""
         f_a = f(a)
         f_b = f(b)
-     
+
         if f_a * f_b > 0:
             return None
-     
+
         while True:
             c = 0.5*(a + b)
             f_c = f(c)
-     
+
             if abs(f_c) < tol:
                 return c
-                
+
             if f_a * f_c < 0: # root between a and b
                 b = c
             else:
                 a = c
-                
+
     def simple_x(x):
         return x - 1
-     
+
     x0 = bisect(simple_x, -10, 10, 1.e-10)
     print x0
 
@@ -326,13 +326,13 @@ The Fibonacci sequence is a classic example of recursion
 .. code-block:: python
 
     # 0, 1, 1, 2, 3, 5
-     
+
     def fib(n):
         if n == 0: return 0
         elif n == 1: return 1
         else:
             return fib(n-1)+fib(n-2)
-        
+
     print fib(0), fib(1), fib(2), fib(3), fib(4), fib(5)
 
 ----
@@ -370,7 +370,7 @@ Tail Recursion
 
     def fatorial(n):
         return fact_iter(1, 1, n)
-     
+
     def fact_iter(product, counter, max_count):
         if counter > max_count:
             return product
@@ -399,26 +399,26 @@ w/ Recursion
 
     def bisect(f, a, b, tol):
         """ given a function f, find a root between a and b with tolerence of tol"""
-        
+
         f_a = f(a)
         f_b = f(b)
-     
+
         return bisect1(f, f_a, f_b, a, b, tol)
-     
+
     def bisect1(f, f_a, f_b, a, b, tol):
         """ given a function f, find a root between a and b with tolerence of tol"""
-     
+
         c = 0.5*(a + b)
         f_c = f(c)
-        
+
         if abs(f_c) < tol:
             return c
-                
+
         if f_a * f_c < 0: # root between a and b
             return bisect1(f, f_a, f_c, a, c, tol)
         else:
             return bisect1(f, f_c, f_b, c, b, tol)
-                
+
     x0 = bisect(simple_x1, -10, 10, 1.e-10)
     print x0
 
@@ -436,4 +436,4 @@ H/W
    $$x_{n+1} = (x_n + y/x_n)/2$$
 
 3. Write a function that finds root of a function (similar to the
-   bisection method) but using a secant method. 
+   bisection method) but using a secant method.

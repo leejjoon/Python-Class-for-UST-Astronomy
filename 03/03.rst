@@ -1,0 +1,428 @@
+.. raw:: html
+   :file: ../aux/default.html
+
+.. include:: ../aux/default_roles.rst
+
+.. container:: centeredtitle
+
+   Data Types
+
+.. container:: centeredauthor
+
+   Jae-Joon Lee (KASI)
+
+
+----
+
+Class and Instance
+------------------
+
+- Class (or Type) is the name given to a generic description of an object.
+
+- Instance (or object) : An individual object of a certain class
+
+- For example,
+
+   - "Banana" is an instance of the class "Fruit"
+
+   - "X220" is an instance of the class "Laptop Computer"
+
+
+----
+
+
+Class (also called as type)
+----------------------------------------
+
+A class is a set of :red:`values` and a set of :red:`operations` on those
+values.
+
+ - :red:`attributes`
+
+   - Data that refers to the object's state
+
+   - Internal representation of the Data
+
+
+ - :red:`methods`
+
+   - Functions associated with the class
+
+----
+
+Computer (as a class)
+----------------------
+
+- attributes
+
+  - output displays, input devices, ram, hard disk, etc.
+
+- methods
+
+  - turn on/off
+
+  - connect a mouse
+
+  - connet to an external projector
+
+  - print a file
+
+----
+
+Instance of the Computer class
+------------------------------
+
+- My X220 (object, instance)
+
+ - output displays : LCD (1280 x 720)
+
+ - input devices : keyboard, track point
+
+ - ram : 4 Gbyte
+
+ - hard disk : 300 Gbyte
+
+ - external storage : []
+
+----
+
+Attributes and Methods
+----------------------
+
+- Each instance of the class has its own attributes.
+
+- Methods are often shared among instances of the class.
+
+
+Often, it is better to distinguish between
+
+- class attributes : shared among instances.
+
+- instance attributes : different for different instances.
+
+----
+
+Classes in Python
+-----------------
+
+- all the types you have learned so far are classes.
+
+  - int, float, str, bool
+
+- instances
+
+  - 0, 1, 2, 3, ..
+
+  - 0.1, 1.3e-10
+
+  - "abc", "Hello world!"
+
+  - True, False
+
+----
+
+Referencing Attribute
+---------------------
+
+Use "."
+
+- primary.identifier
+
+- If the primary is an object (instance), it first checks if the
+  object has an instance attribute of "identifier".
+
+- If there is no instance attribute or if the primary is a class, it
+  checks for a class attribute of "identifier".
+
+- Similar to name space look up (local , global)
+
+----
+
+Complex
+-------
+
+.. code-block:: python
+
+    c1 = 2 + 3j
+    print c1
+    print c1.real # 2
+    print c1.imag # 3
+    print c1.conjugate # <built-in method conjugate of complex object ..
+    c2 = c1.conjugate() # call the method (function) "c1.conjugate"
+    print c2.imag
+    print 2+3j == complex(2, 3)
+
+.. image:: ComplexDataType.png
+      :height: 400
+
+.. ----
+
+.. .. container:: fullslide
+
+..    .. image:: ComplexDataType.png
+..       :class: autofit
+
+
+----
+
+string
+------
+
+a string is a sequence of characters
+
+- "abc"
+
+  - :red:`str` is a class, and "abc" is an instance of :red:`str`.
+
+  - find, replace, etc
+
+  .. code-block:: python
+
+          s = "abcdefghijk"
+	  s.find("c") # 2
+	  s.find("gh") # 6
+	  s.find("ghb") # -1, search failed
+	  s1 = s.capitalize().replace("Abc","ABC")
+	  print s1 # 'ABCdefghijk'
+
+----
+
+- Strings are :red:`immutable`!
+
+- More about this later.
+
+----
+
+Lists
+-----
+
+finite :red:`ordered` sets of :red:`arbitrary` Python objects.
+
+- created by placing a comma-separated list of expressions in square
+  brackets.
+
+    - [1, 2, 3]
+
+    - [1, "abc", 3.]
+
+
+- indexed by non-negative numbers
+
+- The built-in function :red:`len()` returns the number of items
+
+    - len([1,2,3]) $\\rightarrow$ 3
+
+----
+
+list vs. str
+------------
+
+- Data representation
+
+ - list : :red:`ordered` sets of :red:`arbitrary` Python objects.
+
+ - str : :red:`ordered` sets of characters.
+
+
+
+----
+
+Sequences
+---------
+
+finite :red:`ordered` sets of something
+
+- indexed by non-negative numbers
+
+- The built-in function len() returns the number of items
+
+----
+
+Indexing and Slicings
+---------------------
+
+Use "[]"
+
+- Indexing (Subscriptions)
+
+    .. code-block:: python
+
+        primary[expression]
+
+- Slicings
+
+    .. code-block:: python
+
+        primary[start:end]
+        primary[start:end:stride]
+
+    - :red:`stride` is optional and default is 1
+
+----
+
+Example
+-------
+
+ .. code-block:: python
+
+        a = [1, 2, 3, 4, 5]
+        print a[2] # 3
+	print a[1:4] # [2, 3, 4]
+
+        a[3] = 0
+        a[4:5] = ["a", "b", "c"]
+
+.. image:: string_diagram.png
+      :height: 300
+
+----
+
+Caveats
+-------
+
+- slicing with negative strides can be confusing.
+
+.. code-block:: python
+
+        a = [1, 2, 3, 4, 5]
+        print a[::-1]
+	print a[4::-1] # ??
+	print a[4:0:-1] # ??
+	print a[1:4:-1] # ??
+
+
+
+- slicing returns a new list
+
+.. code-block:: python
+
+        b = a[:]
+	b[3] = "123"
+
+----
+
+Method of lists
+---------------
+
+.. container:: floatright
+
+    .. image :: http://www.laurentluce.com/images/blog/list/list_4.png
+       :height: 450
+
+- append, pop, insert, remove
+
+- reverse, sort
+
+Python’s lists are :red:`variable-length arrays`, not Lisp-style linked lists.
+
+See `here <http://www.laurentluce.com/posts/python-list-implementation/>`_ for
+the implementation of Python lists.
+
+
+----
+
+Tuples
+------
+
+Similar to the list, but is immutable.
+
+- immutable object
+
+   - an object whose state(attributes) cannot be modified after it is created.
+
+.. code-block:: python
+
+        t = ("one", "two", "three")
+	print t[0] # "one"
+	t[1] = "twenty" # exception is raised
+
+----
+
+List vs. Tuples
+---------------
+
+:red:`Tuples have structure, lists have order.`
+
+- :red:`Tuples` (generally) are sequences of different kinds of stuff, and
+  you deal with the tuple as a coherent unit.
+
+- :red:`Lists` (generally) are sequences of the same kind of stuff, and you
+  deal with the items individually.
+
+----
+
+Dictionary
+----------
+
+
+:red:`dict` represent finite sets of objects indexed by :red:`arbitrary index`
+sets.
+
+- The subscript notation '[]' selects the item indexed by k from the
+  dictionary.
+
+  .. code-block:: python
+
+        d = {"one":1, "two":2, "three":3}
+	print d["one"]
+	d["two"] = 20 # {"one":1, "two":20, "three":3}
+
+----
+
+Dictionary Implementation
+-------------------------
+
+.. code-block:: python
+
+        d = {"Lisa Smith":"521-8976",
+	     "John Smith":"521-1234"}
+
+.. image:: http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Hash_table_5_0_1_1_1_1_0_SP.svg/380px-Hash_table_5_0_1_1_1_1_0_SP.svg.png
+   :height: 450
+
+----
+
+:red:`for` statement
+--------------------
+
+:red:`for` loop is most common control flow in Python.
+
+.. container:: yellow-bg
+
+    .. code-block:: text
+
+        for_stmt ::=  "for" target_list "in" expression_list ":" suite
+                      ["else" ":" suite]
+
+
+For example,
+
+ .. code-block:: python
+
+     a = ['cat', 'window', 'defenestrate']
+     for x in a:
+        print x, len(x)
+
+Make a copy when the list is modified during the loop
+
+ .. code-block:: python
+
+     for x in a[:]: # make a slice copy of the entire list
+         if len(x) > 6: a.insert(0, x)
+
+----
+
+H/W
+---
+
+- Tutorial 4.1 - 4.4
+
+- Tutorial 5 - 5.1.1, 5.2 - 5.8
+
+From software-carpentry.org, watch/or read followings
+
+ - `lists  <http://software-carpentry.org/4_0/python/lists/>`_
+
+ - `strings <http://software-carpentry.org/4_0/python/strings/>`_
+
+ - `aliasing <http://software-carpentry.org/4_0/python/alias/>`_

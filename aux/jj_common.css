@@ -62,18 +62,9 @@ body {
   padding: 10px;
 }
 
-.drop-shadow {
-  position: relative;
-  background: #e8fae8;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -ms-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-}
-
 .highlight {
   font-family: 'Droid Sans Mono', 'Courier New', monospace;
+  line-height: 100%;
 
   background: #ffffff;
   font-size: 20px;
@@ -81,6 +72,23 @@ body {
   
   color: black;
   border: 1px solid rgb(224, 224, 224);
+
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, .1);
+  
+  overflow: hidden;
+}
+
+.yellow-bg .highlight {
+  font-family: 'Droid Sans Mono', 'Courier New', monospace;
+  line-height: 100%;
+
+  background: #e8fae8;
+  font-size: 20px;
+  padding: 5px 10px;
+  
+  color: black;
+  border: 1px solid rgb(224, 224, 224);
+
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, .1);
   
   overflow: hidden;
@@ -116,16 +124,3 @@ img.full {
   top: 50%;
    -webkit-mask-box-image: url(vignette-mask.png) 33 stretch;
 }
-
-div.fullslide {
-  display: inline;
-  position: absolute;
-  overflow: hidden;
-  width: 901px;
-  height: 700px;
-  margin-top: -350px;
-  margin-left: -450px;
-  left: 50%;
-  top: 50%;
-}
-

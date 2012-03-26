@@ -99,7 +99,7 @@ Branching and Loop
 ------------------
 
  .. image:: SelectionRepetition.png
-    :width: 800
+    :class: fitbody
 
 ----
 
@@ -317,9 +317,10 @@ Why use "while..else"?
 
 ----
 
- .. image:: WhileLoop.png
-    :height: 600
+.. container:: fullslide
 
+   .. image:: WhileLoop.png
+      :class: autofit
 
 
 ----

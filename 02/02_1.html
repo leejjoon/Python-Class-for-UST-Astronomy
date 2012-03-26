@@ -54,23 +54,28 @@
           <div class="inner">
             
             
-            <section><link rel="stylesheet" href="../aux/jj.css" type="text/css" /><link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.css" media="screen" />
+            <section><link rel="stylesheet" href="../aux/jj_common.css" type="text/css" />
+<link rel="stylesheet" media="screen" href="../aux/jj_screen.css" type="text/css" />
+<link rel="stylesheet" media="print" href="../aux/jj_print.css" type="text/css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.style.css" media="screen" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="lib/popeye/jquery.popeye-2.1.min.js"></script><script type="text/x-mathjax-config">
- MathJax.Hub.Config({
- extensions: ["tex2jax.js"],
- jax: ["input/TeX", "output/HTML-CSS"],
- tex2jax: {
-    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-    processEscapes: true
- },
- "HTML-CSS": { availableFonts: ["TeX"] }
- });
-</script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><div class="centeredtitle container">
+<script type="text/javascript" src="lib/popeye/jquery.popeye-2.1.min.js"></script>
+<div class="centeredtitle container">
 Functions</div>
 <div class="centeredauthor container">
 Jae-Joon Lee (KASI)</div></section>
@@ -224,9 +229,9 @@ for your application and a high degree of code reusing.</li>
           <div class="inner">
             
             
-            <section><blockquote>
-<img alt="../02/functions_02.png" src="../02/functions_02.png" style="height: 600px;" />
-</blockquote></section>
+            <section><div class="fullslide container">
+<img alt="../02/functions_02.png" class="autofit" src="../02/functions_02.png" />
+</div></section>
             
           </div>
           <div class="presenter_notes">
@@ -254,9 +259,9 @@ for your application and a high degree of code reusing.</li>
           <div class="inner">
             
             
-            <section><blockquote>
-<img alt="../02/functions_01.png" src="../02/functions_01.png" style="height: 600px;" />
-</blockquote></section>
+            <section><div class="fullslide container">
+<img alt="../02/functions_01.png" class="autofit" src="../02/functions_01.png" />
+</div></section>
             
           </div>
           <div class="presenter_notes">
@@ -295,10 +300,8 @@ for your application and a high degree of code reusing.</li>
     <span class="k">return</span> <span class="n">r</span>
 </pre></div>
 <p>According to the language reference,</p>
-<div class="yellow-bg container">
 <div class="highlight"><pre>funcdef        ::=  &quot;def&quot; funcname &quot;(&quot; [parameter_list] &quot;)&quot; &quot;:&quot; suite
-</pre></div>
-</div></section>
+</pre></div></section>
             
           </div>
           <div class="presenter_notes">

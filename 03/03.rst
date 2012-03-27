@@ -272,7 +272,7 @@ Example
         a[3] = 0
         a[4:5] = ["a", "b", "c"]
 
-.. image:: string_diagram.png
+.. image:: ../lab01_intro/string_diagram.png
       :height: 300
 
 ----

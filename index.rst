@@ -38,5 +38,10 @@ Week 02
 Week 03
 -------
 
-- Lecture 03 : `Data Type <03/03.html>`_
+- Lecture 04 : `IPython & VIM <03/ipython_vim.pdf>`_
+
+Week 04
+-------
+
+- Lecture 04 : `Data Type <04/04.html>`_
 

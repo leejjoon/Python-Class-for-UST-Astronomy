@@ -38,7 +38,7 @@ Week 02
 Week 03
 -------
 
-- Lecture 04 : `IPython & VIM <03/ipython_vim.pdf>`_
+- Lecture 03 : `IPython & VIM <03/ipython_vim.pdf>`_
 
 Week 04
 -------

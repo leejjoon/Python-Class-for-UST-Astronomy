@@ -1,0 +1,524 @@
+.. raw:: html
+   :file: ../aux/default.html
+
+.. include:: ../aux/default_roles.rst
+
+.. container:: centeredtitle
+
+   Data Types
+
+.. container:: centeredauthor
+
+   Jae-Joon Lee (KASI)
+
+
+----
+
+Function Definition II
+----------------------
+
+- Default argument values
+
+.. code-block:: python
+
+    def print_abc(a, b=1, c=2):
+        print a, b, c
+
+    print_abc(0, 10, 20) # 0, 10, 20
+    print_abc(0, 10) # 0, 10, 2
+    print_abc(0) # 0, 1, 2
+
+----
+
+- Keyword arguments
+
+.. code-block:: python
+
+    print_abc(0, b=100, c=50)
+    print_abc(0, c=50)
+
+In a function call, keyword arguments must follow positional
+arguments. All the keyword arguments passed must match one of the
+arguments accepted by the function.
+
+----
+
+- Arbitrary Arguments
+
+.. code-block:: python
+
+    def print_all(a, *arguments, **keywords):
+        print a, arguments, keywords
+
+    print_all(10, 3, 4, 6, b=1, c=3, d=5)
+    # a = 3
+    # arguments = (3, 4, 6)
+    # keywords = {"b":1, "c":3, "d":5}
+
+    print_all(10, 3, 4, 6)
+    # a = 3
+    # arguments = (3, 4, 6)
+    # keywords = {}
+
+    print_all(10, b=1, c=3, d=5)
+    # a = 3
+    # arguments = ()
+    # keywords = {"b":1, "c":3, "d":5}
+
+----
+
+.. code-block:: python
+
+    def print_all(a, *arguments, **keywords):
+        print a, arguments, keywords
+
+    a = [3, 4, 6]
+    print_all(10, *a)
+
+    print_all(*a)
+
+    b = dict(b=1, c=3, d=5)
+    print_all(10, **b)
+
+    b = dict(b=1, c=3, d=5)
+    print_all(10, *a, **b)
+
+
+----
+
+- Tutorial 4.7
+
+----
+
+Algorithms & Data Structures
+----------------------------
+
+An algorithm is an :red:`effective` method expressed as a
+:red:`finite` list of :red:`well-defined` instructions for calculating
+something.
+
+Often, Algorithms define Data Structures
+
+- e.g., Sorting : bubble sort, merge sort, quick sort, etc.
+
+----
+
+Big O notation
+--------------
+
+- Order of growth
+
+- For example, sorting a list of **n** elements is $O(n \\log n)$ at best.
+
+----
+
+Efficiency of Algorithms
+------------------------
+
+- linear : $O(n)$
+
+- logarithmic : $O(\\log n)$
+
+    - problem space reduced by a constant factor in each iteration.
+
+    - e.g., binary search
+
+- polynomial : $O(n^k)$
+
+- exponential : $O(2^n)$
+
+----
+
+Know When to use What
+---------------------
+
+- To do something, you don't need
+
+ - to fully understand the underlying algorithm
+
+ - or to be able to implement it by yourself
+
+But you should be able
+
+ - :red:`to choose the best (or good enough) algorithm for your needs.`
+
+----
+
+Efficient Sorting
+-----------------
+
+Sorting an arbitrary list: bound to $O(n \\log n)$
+
+   - bubble sort = $O(n^2)$
+
+   - quick sort = $O(n \\log n)$
+
+   - For $n = 10^4$, $n^2 = 10^8$ but $n \\log n = 4 \\times 10^4$.
+
+----
+
+Bubble Sort
+-----------
+
+.. raw:: html
+
+    <img
+      id="gif_1"
+      src="Bubble-sort-example-300px5-0.jpg"
+      alt="whatever"
+      height=400
+      onmouseover="document.getElementById('gif_1').src='Bubble-sort-example-300px5.gif'"
+      onmouseout="document.getElementById('gif_1').src='Bubble-sort-example-300px5-0.jpg'"
+    />
+
+
+----
+
+Merge Sort
+----------
+
+.. code-block:: python
+
+    def mergesort(l):
+        if len(l) < 2:
+            return l
+        middle = len(l) / 2
+        left = mergesort(l[:middle])
+        right = mergesort(l[middle:])
+        return merge(left, right)
+
+- Divide and Conquer
+
+    - Divide
+
+    - Conquer
+
+    - Combine
+
+----
+
+Quick Sort
+----------
+
+.. raw:: html
+
+    <img
+      id="gif_2"
+      src="Quicksort-example4-0.jpg"
+      alt="whatever"
+      height=400
+      onmouseover="document.getElementById('gif_2').src='Quicksort-example4.gif'"
+      onmouseout="document.getElementById('gif_2').src='Quicksort-example4-0.jpg'"
+    />
+
+- in-place sort
+
+- c.f., merge sort
+
+----
+
+
+.. code-block:: python
+
+    def quicksort(l):
+        quicksort1(l, 0, len(l)-1)
+
+    def quicksort1(l, p, r):
+        if p < r:
+            q = partition(l, p, r)
+            quicksort1(l, p, q)
+            quicksort1(l, q+1, r)
+
+    def partition(l, p, r):
+        x = l[p]
+        i, j = p, r
+        while True:
+            while l[j] > x: j-=1
+            while l[i] < x: i+=1
+            if i<j:
+                l[i], l[j] = l[j], l[i]
+                i+=1; j-=1
+            else:
+                return j
+
+----
+
+
+Sorting in Linear Time?
+-----------------------
+
+If the sorted order is based :red:`only on comparisons between the input
+elements`, you cannot beat $O(n\\log n)$.
+
+- Linear Sorting Algorithms
+
+ - Counting Sort
+
+   - $n$ random integers between $0-m$
+
+ - Radix Sort
+
+   - sorting telephone numbers (i.e., integer of fixed number of digits)
+
+ - Bucket Sort
+
+   - floating numbers between 0-1
+
+----
+
+Radix sort
+----------
+
+.. image:: http://withfriendship.com/images/i/42321/Radix-sort-image.png
+
+----
+
+Bucket Sort
+-----------
+
+.. image:: http://www2.hawaii.edu/~suthers/courses/ics311f11/Notes/Topic-11/Fig-8-4-bucket-sort-trace.jpg
+   :height: 450
+
+
+----
+
+
+Binary Search
+-------------
+Find the position of certain element within a :red:`sorted` list.
+
+At each stage, the algorithm compares the input key value with the key
+value of the middle element of the array.
+
+  - If the keys match, return the index
+
+  - If smaller, repeats on the sub-array to the left of the middle element
+
+  - If greater, on the sub-array to the right.
+
+----
+
+.. image:: http://flylib.com/books/2/300/1/html/2/images/08fig02.jpg
+   :height: 450
+
+----
+
+.. code-block:: python
+
+    def bsearch(l, a):
+        return bsearch1(l, 0, len(l)-1, a)
+
+    def bsearch1(l, p, q, a):
+        if p <= q:
+            r = (p+q)/2
+            if l[r] == a:
+                return r
+            elif l[r] < a:
+                return bsearch1(l, r+1, q, a)
+            else:
+                return bsearch1(l, p, r-1, a)
+
+- bsearch(range(100), 5)
+
+- bsearch(range(100), 5.5)
+
+----
+
+Efficient Sorting
+-----------------
+
+Finding the nearest neighbor (out of $n$ sources)
+
+- brute force method = $O(n)$
+
+- With a well structured data,  $O(\\log n)$
+
+  - e.g., binary search in sorted list.
+
+  - But, sorting takes $O(n \\log n)$
+
+Finding the nearest neighbor for $m$ objects
+
+  - brute force method = $O(m \ \\times n)$
+
+  - With a well structured data,  $O(m \\log n)$
+
+----
+
+List and Dict
+-------------
+
+Understand the data structure and involved algorithms.
+
+----
+
+
+Method of lists
+---------------
+
+.. container:: floatright
+
+    .. image :: http://www.laurentluce.com/images/blog/list/list_4.png
+       :height: 450
+
+- append, pop, insert, remove
+
+- reverse, sort
+
+Python’s lists are :red:`variable-length arrays`, not Lisp-style linked lists.
+
+See `here <http://www.laurentluce.com/posts/python-list-implementation/>`_ for
+the implementation of Python lists.
+
+
+Cost
+~~~~
+
+- **indexing**, append, pop : $O(1)$
+- insert, remove : $O(n)$
+- index, **in** : $O(n)$
+
+----
+
+Dictionary Implementation
+-------------------------
+
+.. image:: http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Hash_table_5_0_1_1_1_1_0_SP.svg/380px-Hash_table_5_0_1_1_1_1_0_SP.svg.png
+   :height: 300
+
+Cost
+~~~~
+
+- **indexing**, has_key, get, pop : $O(1)$
+- **in** : $O(1)$
+
+----
+
+Modules
+-------
+
+A way to put definitions in a file and use them in a script or in an
+interactive instance of the interpreter.
+
+A module is a file containing Python definitions and statements.
+
+  - The file name is the module name with the suffix .py appended.
+
+  - Within a module, the module’s name (as a string) is available as
+    the value of the global variable __name__.
+
+----
+
+import statement
+----------------
+
+whoami.py
+
+.. code-block:: python
+
+    def print_modulename():
+        print __name__
+
+- import MODULE
+
+  .. code-block:: python
+
+     import whoami
+     whoami.print_modulename()
+
+- from MODULE import IDENTIFIER
+
+  .. code-block:: python
+
+     import whoami
+     print_modulename()
+
+----
+
+From the python reference,
+
+.. container:: yellow-bg
+
+ .. code-block:: python
+
+    import_stmt     ::=  "import" module ["as" name] ( "," module ["as" name] )*
+                         | "from" relative_module "import" identifier ["as" name]
+                         ( "," identifier ["as" name] )*
+                         | "from" relative_module "import" "(" identifier ["as" name]
+                         ( "," identifier ["as" name] )* [","] ")"
+                         | "from" module "import" "*"
+    module          ::=  (identifier ".")* identifier
+    relative_module ::=  "."* module | "."+
+    name            ::=  identifier
+
+----
+
+Module Namespace
+----------------
+
+The contents of the module is evaluated (executed) when the
+module is imported for the first time.
+
+----
+
+
+- import_test.py
+
+  .. code-block:: python
+
+      A_value_in_module_namespace = 5
+
+      def test_modulenamespace():
+          print A_value_in_module_namespace
+
+----
+
+.. raw:: html
+
+    <img
+      id="gif_3"
+      src="Module.png"
+      alt="whatever"
+      height=450
+      onmouseover="document.getElementById('gif_3').src='Module_before.png'"
+      onmouseout="document.getElementById('gif_3').src='Module.png'"
+    />
+
+
+----
+
+Module Namespace
+----------------
+
+
+- import_test.py
+
+  .. code-block:: python
+
+      A_value_in_module_namespace = 5
+
+      def test_modulenamespace():
+          print A_value_in_module_namespace
+
+- from the interactive session (or other script)
+
+  .. code-block:: python
+
+     import import_test
+
+     print import_test.A_value_in_module_namespace # 5
+     import_test.test_modulenamespace() # 5
+
+     import_test.A_value_in_module_namespace = 100
+     import_test.test_modulenamespace() # 100
+
+     import import_test
+     import_test.test_modulenamespace() # 100
+
+----
+
+
+- No class on next Friday
+
+- But reading  material and H/W will be provided.
+

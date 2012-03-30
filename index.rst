@@ -45,3 +45,5 @@ Week 04
 
 - Lecture 04 : `Data Type <04/04.html>`_
 
+- Lecture 04-1 : `Algorithms <04/04_1.html>`_
+

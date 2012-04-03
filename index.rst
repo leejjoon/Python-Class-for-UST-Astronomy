@@ -47,3 +47,12 @@ Week 04
 
 - Lecture 04-1 : `Algorithms <04/04_1.html>`_
 
+Week 05
+-------
+
+- Lecture 05 : `Iterator & Generator, Input & Output <05/05.html>`_
+
+- `Homework week 05 <05/05_hw_single.html>`_
+
+
+

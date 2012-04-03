@@ -1,0 +1,544 @@
+.. raw:: html
+   :file: ../aux/default.html
+
+.. include:: ../aux/default_roles.rst
+
+.. container:: centeredtitle
+
+   Iterators and Generators
+
+
+----
+
+Iterable Objects
+----------------
+
+- Any object with **next** method
+
+- **iterator**
+
+  - An object representing a stream of data.
+
+  - Repeated calls to the iterator’s **next()** method return successive
+    items in the stream.
+
+- **iterable**
+
+  - An object capable of returning its members one at a
+    time.
+
+  - Examples of iterables include
+
+     - all sequence types (such as list, str, and tuple)
+
+     - and some non-sequence types like dict and file.
+
+  - When an iterable object is passed as an argument to the built-in
+    function **iter()**, it returns an iterator for the object.
+
+----
+
+.. code-block:: python
+
+   l = [1, 2, 3]
+   iter_l = iter(l)
+   iter_l.next() # 1
+   iter_l.next() # 2
+   iter_l.next() # 3
+   iter_l.next() # Error
+
+   d = {"a":1, "b":2}
+   iter_d = iter(d)
+   iter_d.next() # "a"
+   iter_d.next() # "b"
+   iter_d.next() # Error
+
+----
+
+Built-in functions for iterables
+--------------------------------
+
+- `iter <http://docs.python.org/library/functions.html#iter>`_
+
+- `next <http://docs.python.org/library/functions.html#next>`_
+
+- `all <http://docs.python.org/library/functions.html#all>`_
+
+- `any <http://docs.python.org/library/functions.html#any>`_
+
+- `min <http://docs.python.org/library/functions.html#min>`_
+
+- `max <http://docs.python.org/library/functions.html#max>`_
+
+- `sum <http://docs.python.org/library/functions.html#sum>`_
+
+- `sorted <http://docs.python.org/library/functions.html#sorted>`_
+
+- `zip <http://docs.python.org/library/functions.html#zip>`_
+
+- `enumerate <http://docs.python.org/library/functions.html#enumerate>`_
+
+   - returns an enumerate object, which is iterable.
+
+
+----
+
+Creating list, tuple and dict w/ iterables
+------------------------------------------
+
+- `list <http://docs.python.org/library/functions.html#list>`_
+
+- `tuple <http://docs.python.org/library/functions.html#tuple>`_
+
+- `dict <http://docs.python.org/library/functions.html#dict>`_
+
+   .. code-block:: python
+
+      dict(one=1, two=2)
+      dict({'one': 1, 'two': 2})
+      dict([['two', 2], ['one', 1]])
+      dict(zip(('one', 'two'), (1, 2)))
+
+----
+
+range and xrange
+----------------
+
+- `range <http://docs.python.org/library/functions.html#range>`_
+
+- `xrange <http://docs.python.org/library/functions.html#xrange>`_
+
+- `reversed <http://docs.python.org/library/functions.html#reversed>`_
+
+itertools
+~~~~~~~~~
+
+- http://docs.python.org/library/itertools.html
+
+----
+
+Generators
+----------
+
+Generators are a simple and powerful tool for creating iterators.
+
+ - written like regular functions but use the :red:`yield` statement whenever
+   they want to return data.
+
+ - When called, an iterable object is returned.
+
+ - Each time next() is called, the generator resumes where it left-off
+   (it remembers all the data values and which statement was last
+   executed).
+
+----
+
+Generator example
+-----------------
+
+.. code-block:: python
+
+    def reverse(data):
+        for index in xrange(len(data)-1, -1, -1):
+            yield data[index]
+
+    for char in reverse('golf'):
+        print char
+
+- As use of temporary variable can be reduced, this results in
+  smaller memory footprint.
+
+.. code-block:: python
+
+    def reverse(data):
+        result = []
+        for index in xrange(len(data)-1, -1, -1):
+            result.append(data[index])
+        return result
+
+    for char in reverse('golf'):
+        print char
+
+
+----
+
+Merging Sorted lists
+--------------------
+
+.. code-block:: python
+
+    def mergesort(l):
+        if len(l) == 1:
+            yield l[0]
+        elif len(l) > 0:
+            middle = len(l) / 2
+            iter_left = mergesort(l[:middle])
+            iter_right = mergesort(l[middle:])
+            for v in merge(iter_left, iter_right): yield v
+
+    def merge(iter_left, iter_right):
+
+        heap = [(iter_left.next(), iter_left),
+                (iter_right.next(), iter_right)]
+
+        try:
+            while True:
+                v, itr = min(heap)
+                heap.remove((v, itr))
+                yield v
+                heap.append((itr.next(), itr))
+        except StopIteration:
+            pass
+
+        v, itr = heap[0]
+        yield v
+        for v in itr: yield v
+
+----
+
+.. container:: centeredtitle
+
+   Input and Output
+
+----
+
+raw_input statement
+-------------------
+
+.. code-block:: python
+
+    s = raw_input()
+    s = raw_input("give me some input> ")
+
+----
+
+File Object
+-----------
+
+To open a file to read
+
+.. code-block:: python
+
+    f = open("05.rst")
+
+
+Reading from a file
+~~~~~~~~~~~~~~~~~~~
+
+- read by bytes (characters)
+
+.. code-block:: python
+
+    f = open("05.rst")
+
+    l1 = f.read(80) # first 80 characters (80 bytes in fact!) as
+                    # a single string
+    l2 = f.read(80) # next 80 characters (80 bytes in fact!).
+    l_all = f.read() # all the remaining of files as a string.
+
+- read by lines
+
+.. code-block:: python
+
+    f = open("05.rst")
+    l3 = f.readline() # read until next "\n"
+                      # (return string includes "\n")
+    alllines = f.readlines() # all the remaining of files as a list of strings.
+
+----
+
+File is iterable
+----------------
+
+- **next()** returns a next line.
+
+.. code-block:: python
+
+    for a_line in open("test.txt"):
+       process(a_line)
+
+----
+
+Writing to a file
+-----------------
+
+Open a file with a **write** mode
+
+.. code-block:: python
+
+    f = file("test.rst", "w") #
+    f.write("test1\n")
+    f.writelines(["test2\n", "test3\n"])
+    f.close()
+
+- Files are often buffered.
+
+- Close (or flush) the file when you're done.
+
+----
+
+Stdin & Stdout
+--------------
+
+.. code-block:: python
+
+    import sys
+    sys.stdin.readline()
+    sys.stdout.write("test\n")
+
+----
+
+String Formatting : Old Way
+---------------------------
+
+- adopted from C's printf function
+
+- Uses :red:`%` operator
+
+.. code-block:: python
+
+    s1 = "Today is %s, and the temperature is %.1f degree."
+    s = s1 % ("Tuesday", 12.5)
+    print s
+
+- http://docs.python.org/library/stdtypes.html#string-formatting
+
+----
+
+String Formatting : New Way
+---------------------------
+
+- Uses :red:`format` method
+
+- things enclosed by :red:`{}` will be replaced.
+
+.. container:: yellow-bg
+
+ .. code-block:: python
+
+    replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"
+
+- for format(\*kl, \*\*kwargs),
+
+  - If **field_name** is :red:`an intger`, replace with **kl[field_name]**.
+
+  - If **field_name** is :red:`a string`, replace with **kwargs[field_name]**.
+
+    .. code-block:: python
+
+        s1 = "Today is {0:s}, and the temperature is {temp:.1f} degree."
+        s = s1.format("Tuesday", temp=12.5)
+        print s
+
+  - An expression of the form '.name' selects the named attribute.
+
+  - An expression of the form '[index]' does an index lookup.
+
+    .. code-block:: python
+
+        "Weight in tons {0.weight}"      # 'weight' attribute of first positional arg
+        "Units destroyed: {players[0]}"  # First element of keyword argument 'players'.
+
+----
+
+.. code-block:: python
+
+    x, y = 5, 3
+    r = 10.2
+    s = "circle({}, {}, {r})".format(x, y, r=r)
+
+
+For more details, see
+
+- http://docs.python.org/library/string.html#format-string-syntax
+
+
+----
+
+Regular Expression
+------------------
+
+A regular expression, often called a pattern, is a rule that specifies
+a set of strings.
+
+  - For example, the set containing the three strings "Händel",
+    "Handel", and "Haendel" can be specified by the pattern
+    **H(ä|ae?)ndel** (or alternatively, it is said that the pattern
+    matches each of the three strings).
+
+- You already know some regular expression
+
+  - ls \*.fits
+
+  - "^Lee" when searching authors in the ADS
+
+----
+
+Matching Characters
+-------------------
+
+:red:`Most` letters and characters will simply match themselves.
+
+- For example, the regular expression "test" will match the string "test" exactly.
+
+- Metacharacters : :red:`. ^ $ \* + ? { } [ ] \\ | ( )`
+
+- "\\" is used to escape all the metacharacters.
+
+----
+
+Character Class w/ []
+---------------------
+
+- :red:`[]` is used for specifying a character class, which is a set
+  of characters that you wish to match.
+
+  - "[abc]" : "a", "b", "c"
+
+  - "a[123]" : "a1", "a2", "a3"
+
+  - "[a-c]" : same as "[abc]"
+
+  - r"06Mar[0-9][0-9][0-9]\.fits" : "06Mar000.fits", "06Mar001.fits", ..., "06Mar999.fits"
+
+  - Metacharacters are not active inside classes.
+
+  - The class characters with '^' as the first character matches
+    characters not listed.
+
+  - "A[^0-9]" : "Aa", "Ab", ..., "AZ", etc.
+
+
+----
+
+Predefined Character sets
+-------------------------
+
+- :red:`\\d` : Matches any decimal digit; this is equivalent to the class [0-9].
+
+- :red:`\\D` : Matches any non-digit character; this is equivalent to the class [^0-9].
+
+- :red:`\\s` : Matches any whitespace character; this is equivalent to the class [ \\t\\n\\r\\f\\v].
+
+- :red:`\\S` : Matches any non-whitespace character; this is equivalent to the class [^ \\t\\n\\r\\f\\v].
+
+- :red:`\\w` : Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9\_].
+
+- :red:`\\W` : Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9\_].
+
+----
+
+- These sequences can be included inside a character class. For
+  example, [\\s,.] is a character class that will match any whitespace
+  character, or ',' or '.'.
+
+- :red:`.` : matches anything except a newline character.
+
+----
+
+Repeating Things
+----------------
+
+.. class:: build build-flyin build-fadeout
+
+- :red:`?` : 0 or 1 time
+
+  - "ab?c" : "ab", "abc"
+
+  - r"a\d\d?" : "a0", .., "a9", "a00", "a01", .., "a99"
+
+  - r"fits?" : "fit", "fits"
+
+- :red:`+` : more than one
+
+  - "ab+c" : "abc", "abbc", "abbbc", "abbbbc", ...
+
+  - r"a\d+" : "a0", .., "a9", "a00", "a01", .., "a99", "a001", ...
+
+- :red:`*` : more than zero
+
+  - "ab*c" : "ac" and "ab+c"
+
+  - r"a\d*" : "a" and "a[0-9]+"
+
+----
+
+Mechanics of Regex
+------------------
+
+- Regular expressions are implemented using finite state machines.
+
+.. image:: http://osl.iu.edu/~pgottsch/swc2/lec/img/re/re_fsm.png
+   :height: 450
+
+----
+
+Other operators
+---------------
+
+- :red:`|` : or operator.
+
+   - "(fits|FITS)" : "fits" or "FITS"
+
+- :red:`^` : Matches at the beginning of lines.
+
+- :red:`$` : Matches at the end of lines.
+
+----
+
+Matching and Searching
+----------------------
+
+.. code-block:: python
+
+    p = re.compile(r"06Mar(\d+)\.fit")
+    m1 = p.match("06Mar1232.fit") # m1.group() => '06Mar1232.fit'
+    m2 = p.match("06Mar1232.fits") # m1.group() => '06Mar1232.fit'
+    m3 = p.match("2012_06Mar1232.fits") # None
+
+    m4 = p.search("2012_06Mar1232.fits") # m1.group() => '06Mar1232.fit'
+
+----
+
+Grouping
+--------
+
+- :red:`()` group together the expressions contained inside them, and
+  you can repeat the contents of a group with a repeating qualifier.
+
+  - "(ab)+" : "ab", "abab", "ababab", ...
+
+- Groups indicated with :red:`)` also capture the starting and ending
+  index of the text that they match.
+
+
+.. code-block:: python
+
+    p = re.compile(r"06Mar(\d+)\.fit")
+    m1 = p.match("06Mar1232.fit") # m1.group() => '06Mar1232.fit'
+
+    print m1.groups()
+    # ('1232',)
+
+----
+
+Replace
+-------
+
+.. code-block:: python
+
+    p = re.compile('section{ ( [^}]* ) }', re.VERBOSE)
+    s = p.sub(r'subsection{\1}','section{First} section{second}')
+    # 'subsection{First} subsection{second}'
+
+----
+
+More of Regex
+-------------
+
+http://xkcd.com/208/
+
+http://docs.python.org/howto/regex.html
+
+http://software-carpentry.org/4_0/regexp/
+

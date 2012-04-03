@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://html5-demos.appspot.com/static/html5storage/index.html#slide68 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title class="slidetitle">None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="../aux/theme_jj2/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../aux/theme_jj2/css/screen.css">
+    
+    
+    <!-- /Styles -->
+
+   <link rel="stylesheet" href="../aux/jj_common2.css" type="text/css">
+   <link rel="stylesheet" media="screen" href="../aux/jj_screen.css" type="text/css">
+   <link rel="stylesheet" media="print" href="../aux/jj_print.css" type="text/css">
+
+    <script>
+      window.URL = window.URL ? window.URL :
+                   window.webkitURL ? window.webkitURL : window;
+      window.BlobBuilder = window.WebKitBlobBuilder || window.MozBlobBuilder || window.BlobBuilder;
+      window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+    </script>
+
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  </head>
+
+  <style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+  <body class="composited">
+    <div class="presentation">
+      <div class="presentationCounter">0</div>
+      <div class="slides" style="display: block; ">
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique1">
+            
+            
+            <section><div class="centeredtitle container">
+H/W</div>
+<div class="centeredauthor container">
+Jae-Joon Lee (KASI)</div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique2">
+            
+            <header><h1>H/W</h1></header>
+            
+            
+            <section><ol class="arabic">
+<li><p class="first">Based on the following code snippet, implement a merge sort by
+modifying the <strong>merge</strong> funtion.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">mergesort</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Given a list l, return a sorted list&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">l</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">mergesort</span><span class="p">(</span><span class="n">l</span><span class="p">[:</span><span class="n">middle</span><span class="p">])</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">mergesort</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">middle</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    merge two sorted lists left and right into a single sorted list.</span>
+<span class="sd">    Return the result.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span><span class="p">[]</span>
+    <span class="c"># merge left and right.</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">unsorted_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">743</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="k">assert</span> <span class="n">mergesort</span><span class="p">(</span><span class="n">unsorted_list</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unsorted_list</span><span class="p">)</span>
+</pre></div>
+<ul class="simple">
+<li>test_mergesort.py</li>
+</ul>
+</li>
+</ol></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique3">
+            
+            
+            <section><ol class="arabic" start="2">
+<li><p class="first">Based on the following code snippet, implement a merge sort by
+modifying the <strong>merge</strong> funtion. Use iterator and generator. Do not
+create a temporary sequence whose length is larger than 2.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">mergesort</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">iter_left</span> <span class="o">=</span> <span class="n">mergesort</span><span class="p">(</span><span class="n">l</span><span class="p">[:</span><span class="n">middle</span><span class="p">])</span>
+        <span class="n">iter_right</span> <span class="o">=</span> <span class="n">mergesort</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">middle</span><span class="p">:])</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">merge</span><span class="p">(</span><span class="n">iter_left</span><span class="p">,</span> <span class="n">iter_right</span><span class="p">):</span> <span class="k">yield</span> <span class="n">v</span>
+
+
+<span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">iter_left</span><span class="p">,</span> <span class="n">iter_right</span><span class="p">):</span>
+    <span class="c"># This must be a generator</span>
+    <span class="k">pass</span>
+
+<span class="n">unsorted_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">743</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">mergesort</span><span class="p">(</span><span class="n">unsorted_list</span><span class="p">))</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unsorted_list</span><span class="p">)</span>
+</pre></div>
+<ul class="simple">
+<li>test_mergesort_generator.py</li>
+</ul>
+</li>
+</ol></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique4">
+            
+            
+            <section><ol class="arabic" start="3">
+<li><p class="first">Write a module &quot;ds9_region.py&quot; which will be imported by the following
+script and run without error.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">ds9_region</span> <span class="kn">import</span> <span class="n">ds9_region</span>
+
+<span class="k">assert</span> <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;circle&quot;</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">8.12</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">1.4</span><span class="p">)</span> <span class="o">==</span> \
+       <span class="s">&#39;circle(2.5, 8.12, 1.4)&#39;</span>
+
+<span class="k">assert</span> <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;ellipse&quot;</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="n">r_maj</span><span class="o">=</span><span class="mf">2.4</span><span class="p">,</span> <span class="n">r_min</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="o">==</span> \
+       <span class="s">&#39;ellipse(3.9, 3.3, 2.4, 1.5, 20)&#39;</span>
+
+<span class="k">assert</span> <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;box&quot;</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">2.4</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">330</span><span class="p">)</span> <span class="o">==</span> \
+       <span class="s">&#39;box(8.6, 7.6, 2.4, 1.4, 330)&#39;</span>
+
+<span class="k">assert</span> <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;circle&quot;</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">8.12</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">1.4</span><span class="p">)</span> <span class="o">==</span> \
+       <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;circle&quot;</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">8.12</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;ellipse&quot;</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="n">r_maj</span><span class="o">=</span><span class="mf">2.4</span><span class="p">,</span> <span class="n">r_min</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="o">==</span> \
+       <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;ellipse&quot;</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;box&quot;</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">2.4</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">330</span><span class="p">)</span> <span class="o">==</span> \
+       <span class="n">ds9_region</span><span class="p">(</span><span class="s">&quot;box&quot;</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">330</span><span class="p">)</span>
+</pre></div>
+<ul class="simple">
+<li>test_ds9_region.py</li>
+</ul>
+</li>
+</ol></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique5">
+            
+            
+            <section><ol class="arabic" start="4">
+<li><p class="first">Write a python script that reads in &quot;Gvaramadze2010.tex&quot; and print
+out names of postscript figures used in the file. All figures are
+included with &quot;\includegraphics&quot; command.</p>
+<div class="highlight"><pre><span class="k">\includegraphics</span><span class="na">[width=1.0\columnwidth,angle=0]</span><span class="nb">{</span>J134233<span class="nb">_</span>24+8.ps<span class="nb">}</span>
+</pre></div>
+<ul>
+<li><p class="first">The results should be as following.</p>
+<div class="highlight"><pre>J134233_24+8.ps
+J171116_24+5.8.ps
+J194353_24+3.6.ps
+J185047_24+8.ps
+J184222_24+radio.ps
+GAL026.47+00.02_24+radio.ps
+fig3.ps
+J151641_4band.ps
+</pre></div>
+</li>
+</ul>
+</li>
+</ol></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique6">
+            
+            
+            <section><ol class="arabic" start="5">
+<li><p class="first">The same file includes two tabular.</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>lccccccccccccc<span class="nb">}</span>
+<span class="k">\hline</span>
+Name <span class="nb">&amp;</span> RA (J2000) <span class="nb">&amp;</span> Dec. (J2000) <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">B</span><span class="s">$</span> <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">V</span><span class="s">$</span> <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">R</span><span class="s">$</span> <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">J</span><span class="s">$</span> <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">H</span><span class="s">$</span> <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">K_s</span><span class="s">$</span> <span class="nb">&amp;</span> Type <span class="nb">&amp;</span> Size (<span class="s">$</span><span class="nb">&#39;&#39;</span><span class="nv">\times</span><span class="nb"> &#39;&#39;</span><span class="s">$</span>) <span class="nb">&amp;</span> Comments <span class="k">\\</span>
+<span class="k">\hline</span>
+MN<span class="k">\qq</span> <span class="nb">&amp;</span> 11 44 18.10 <span class="nb">&amp;</span> -62 45 20.2 <span class="nb">&amp;</span> 17.37 <span class="nb">&amp;</span> 17.04 <span class="nb">&amp;</span> 14.85 <span class="nb">&amp;</span> 10.00 <span class="nb">&amp;</span> 8.72 <span class="nb">&amp;</span> 7.78 <span class="nb">&amp;</span> E <span class="nb">&amp;</span> 60<span class="s">$</span><span class="nv">\times</span><span class="s">$</span>70 <span class="nb">&amp;</span> <span class="k">\\</span>
+MN<span class="k">\qq</span>    <span class="nb">&amp;</span> 12 00 58.82 <span class="nb">&amp;</span> -63 12 59.9 <span class="nb">&amp;</span> -- <span class="nb">&amp;</span> 13.23 <span class="nb">&amp;</span> -- <span class="nb">&amp;</span> 13.29 <span class="nb">&amp;</span> 12.65 <span class="nb">&amp;</span> 12.53 <span class="nb">&amp;</span> R,BL <span class="nb">&amp;</span> 30 <span class="nb">&amp;</span> <span class="k">\\</span>
+
+....
+
+MN<span class="k">\qq</span> <span class="nb">&amp;</span> 17 43 59.85 <span class="nb">&amp;</span> -30 28 38.5 <span class="nb">&amp;</span> 17.04 <span class="nb">&amp;</span> 13.75 <span class="nb">&amp;</span> 11.93 <span class="nb">&amp;</span> 5.74 <span class="nb">&amp;</span> 4.78 <span class="nb">&amp;</span> 4.07 <span class="nb">&amp;</span> E <span class="nb">&amp;</span> 110<span class="s">$</span><span class="nv">\times</span><span class="s">$</span>140 <span class="nb">&amp;</span> 2MASS J17435981-3028384 (M2)<span class="s">$</span><span class="nb">^{</span><span class="o">(</span><span class="m">9</span><span class="o">)</span><span class="nb">}</span><span class="s">$</span><span class="k">\\</span>
+<span class="k">\hline</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+</pre></div>
+<p>Write a python program that creates a new file called &quot;radec.txt&quot;
+which contains RA and Dec. Values extracted from the two tables.  The
+unit of RA and Dec. values in the new file (&quot;radec.txt&quot;) needs to be a
+degree.</p>
+<ul>
+<li><p class="first">&quot;radec.txt&quot;  example</p>
+<blockquote>
+<div class="highlight"><pre>176.07542      -62.755611
+180.24508      -63.216639
+
+...
+
+308.81679       42.337889
+</pre></div>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique7">
+            
+            <header><h1>Homework materials</h1></header>
+            
+            
+            <section><p>Download the <a class="reference external" href="05_hw.tgz">homework material</a> which includes</p>
+<blockquote>
+<ul class="simple">
+<li>test_mergesort.py (for #1)</li>
+<li>test_mergesort_generator.py (for #2)</li>
+<li>test_ds9_region.py (for #3)</li>
+<li>Gvaramadze2010.tex (for #4 and #5)</li>
+</ul>
+</blockquote></section>
+            
+</div>
+
+
+      
+
+
+      </div> <!-- slides -->
+    </div> <!-- presentation -->
+
+<!-- <script src="./mmm_files/js/slide-presentation.js"></script> -->
+
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="../aux/theme_jj2/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+
+</body></html>

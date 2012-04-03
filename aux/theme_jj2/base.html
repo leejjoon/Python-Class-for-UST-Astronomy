@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://html5-demos.appspot.com/static/html5storage/index.html#slide68 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title class="slidetitle">{{ head_title }}</title>
+    <!-- Styles -->
+    {% if embed %}
+    <style type="text/css" media="print">
+      {{ css.print.contents }}
+    </style>
+    <style type="text/css" media="screen, projection">
+      {{ css.screen.contents }}
+    </style>
+    {% else %}
+    <link rel="stylesheet" media="print" href="{{ css.print.path_url }}">
+    <link rel="stylesheet" media="screen, projection" href="{{ css.screen.path_url }}">
+    {% endif %}
+    {% for css in user_css %}
+      {% if embed %}
+      <style type="text/css" media="screen, projection">
+        {{ css.contents }}
+      </style>
+      {% else %}
+      <link rel="stylesheet" href="{{ css.path_url }}">
+      {% endif %}
+    {% endfor %}
+    <!-- /Styles -->
+    <script>
+      window.URL = window.URL ? window.URL :
+                   window.webkitURL ? window.webkitURL : window;
+      window.BlobBuilder = window.WebKitBlobBuilder || window.MozBlobBuilder || window.BlobBuilder;
+      window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+    </script>
+  </head><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+  <body class="composited">
+    <div class="presentation">
+      <div class="presentationCounter">0</div>
+      <div class="slides" style="display: block; ">
+
+      {% for slide in slides %}
+
+<div class="slide transitionSlide far-far-past{% if slide.classes %}{% for class in slide.classes %} {{ class }}{% endfor %}{% endif %}" id="qUnique{{ slide.number }}">
+            {% if slide.header %}
+            <header>{{ slide.header }}</header>
+            {% endif %}
+            {% if slide.content %}
+            <section>{{ slide.content }}</section>
+            {% endif %}
+</div>
+
+
+      {% endfor %}
+
+
+      </div> <!-- slides -->
+    </div> <!-- presentation -->
+
+<!-- <script src="./mmm_files/js/slide-presentation.js"></script> -->
+
+    <!-- Javascripts -->
+    {% if embed %}
+    <script>
+      {{ js.contents }}
+    </script>
+    {% else %}
+    <script type="text/javascript" src="{{ js.path_url }}"></script>
+    {% endif %}
+    {% for js in user_js %}
+      {% if embed %}
+      <script>
+        {{ js.contents }}
+      </script>
+      {% else %}
+      <script type="text/javascript" src="{{ js.path_url }}"></script>
+      {% endif %}
+    {% endfor %}
+    <!-- /Javascripts -->
+
+</body></html>

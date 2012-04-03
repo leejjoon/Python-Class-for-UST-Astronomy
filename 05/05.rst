@@ -1,6 +1,3 @@
-.. raw:: html
-   :file: ../aux/default.html
-
 .. include:: ../aux/default_roles.rst
 
 .. container:: centeredtitle
@@ -12,8 +9,6 @@
 
 Iterable Objects
 ----------------
-
-- Any object with **next** method
 
 - **iterator**
 
@@ -110,6 +105,9 @@ range and xrange
 
 - `reversed <http://docs.python.org/library/functions.html#reversed>`_
 
+   - **range** returns a list, **xrange** and **reversed** returns an
+       iterator.
+
 itertools
 ~~~~~~~~~
 
@@ -159,40 +157,61 @@ Generator example
     for char in reverse('golf'):
         print char
 
-
 ----
 
-Merging Sorted lists
---------------------
+Why use Generator?
+------------------
+
+- Items in **Generator** are evaluated on demand.
+
+- http://stackoverflow.com/a/102632
+
+Consider a following simple case,
 
 .. code-block:: python
 
-    def mergesort(l):
-        if len(l) == 1:
-            yield l[0]
-        elif len(l) > 0:
-            middle = len(l) / 2
-            iter_left = mergesort(l[:middle])
-            iter_right = mergesort(l[middle:])
-            for v in merge(iter_left, iter_right): yield v
+   new_data = []
+   for data in very_large_data:
+       data2 = pre_process1(data)
+       data3 = post_process1(data2)
+       new_data.append(data3)
 
-    def merge(iter_left, iter_right):
+You can make this into a two-step process using a temporary list.
 
-        heap = [(iter_left.next(), iter_left),
-                (iter_right.next(), iter_right)]
+.. code-block:: python
 
-        try:
-            while True:
-                v, itr = min(heap)
-                heap.remove((v, itr))
-                yield v
-                heap.append((itr.next(), itr))
-        except StopIteration:
-            pass
+   def pre_process(data_list):
+       new_data_list = []
+       for data in data_list:
+           data2 = pre_process1(data)
+           new_data.append(data2)
 
-        v, itr = heap[0]
-        yield v
-        for v in itr: yield v
+   def post_process(data_list):
+       new_data_list = []
+       for data in data_list:
+           data2 = post_process1(data)
+           new_data.append(data2)
+
+   new_data = post_process(pre_process(data_list))
+
+----
+
+Using generator,
+
+.. code-block:: python
+
+   def pre_process(data_list):
+       for data in data_list:
+           yield pre_process1(data)
+
+   def post_process(data_list):
+       for data in data_list:
+           yield post_process1(data)
+
+   new_data = list(post_process(pre_process(data_list)))
+
+- Note that excution sequnce of **pre_process1** and **post_process1**
+  is same as our original example.
 
 ----
 
@@ -443,9 +462,9 @@ Repeating Things
 
 - :red:`?` : 0 or 1 time
 
-  - "ab?c" : "ab", "abc"
+  - "ab?c" : "ac", "abc"
 
-  - r"a\d\d?" : "a0", .., "a9", "a00", "a01", .., "a99"
+  - r"a\\d\\d?" : "a0", .., "a9", "a00", "a01", .., "a99"
 
   - r"fits?" : "fit", "fits"
 
@@ -453,13 +472,13 @@ Repeating Things
 
   - "ab+c" : "abc", "abbc", "abbbc", "abbbbc", ...
 
-  - r"a\d+" : "a0", .., "a9", "a00", "a01", .., "a99", "a001", ...
+  - r"a\\d+" : "a0", .., "a9", "a00", "a01", .., "a99", "a001", ...
 
 - :red:`*` : more than zero
 
   - "ab*c" : "ac" and "ab+c"
 
-  - r"a\d*" : "a" and "a[0-9]+"
+  - r"a\\d*" : "a" and "a[0-9]+"
 
 ----
 
@@ -491,12 +510,12 @@ Matching and Searching
 
 .. code-block:: python
 
-    p = re.compile(r"06Mar(\d+)\.fit")
+    p = re.compile(r"06Mar(\\d+)\.fit")
     m1 = p.match("06Mar1232.fit") # m1.group() => '06Mar1232.fit'
-    m2 = p.match("06Mar1232.fits") # m1.group() => '06Mar1232.fit'
+    m2 = p.match("06Mar1232.fits") # m2.group() => '06Mar1232.fit'
     m3 = p.match("2012_06Mar1232.fits") # None
 
-    m4 = p.search("2012_06Mar1232.fits") # m1.group() => '06Mar1232.fit'
+    m4 = p.search("2012_06Mar1232.fits") # m4.group() => '06Mar1232.fit'
 
 ----
 
@@ -508,13 +527,13 @@ Grouping
 
   - "(ab)+" : "ab", "abab", "ababab", ...
 
-- Groups indicated with :red:`)` also capture the starting and ending
+- Groups indicated with :red:`()` also capture the starting and ending
   index of the text that they match.
 
 
 .. code-block:: python
 
-    p = re.compile(r"06Mar(\d+)\.fit")
+    p = re.compile(r"06Mar(\\d+)\\.fit")
     m1 = p.match("06Mar1232.fit") # m1.group() => '06Mar1232.fit'
 
     print m1.groups()

@@ -1,5 +1,5 @@
 .. raw:: html
-   :file: ../aux/default.html
+   :file: ../aux/default2.html
 
 .. include:: ../aux/default_roles.rst
 
@@ -16,77 +16,166 @@
 H/W
 ---
 
-1. Write a module "ds9_region.py" which will be imported by the following
-   script and run without error.
+1. Based on the following code snippet, implement a merge sort by
+   modifying the **merge** funtion.
 
-.. code-block:: python
+   .. code-block:: python
 
-    from ds9_region import ds9_region
+       def mergesort(l):
+           """ Given a list l, return a sorted list"""
+           if len(l) < 2:
+               return l
+           middle = len(l) / 2
+           left = mergesort(l[:middle])
+           right = mergesort(l[middle:])
+           return merge(left, right)
 
-    assert ds9_region("circle", 2.5, 8.12, r=1.4) == \
-           'circle(2.5, 8.12, 1.4)'
+       def merge(left, right):
+           """
+           merge two sorted lists left and right into a single sorted list.
+           Return the result.
+           """
+           result =[]
+           # merge left and right.
+           return result
 
-    assert ds9_region("ellipse", 3.9, 3.3, r_maj=2.4, r_min=1.5, angle=20) == \
-           'ellipse(3.9, 3.3, 2.4, 1.5, 20)'
+       unsorted_list = [2, 5, 12, 62, 743, 6, 20]
 
-    assert ds9_region("box", 8.6, 7.6, width=2.4, height=1.4, angle=330) == \
-           'box(8.6, 7.6, 2.4, 1.4, 330)'
+       assert mergesort(unsorted_list) == sorted(unsorted_list)
 
-    assert ds9_region("circle", 2.5, 8.12, r=1.4) == \
-           ds9_region("circle", 2.5, 8.12, 1.4)
-
-    assert ds9_region("ellipse", 3.9, 3.3, r_maj=2.4, r_min=1.5, angle=20) == \
-           ds9_region("ellipse", 3.9, 3.3, 2.4, 1.5, angle=20)
-
-    assert ds9_region("box", 8.6, 7.6, width=2.4, height=1.4, angle=330) == \
-           ds9_region("box", 8.6, 7.6, 2.4, 1.4, angle=330)
+   - test_mergesort.py
 
 ----
 
-2. Write a python script that reads in "Gvaramadze2010.tex" and print
+2. Based on the following code snippet, implement a merge sort by
+   modifying the **merge** funtion. Use iterator and generator. Do not
+   create a temporary sequence whose length is larger than 2.
+
+   .. code-block:: python
+
+       def mergesort(l):
+           if len(l) == 1:
+               yield l[0]
+           elif len(l) > 0:
+               middle = len(l) / 2
+               iter_left = mergesort(l[:middle])
+               iter_right = mergesort(l[middle:])
+               for v in merge(iter_left, iter_right): yield v
+
+
+       def merge(iter_left, iter_right):
+           # This must be a generator
+           pass
+
+       unsorted_list = [2, 5, 12, 62, 743, 6, 20]
+
+       assert list(mergesort(unsorted_list)) == sorted(unsorted_list)
+
+   - test_mergesort_generator.py
+
+----
+
+3. Write a module "ds9_region.py" which will be imported by the following
+   script and run without error.
+
+   .. code-block:: python
+
+       from ds9_region import ds9_region
+
+       assert ds9_region("circle", 2.5, 8.12, r=1.4) == \
+              'circle(2.5, 8.12, 1.4)'
+
+       assert ds9_region("ellipse", 3.9, 3.3, r_maj=2.4, r_min=1.5, angle=20) == \
+              'ellipse(3.9, 3.3, 2.4, 1.5, 20)'
+
+       assert ds9_region("box", 8.6, 7.6, width=2.4, height=1.4, angle=330) == \
+              'box(8.6, 7.6, 2.4, 1.4, 330)'
+
+       assert ds9_region("circle", 2.5, 8.12, r=1.4) == \
+              ds9_region("circle", 2.5, 8.12, 1.4)
+
+       assert ds9_region("ellipse", 3.9, 3.3, r_maj=2.4, r_min=1.5, angle=20) == \
+              ds9_region("ellipse", 3.9, 3.3, 2.4, 1.5, angle=20)
+
+       assert ds9_region("box", 8.6, 7.6, width=2.4, height=1.4, angle=330) == \
+              ds9_region("box", 8.6, 7.6, 2.4, 1.4, angle=330)
+
+   - test_ds9_region.py
+
+----
+
+4. Write a python script that reads in "Gvaramadze2010.tex" and print
    out names of postscript figures used in the file. All figures are
    included with "\\includegraphics" command.
 
 
-.. code-block:: tex
+   .. code-block:: tex
 
-    \includegraphics[width=1.0\columnwidth,angle=0]{J134233_24+8.ps}
+       \includegraphics[width=1.0\columnwidth,angle=0]{J134233_24+8.ps}
+
+   - The results should be as following.
+
+     .. code-block:: text
+
+        J134233_24+8.ps
+        J171116_24+5.8.ps
+        J194353_24+3.6.ps
+        J185047_24+8.ps
+        J184222_24+radio.ps
+        GAL026.47+00.02_24+radio.ps
+        fig3.ps
+        J151641_4band.ps
 
 
 ----
 
 
-3. The same file includes two tabular.
+5. The same file includes two tabular.
 
-.. code-block:: tex
+   .. code-block:: tex
 
-    \begin{tabular}{lccccccccccccc}
-    \hline
-    Name & RA (J2000) & Dec. (J2000) & $B$ & $V$ & $R$ & $J$ & $H$ & $K_s$ & Type & Size ($''\times ''$) & Comments \\
-    \hline
-    MN\qq & 11 44 18.10 & -62 45 20.2 & 17.37 & 17.04 & 14.85 & 10.00 & 8.72 & 7.78 & E & 60$\times$70 & \\
-    MN\qq    & 12 00 58.82 & -63 12 59.9 & -- & 13.23 & -- & 13.29 & 12.65 & 12.53 & R,BL & 30 & \\
+       \begin{tabular}{lccccccccccccc}
+       \hline
+       Name & RA (J2000) & Dec. (J2000) & $B$ & $V$ & $R$ & $J$ & $H$ & $K_s$ & Type & Size ($''\times ''$) & Comments \\
+       \hline
+       MN\qq & 11 44 18.10 & -62 45 20.2 & 17.37 & 17.04 & 14.85 & 10.00 & 8.72 & 7.78 & E & 60$\times$70 & \\
+       MN\qq    & 12 00 58.82 & -63 12 59.9 & -- & 13.23 & -- & 13.29 & 12.65 & 12.53 & R,BL & 30 & \\
 
-    ....
+       ....
 
-    MN\qq & 17 43 59.85 & -30 28 38.5 & 17.04 & 13.75 & 11.93 & 5.74 & 4.78 & 4.07 & E & 110$\times$140 & 2MASS J17435981-3028384 (M2)$^{(9)}$\\
-    \hline
-    \end{tabular}
+       MN\qq & 17 43 59.85 & -30 28 38.5 & 17.04 & 13.75 & 11.93 & 5.74 & 4.78 & 4.07 & E & 110$\times$140 & 2MASS J17435981-3028384 (M2)$^{(9)}$\\
+       \hline
+       \end{tabular}
 
-Write a python program that creates a new file called "radec.txt"
-which contains RA and Dec. Values extracted from the two tables.  The
-unit of RA and Dec. values in the new file ("radec.txt") needs to be a
-degree.
+   Write a python program that creates a new file called "radec.txt"
+   which contains RA and Dec. Values extracted from the two tables.  The
+   unit of RA and Dec. values in the new file ("radec.txt") needs to be a
+   degree.
 
-- "radec.txt"  example
+   - "radec.txt"  example
 
-.. code-block:: tex
+      .. code-block:: tex
 
-      176.07542      -62.755611
-      180.24508      -63.216639
+            176.07542      -62.755611
+            180.24508      -63.216639
 
-      ...
+            ...
 
-      308.81679       42.337889
+            308.81679       42.337889
 
+
+----
+
+Homework materials
+------------------
+
+Download the `homework material <05_hw.tgz>`_ which includes
+
+ - test_mergesort.py (for #1)
+
+ - test_mergesort_generator.py (for #2)
+
+ - test_ds9_region.py (for #3)
+
+ - Gvaramadze2010.tex (for #4 and #5)
 

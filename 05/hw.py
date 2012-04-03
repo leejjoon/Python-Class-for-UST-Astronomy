@@ -5,5 +5,5 @@ for l in open("Gvaramadze2010.tex"):
     l = l.split("%")[0]
     m = p.search(l)
     if m:
-        print m.groups()
+        print m.groups()[1]
 

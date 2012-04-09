@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://html5-demos.appspot.com/static/html5storage/index.html#slide68 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title class="slidetitle">None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="../aux/theme_jj2/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../aux/theme_jj2/css/screen.css">
+    
+    
+    <!-- /Styles -->
+
+   <link rel="stylesheet" href="../aux/jj_common2.css" type="text/css">
+   <link rel="stylesheet" media="screen" href="../aux/jj_screen.css" type="text/css">
+   <link rel="stylesheet" media="print" href="../aux/jj_print.css" type="text/css">
+
+    <script>
+      window.URL = window.URL ? window.URL :
+                   window.webkitURL ? window.webkitURL : window;
+      window.BlobBuilder = window.WebKitBlobBuilder || window.MozBlobBuilder || window.BlobBuilder;
+      window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+    </script>
+
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  </head>
+
+  <style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+  <body class="composited">
+    <div class="presentation">
+      <div class="presentationCounter">0</div>
+      <div class="slides" style="display: block; ">
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique1">
+            
+            
+            <section><div class="centeredtitle container">
+Errors and Exceptions</div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique2">
+            
+            <header><h1>Syntax Errors</h1></header>
+            
+            
+            <section><p>Wrong usage of Python grammar.</p>
+<p>Code fails to be compiled, i.e., code is never run.</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;&lt;ipython-input-9-2ee64b8087e3&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+           <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique3">
+            
+            <header><h1>Runtime Errors</h1></header>
+            
+            
+            <section><p>Unlike a syntax error, a runtime error is a valid python code, though
+it does not behave as intended.</p>
+<p>Code is compiled okay, but an error is encountered while the code is
+being executed.</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span>                         <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">jjlee</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">SLIDES</span><span class="o">/</span><span class="mi">2012</span><span class="n">_python_class</span><span class="o">/</span><span class="mo">06</span><span class="o">/&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mo">05</span><span class="n">c9758a9c21</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">integer</span> <span class="n">division</span> <span class="ow">or</span> <span class="n">modulo</span> <span class="n">by</span> <span class="n">zero</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">jjlee</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">SLIDES</span><span class="o">/</span><span class="mi">2012</span><span class="n">_python_class</span><span class="o">/</span><span class="mo">06</span><span class="o">/&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">f5a72734a4a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="nb">sum</span> <span class="n">expected</span> <span class="n">at</span> <span class="n">most</span> <span class="mi">2</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">got</span> <span class="mi">3</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="s">&#39;2&#39;</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">jjlee</span><span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">SLIDES</span><span class="o">/</span><span class="mi">2012</span><span class="n">_python_class</span><span class="o">/</span><span class="mo">06</span><span class="o">/&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">4</span><span class="n">c6dd5170204</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="s">&#39;2&#39;</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">concatenate</span> <span class="s">&#39;str&#39;</span> <span class="ow">and</span> <span class="s">&#39;int&#39;</span> <span class="n">objects</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique4">
+            
+            <header><h1>Syntax Error vs. Runtime Error</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first">Syntax Error</p>
+<blockquote>
+<div class="highlight"><pre>python -c <span class="s2">&quot;print &#39;I am running&#39;; a = (b = 3)&quot;</span>
+</pre></div>
+<div class="highlight"><pre><span class="n">File</span> <span class="s">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+  <span class="k">print</span> <span class="s">&#39;I am running&#39;</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+                               <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">Runtime Error</p>
+<blockquote>
+<div class="highlight"><pre>python -c <span class="s2">&quot;print &#39;I am running&#39;; a = (b = 3)&quot;</span>
+</pre></div>
+<div class="highlight"><pre><span class="n">I</span> <span class="n">am</span> <span class="n">running</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">integer</span> <span class="n">division</span> <span class="ow">or</span> <span class="n">modulo</span> <span class="n">by</span> <span class="n">zero</span>
+</pre></div>
+</blockquote>
+</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique5">
+            
+            <header><h1>Exceptions</h1></header>
+            
+            
+            <section><p>In Python, errors detected during execution are called
+<span class="red">exceptions</span> and are not <span class="red">unconditionally fatal</span>.</p>
+
+<h2>Built-in exceptions</h2>
+<p>ZeroDivisionError, NameError, TypeError, IndexError, KeyError, etc</p>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/library/exceptions.html#bltin-exceptions">http://docs.python.org/library/exceptions.html#bltin-exceptions</a></li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique6">
+            
+            <header><h1>Handling Exceptions: <span class="red">try</span> statement</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>Exceptions can be okay sometimes, i.e., can be handled by the program.</li>
+<li>e.g., for <strong>ZeroDivisionError</strong>, assign <strong>None</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">a</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="bp">None</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique7">
+            
+            
+            <section><p>According to the language reference</p>
+<div class="yellow-bg container">
+<div class="highlight"><pre><span class="n">try_stmt</span>  <span class="p">::</span><span class="o">=</span>  <span class="n">try1_stmt</span> <span class="o">|</span> <span class="n">try2_stmt</span>
+<span class="n">try1_stmt</span> <span class="p">::</span><span class="o">=</span>  <span class="s">&quot;try&quot;</span> <span class="s">&quot;:&quot;</span> <span class="n">suite</span>
+               <span class="p">(</span><span class="s">&quot;except&quot;</span> <span class="p">[</span><span class="n">expression</span> <span class="p">[(</span><span class="s">&quot;as&quot;</span> <span class="o">|</span> <span class="s">&quot;,&quot;</span><span class="p">)</span> <span class="n">target</span><span class="p">]]</span> <span class="s">&quot;:&quot;</span> <span class="n">suite</span><span class="p">)</span><span class="o">+</span>
+               <span class="p">[</span><span class="s">&quot;else&quot;</span> <span class="s">&quot;:&quot;</span> <span class="n">suite</span><span class="p">]</span>
+               <span class="p">[</span><span class="s">&quot;finally&quot;</span> <span class="s">&quot;:&quot;</span> <span class="n">suite</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The except clause(s) specify <strong>one or more</strong> <span class="red">exception handlers</span>.</li>
+<li>When no exception occurs in the try clause, no exception handler is
+executed. An <span class="red">else</span>-suite is executed if exists.</li>
+<li>When an exception occurs in the try suite, a search for an exception
+handler is started. This search inspects the <span class="red">except</span> clauses
+in turn until one is found that matches the exception.</li>
+<li>If <span class="red">finally</span> is present, it is executed after any except and else
+clauses.</li>
+</ul>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">i</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;finally with </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">i</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique8">
+            
+            <header><h1>Exception handling in nested function calls</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>If no except clause matches the exception, <span class="red">the search for an
+exception handler continues in the surrounding code and on the
+invocation stack</span>.</li>
+</ul>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">b</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">a</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">c</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">b</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;I&#39;m here!&quot;</span>
+
+<span class="n">c</span><span class="p">()</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique9">
+            
+            <header><h1>Raising an exception by yourself</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;r must be a non-negative number&quot;</span><span class="p">)</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique10">
+            
+            <header><h1>Predefined Clean-up Actions</h1></header>
+            
+            
+            <section><p>Often, you want <span class="red">predefined clean-up</span> actions to be setup for
+certain things.</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;myfile.txt&quot;</span><span class="p">):</span>
+    <span class="n">do_somthing</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+<p>If an exception is raised, one must make sure that the file is
+properly closed.</p>
+<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;myfile.txt&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+   <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+       <span class="n">do_somthing</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+   <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique11">
+            
+            <header><h1>with Statement</h1></header>
+            
+            
+            <section><p>In general,</p>
+<div class="highlight"><pre><span class="n">set_things_up</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">use_things</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">tear_things_down</span><span class="p">()</span>
+</pre></div>
+<p>With <span class="red">with</span> statement,</p>
+<div class="highlight"><pre><span class="k">with</span> <span class="n">things</span><span class="p">:</span>
+    <span class="n">use_things</span><span class="p">()</span>
+</pre></div>
+<p>where</p>
+<blockquote>
+<ul class="simple">
+<li><span class="red">things.__enter__</span> does set_things_up()</li>
+<li><span class="red">things.__exit__</span> does tear_things_down()</li>
+</ul>
+</blockquote></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique12">
+            
+            
+            <section><p>For example, instead of this</p>
+<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;myfile.txt&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+   <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+       <span class="n">do_somthing</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+   <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+<p>you may do</p>
+<div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;myfile.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+       <span class="n">do_somthing</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+<p>Python reference:</p>
+<div class="yellow-bg container">
+<div class="highlight"><pre><span class="n">with_stmt</span> <span class="p">::</span><span class="o">=</span> <span class="s">&quot;with&quot;</span> <span class="n">expression</span> <span class="p">[</span><span class="s">&quot;as&quot;</span> <span class="n">target</span><span class="p">]</span> <span class="s">&quot;:&quot;</span> <span class="n">suite</span>
+</pre></div>
+</div>
+<p><strong>expression</strong> must be an context manager (an object with __enter__
+and __exit__ method).</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique13">
+            
+            
+            <section><div class="centeredtitle container">
+Functional Programing</div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique14">
+            
+            <header><h1>Functional Programing</h1></header>
+            
+            
+            <section><p>Functional programming decomposes a problem into a set of functions.</p>
+<ul class="simple">
+<li>Ideally, <span class="red">functions only take inputs and produce outputs</span>, and
+have <span class="red">no internal state</span> that affects the output produced for a
+given input.</li>
+<li>Input flows through a set of functions. Each function operates on
+its input and produces some output.</li>
+<li>Functional style discourages functions with side effects that modify
+internal state or make other changes that aren’t visible in the
+function’s return value.</li>
+</ul>
+<img alt="../06/FunctionalProgram.png" src="../06/FunctionalProgram.png" style="height: 250px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique15">
+            
+            <header><h1>Why Functional programming?</h1></header>
+            
+            
+            <section><p><a class="reference external" href="http://docs.python.org/howto/functional.html">http://docs.python.org/howto/functional.html</a></p>
+<ul class="simple">
+<li>Formal provability.</li>
+<li>Modularity.</li>
+<li>Composability.</li>
+<li>Ease of debugging and testing.</li>
+</ul>
+<p>Often, functional programming is best fit for applying <span class="red">functions</span>
+to <span class="red">a stream of data</span>.</p>
+<ul class="simple">
+<li><strong>iterable objects</strong></li>
+<li>functions</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique16">
+            
+            <header><h1>map, filter &amp; reduce</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;sentence&#39;</span><span class="p">,</span> <span class="s">&#39;fragment&#39;</span><span class="p">])</span>
+<span class="p">[</span><span class="s">&#39;SENTENCE&#39;</span><span class="p">,</span> <span class="s">&#39;FRAGMENT&#39;</span><span class="p">]</span>
+</pre></div>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">streams</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">streams</span><span class="p">):</span>
+      <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">i</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+          <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique17">
+            
+            <header><h1>Small Functions</h1></header>
+            
+            
+            <section><p>When writing functional-style programs, you’ll often need little functions.</p>
+<p>To write small functions,</p>
+<ul class="simple">
+<li>You may use usual <span class="red">def</span> statements</li>
+<li>or, use the <span class="red">lambda</span> expression</li>
+</ul>
+<p>You may consider <span class="red">lambda</span> as an anonymous function (with limited
+functionality).</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">f_with_def</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
+
+<span class="n">f_with_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
+
+<span class="n">f_with_lambda</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c"># 5</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique18">
+            
+            <header><h1>lambda: Handy but Limited</h1></header>
+            
+            
+            <section><div class="yellow-bg container">
+<div class="highlight"><pre><span class="n">lambda_form</span>     <span class="p">::</span><span class="o">=</span>  <span class="s">&quot;lambda&quot;</span> <span class="p">[</span><span class="n">parameter_list</span><span class="p">]:</span> <span class="n">expression</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>lambda can be handy because it is an expression!</li>
+</ul>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+<ul class="simple">
+<li>lambda can be limited because it only contains an expression!</li>
+<li>You cannot use statements inside the lambda expression.</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique19">
+            
+            <header><h1>Operator module</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>lambda is handy for creating a small function.</li>
+<li>but also can be slow.</li>
+<li>for python operators (+, -, *, etc.), the <a class="reference external" href="http://docs.python.org/library/operator.html">operator module</a> provides these as
+functions.</li>
+</ul>
+<div class="highlight"><pre><span class="c"># b = map(lambda x, y: x+y, [1, 2, 3], [3, 4, 5])</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/library/operator.html#operator.attrgetter">attrgetter</a>, <a class="reference external" href="http://docs.python.org/library/operator.html#operator.itemgetter">itemgetter</a>, <a class="reference external" href="http://docs.python.org/library/operator.html#operator.methodcaller">methodcaller</a></li>
+</ul>
+<div class="highlight"><pre><span class="n">s</span><span class="o">=</span><span class="s">&quot;123 &quot;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">methodcaller</span><span class="p">(</span><span class="s">&quot;split&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="c"># s.split()</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique20">
+            
+            <header><h1>itertools &amp; functools</h1></header>
+            
+            
+            <section><ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/library/itertools.html">http://docs.python.org/library/itertools.html</a></li>
+<li><a class="reference external" href="http://docs.python.org/library/functools.html">http://docs.python.org/library/functools.html</a></li>
+</ul>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">imap</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">imap</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&quot;^source(\d\s+)&quot;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span> <span class="s">r&quot;source0\1&quot;</span><span class="p">),</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">))</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique21">
+            
+            <header><h1>Example</h1></header>
+            
+            
+            <section><div class="highlight"><pre># name ra dec
+source1  32.4 14.3
+source2  45.3 -3.5
+source32 81.1 5.3
+</pre></div>
+<div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">):</span>
+    <span class="n">l0</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">l0</span><span class="p">:</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">l0</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">ra_</span><span class="p">,</span> <span class="n">dec_</span> <span class="o">=</span> <span class="n">l1</span>
+        <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ra_</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">dec_</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dec</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">))</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique22">
+            
+            
+            <section><ul class="simple">
+<li>direct application of map and filter</li>
+</ul>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">methodcaller</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">):</span> <span class="n">dec</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l0</span><span class="p">:</span> <span class="p">(</span><span class="n">l0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">l0</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">l0</span><span class="p">[</span><span class="mi">2</span><span class="p">])),</span>
+                <span class="nb">map</span><span class="p">(</span><span class="n">methodcaller</span><span class="p">(</span><span class="s">&quot;split&quot;</span><span class="p">),</span>
+                    <span class="nb">filter</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                           <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                               <span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">))))))</span>
+</pre></div>
+<ul class="simple">
+<li>more verbose way.</li>
+</ul>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">methodcaller</span>
+<span class="n">takeout_comments</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">stream</span><span class="p">:</span> \
+                   <span class="nb">filter</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                                    <span class="n">stream</span><span class="p">))</span>
+
+<span class="n">split_items</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">stream</span><span class="p">:</span> <span class="nb">map</span><span class="p">(</span><span class="n">methodcaller</span><span class="p">(</span><span class="s">&quot;split&quot;</span><span class="p">),</span> <span class="n">stream</span><span class="p">)</span>
+
+<span class="n">ra_dec_to_float</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">stream</span><span class="p">:</span> \
+                  <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l0</span><span class="p">:</span> <span class="p">(</span><span class="n">l0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">l0</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">l0</span><span class="p">[</span><span class="mi">2</span><span class="p">])),</span>
+                      <span class="n">stream</span><span class="p">)</span>
+
+<span class="n">filter_positive_dec</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">stream</span><span class="p">:</span> \
+                      <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">):</span> <span class="n">dec</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+                             <span class="n">stream</span><span class="p">)</span>
+
+<span class="n">s3</span> <span class="o">=</span> <span class="n">filter_positive_dec</span><span class="p">(</span> \
+       <span class="n">ra_dec_to_float</span><span class="p">(</span> \
+         <span class="n">split_items</span><span class="p">(</span> \
+           <span class="n">takeout_comments</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">)))))</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique23">
+            
+            <header><h1>List Comprehension</h1></header>
+            
+            
+            <section><p>List comprehensions provide a simple way to create lists from other
+iterables.</p>
+<ul class="simple">
+<li>The resulting list definition tends to be <span class="red">clearer</span> than lists
+built using map, filter, etc.</li>
+<li>Each list comprehension consists of<ul>
+<li>an expression followed by a <span class="red">for</span> clause</li>
+<li>then zero or more <span class="red">for</span> or <span class="red">if</span> clauses.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+   <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+</pre></div>
+<p>becomes</p>
+<div class="highlight"><pre><span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique24">
+            
+            
+            <section><p>For example,</p>
+<div class="highlight"><pre><span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+<ul class="simple">
+<li>If the expression would evaluate to a tuple, it must be
+parenthesized.</li>
+</ul>
+<p>Read <a class="reference external" href="http://docs.python.org/tutorial/datastructures.html#list-comprehensions">http://docs.python.org/tutorial/datastructures.html#list-comprehensions</a>.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique25">
+            
+            
+            <section><ul class="simple">
+<li><strong>for</strong> statements</li>
+</ul>
+<div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">):</span>
+    <span class="n">l0</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">l0</span><span class="p">:</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">l0</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+</pre></div>
+<ul class="simple">
+<li><strong>map &amp; filter</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">result0</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                     <span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">)))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">methodcaller</span><span class="p">(</span><span class="s">&quot;split&quot;</span><span class="p">),</span> <span class="n">result0</span><span class="p">)</span>
+</pre></div>
+<ul class="simple">
+<li><strong>list comprehension</strong></li>
+</ul>
+<div class="highlight"><pre><span class="n">result0</span> <span class="o">=</span> <span class="p">[</span><span class="n">l1</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">l1</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">)]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">l2</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">l2</span> <span class="ow">in</span> <span class="n">result0</span> <span class="k">if</span> <span class="n">l2</span><span class="p">]</span>
+</pre></div>
+<p>Note that using list comprehensions often results in more readable
+code.  Since only functions can be used with map and filter, things
+become a bit ugly.  An arbitrary expression can be used in list
+comprehensions.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique26">
+            
+            <header><h1>Quick-sort w/ List Comprehension</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>simple but inefficient implementation</li>
+</ul>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">qsort</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">L</span> <span class="o">==</span> <span class="p">[]:</span> <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">left</span> <span class="o">=</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">])</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">pivot</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">+</span> <span class="n">right</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique27">
+            
+            <header><h1>Set comprehension and Dict. comprehension</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;</span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]}</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;</span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]}</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique28">
+            
+            <header><h1>generator expression</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>A generator expression is a compact generator notation in parentheses.</li>
+<li>Its syntax is the same as for list comprehensions, except that it is
+enclosed in parentheses.</li>
+<li>A generator expression yields a new generator object.</li>
+<li>The parentheses can be omitted on calls with only one argument.</li>
+</ul>
+<div class="highlight"><pre><span class="n">mygen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">mysum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">mygen</span><span class="p">)</span>
+</pre></div>
+<p>or</p>
+<div class="highlight"><pre><span class="n">mysum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique29">
+            
+            
+            <section><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">):</span>
+    <span class="n">l0</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">l0</span><span class="p">:</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">l0</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">ra_</span><span class="p">,</span> <span class="n">dec_</span> <span class="o">=</span> <span class="n">l1</span>
+        <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ra_</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">dec_</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dec</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">))</span>
+</pre></div>
+<div class="highlight"><pre><span class="n">takeout_comments</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">stream</span><span class="p">:</span> \
+                   <span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">)</span>
+<span class="n">filter_empty_lines</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">stream</span><span class="p">:</span> \
+                     <span class="p">(</span><span class="n">l0</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">l0</span> <span class="ow">in</span> <span class="n">stream</span> <span class="k">if</span> <span class="n">l0</span><span class="p">)</span>
+<span class="n">ra_dec_to_float</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">stream</span><span class="p">:</span> \
+                  <span class="p">((</span><span class="n">l1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">l1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">l1</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> <span class="k">for</span> <span class="n">l1</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">)</span>
+<span class="n">filter_neg_dec</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">stream</span><span class="p">:</span> \
+                  <span class="p">(</span><span class="n">l2</span> <span class="k">for</span> <span class="n">l2</span> <span class="ow">in</span> <span class="n">stream</span> <span class="k">if</span> <span class="n">l2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">s3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">filter_neg_dec</span><span class="p">(</span> \
+            <span class="n">ra_dec_to_float</span><span class="p">(</span> \
+              <span class="n">filter_empty_lines</span><span class="p">(</span> \
+                <span class="n">takeout_comments</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">))))))</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique30">
+            
+            <header><h1>Why use generator?</h1></header>
+            
+            
+            <section><p>A generator is an object with <span class="red">persistent state</span>, which can
+repeatedly enter and leave the same scope.</p>
+<ul class="simple">
+<li>In function, on the other hand, its state is destroyed when function
+returns.</li>
+</ul>
+<p>In generators, values are evaluated on demand (lazy evaluation)</p>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="o">*</span><span class="n">xx</span> <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="n">b</span><span class="p">]</span>
+</pre></div>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">xx</span> <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+<ul class="simple">
+<li>execution sequence</li>
+<li>memory consumption</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+
+      </div> <!-- slides -->
+    </div> <!-- presentation -->
+
+<!-- <script src="./mmm_files/js/slide-presentation.js"></script> -->
+
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="../aux/theme_jj2/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+
+</body></html>

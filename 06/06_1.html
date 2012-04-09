@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://html5-demos.appspot.com/static/html5storage/index.html#slide68 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title class="slidetitle">None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="../aux/theme_jj2/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../aux/theme_jj2/css/screen.css">
+    
+    
+    <!-- /Styles -->
+
+   <link rel="stylesheet" href="../aux/jj_common2.css" type="text/css">
+   <link rel="stylesheet" media="screen" href="../aux/jj_screen.css" type="text/css">
+   <link rel="stylesheet" media="print" href="../aux/jj_print.css" type="text/css">
+
+    <script>
+      window.URL = window.URL ? window.URL :
+                   window.webkitURL ? window.webkitURL : window;
+      window.BlobBuilder = window.WebKitBlobBuilder || window.MozBlobBuilder || window.BlobBuilder;
+      window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+    </script>
+
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  </head>
+
+  <style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+  <body class="composited">
+    <div class="presentation">
+      <div class="presentationCounter">0</div>
+      <div class="slides" style="display: block; ">
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique1">
+            
+            
+            <section><div class="centeredtitle container">
+Class and OOP</div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique2">
+            
+            <header><h1>Class?</h1></header>
+            
+            
+            <section><p>a simple example of the Complex class</p>
+<div class="leftside container">
+<div class="highlight"><pre><span class="n">c1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span>
+<span class="k">print</span> <span class="n">c1</span>
+<span class="k">print</span> <span class="n">c1</span><span class="o">.</span><span class="n">real</span> <span class="c"># 2</span>
+<span class="k">print</span> <span class="n">c1</span><span class="o">.</span><span class="n">imag</span> <span class="c"># 3</span>
+<span class="k">print</span> <span class="n">c1</span><span class="o">.</span><span class="n">conjugate</span> <span class="c"># &lt;built-in method conjugate of complex object ..</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span> <span class="c"># call the method (function) &quot;c1.conjugate&quot;</span>
+<span class="k">print</span> <span class="n">c2</span><span class="o">.</span><span class="n">imag</span>
+<span class="k">print</span> <span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="n">j</span> <span class="o">==</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+<ul class="simple">
+<li>Usually, a class has <span class="red">class attributes</span> which are shared among
+instances of a same class.</li>
+<li><span class="red">methods</span> are usually defined as <span class="red">class attributes</span>.</li>
+</ul>
+</div>
+<div class="rightside container">
+<img alt="../06/ComplexDataType.png" src="../06/ComplexDataType.png" style="height: 400px;" />
+</div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique3">
+            
+            <header><h1>Class definition</h1></header>
+            
+            
+            <section><p>In python, defining a class can be interpreted as defining a
+<span class="red">namespace</span> of certain <span class="red">class attributes</span>.</p>
+<p>A simple form of class definition looks like this:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="n">N</span><span class="o">&gt;</span>
+</pre></div>
+<p>statement-1 to -N is executed in order, and the name bindings are
+stored in the class name space.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique4">
+            
+            <header><h1>Module Namespace vs. Class Namespace</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first">some_module.py</p>
+<div class="highlight"><pre><span class="n">some_attribute</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;circle&quot;</span><span class="p">,</span> <span class="s">&quot;ellipse&quot;</span><span class="p">,</span> <span class="s">&quot;box&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&quot;test&quot;</span>
+</pre></div>
+<p>Usage</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">some_module</span>
+<span class="k">print</span> <span class="n">some_module</span><span class="o">.</span><span class="n">some_attribute</span>
+<span class="k">print</span> <span class="n">some_module</span><span class="o">.</span><span class="n">some_function</span><span class="p">()</span>
+</pre></div>
+</li>
+<li><p class="first">class definition</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">SomeClass</span><span class="p">:</span>
+
+    <span class="n">some_attribute</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;circle&quot;</span><span class="p">,</span> <span class="s">&quot;ellipse&quot;</span><span class="p">,</span> <span class="s">&quot;box&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s">&quot;test&quot;</span>
+</pre></div>
+<p>Usage</p>
+<div class="highlight"><pre><span class="k">print</span> <span class="n">SomeClass</span><span class="o">.</span><span class="n">some_attribute</span>
+<span class="k">print</span> <span class="n">SomeClass</span><span class="o">.</span><span class="n">some_function</span>
+<span class="k">print</span> <span class="n">SomeClass</span><span class="o">.</span><span class="n">some_function</span><span class="p">()</span> <span class="c"># raise an TypeError</span>
+</pre></div>
+</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique5">
+            
+            <header><h1>Functions in the Class definition are special</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>They are meant to be bound to an instance of the class, i.e.,
+only an instance of the class can call the method.</li>
+<li>They are not usual functions but instances of types.MethodType.</li>
+<li>The method need to have at least one argument, which will be the
+instance of the class. By convention, the first argument is named as
+<span class="red">self</span>.</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique6">
+            
+            
+            <section><div class="highlight"><pre><span class="k">class</span> <span class="nc">SomeClass2</span><span class="p">:</span>
+
+    <span class="n">some_attribute</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;circle&quot;</span><span class="p">,</span> <span class="s">&quot;ellipse&quot;</span><span class="p">,</span> <span class="s">&quot;box&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">print_some_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">some_attribute</span>
+
+    <span class="k">def</span> <span class="nf">set_instance_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instance_attribute</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">print_instance_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">instance_attribute</span>
+
+
+<span class="n">a_instance</span> <span class="o">=</span> <span class="n">SomeClass2</span><span class="p">()</span> <span class="c"># create an instance of SomeClass2</span>
+<span class="k">print</span> <span class="n">a_instance</span><span class="o">.</span><span class="n">some_attribute</span>
+<span class="n">SomeClass2</span><span class="o">.</span><span class="n">print_some_attribute</span><span class="p">(</span><span class="n">a_instance</span><span class="p">)</span>
+<span class="n">a_instance</span><span class="o">.</span><span class="n">print_some_attribute</span><span class="p">()</span>
+
+<span class="n">a_instance</span><span class="o">.</span><span class="n">print_instance_attribute</span><span class="p">()</span> <span class="c"># AttributeError</span>
+<span class="n">a_instance</span><span class="o">.</span><span class="n">set_instance_attribute</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+<span class="n">a_instance</span><span class="o">.</span><span class="n">print_instance_attribute</span><span class="p">()</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique7">
+            
+            <header><h1>Defining a Class</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>The statement inside the class suite only defines class attributes.</li>
+<li>Instance attributes are set/get via the <span class="red">self</span> argument.</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique8">
+            
+            <header><h1>Special Method Names</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first">A class can implement certain operations that are invoked by special
+syntax (such as arithmetic operations or subscripting and slicing)
+by defining methods with special names.</p>
+<p>See <a class="reference external" href="http://docs.python.org/reference/datamodel.html#special-method-names">http://docs.python.org/reference/datamodel.html#special-method-names</a></p>
+<ul class="simple">
+<li>__init__(self[, ...]): called when an instance is created</li>
+<li>object.__call__(self[, args...]): Called when the instance is
+&quot;called&quot; as a function.</li>
+<li>__getitem__(self, key), __setitem__(self, key, value) : used for indexing</li>
+<li>__iter__(self) : when an iterator is required.</li>
+<li>__add__(self, other), etc : to emulate numeric objects</li>
+<li>__enter__(self), __exit__(self, exc_type, exc_value, traceback) : with statement</li>
+</ul>
+</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique9">
+            
+            <header><h1>OOP</h1></header>
+            
+            
+            <section><p><a class="reference external" href="http://www.tonymarston.net/php-mysql/what-is-oop.html">http://www.tonymarston.net/php-mysql/what-is-oop.html</a></p>
+<ul class="simple">
+<li><span class="red">Encapsulation</span>: The act of placing data and the operations that
+perform on that data in the same class. The class then becomes the
+'capsule' or container for the data and operations.</li>
+<li><span class="red">Inheritance</span> The reuse of base classes (superclasses) to form
+derived classes (subclasses). Methods and properties defined in the
+superclass are automatically shared by any subclass.</li>
+<li><span class="red">Polymorphism</span> Same interface, different implementation. The
+ability to substitute one class for another. This means that
+different classes may contain the same method names, but the result
+which is returned by each method will be different as the code
+behind each method (the implementation) is different in each class.</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique10">
+            
+            <header><h1>Encapsulation</h1></header>
+            
+            
+            <section><p>An object (instance) has</p>
+<blockquote>
+<ul class="simple">
+<li>data: instance attributes</li>
+<li>operations: methods defined as class attributes</li>
+</ul>
+</blockquote></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique11">
+            
+            <header><h1>Inheritance</h1></header>
+            
+            
+            <section><p>Class attributes can be inherited. The syntax for a derived class
+definition looks like this</p>
+<div class="leftside container">
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">DerivedClassName</span><span class="p">(</span><span class="n">BaseClassName</span><span class="p">):</span>
+   <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span>
+   <span class="o">.</span>
+   <span class="o">&lt;</span><span class="n">statement</span><span class="o">-</span><span class="n">N</span><span class="o">&gt;</span>
+</pre></div>
+<p>For example,</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MyList</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        extend the list with iterable</span>
+<span class="sd">        by n times.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="nb">list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">MyList</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="rightside container">
+<img alt="../06/ClassInheritance.png" src="../06/ClassInheritance.png" style="width: 400px;" />
+</div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique12">
+            
+            <header><h1>Polymorphism</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="nf">qsort</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">L</span> <span class="o">==</span> <span class="p">[]:</span> <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">left</span> <span class="o">=</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">])</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">qsort</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">pivot</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">left</span> <span class="o">+</span> <span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">+</span> <span class="n">right</span>
+</pre></div>
+<p>The code work for any list of objects that defines &quot;&lt;&quot; and &quot;&gt;=&quot; operators.</p>
+<div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="s">&quot;python&quot;</span>
+<span class="k">print</span> <span class="n">qsort</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique13">
+            
+            <header><h1>Class-related builtin functions</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first"><a class="reference external" href="http://docs.python.org/library/functions.html#isinstance">isinstance</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://docs.python.org/library/functions.html#issubclass">issubclass</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://docs.python.org/library/functions.html#super">super</a></p>
+<blockquote>
+<p>In MyList, instead of list.extend(self, l), we may better use
+super(MyList, self).extend(l)</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MyList</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="nb">super</span><span class="p">(</span><span class="n">MyList</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique14">
+            
+            <header><h1>Property</h1></header>
+            
+            
+            <section><ul>
+<li><p class="first">property([fget[, fset[, fdel[, doc]]]])</p>
+<p>Return a property attribute.</p>
+<p>fget is a function for getting an attribute value, likewise fset is
+a function for setting, and fdel a function for del'ing, an
+attribute. Typical use is to define a managed attribute x:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="k">def</span> <span class="nf">setx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">delx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">getx</span><span class="p">,</span> <span class="n">setx</span><span class="p">,</span> <span class="n">delx</span><span class="p">,</span> <span class="s">&quot;I&#39;m the &#39;x&#39; property.&quot;</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">x</span> <span class="c"># c.getx() is called</span>
+<span class="n">c</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="c"># c.setx(5) is called</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique15">
+            
+            <header><h1>Static method and Class method</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyList2</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="n">instance_counts</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">kl</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyList2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">kl</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">increase_instance_counts</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">increase_instance_counts</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="n">cls</span><span class="o">.</span><span class="n">instance_counts</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">increase_instance_counts</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">increase_instance_counts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">print_instance_counts</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">cls</span><span class="o">.</span><span class="n">instance_counts</span>
+
+    <span class="n">print_instance_counts</span> <span class="o">=</span> <span class="nb">classmethod</span><span class="p">(</span><span class="n">print_instance_counts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">print_name</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&quot;MyList2&quot;</span>
+
+    <span class="n">print_name</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">print_name</span><span class="p">)</span>
+
+
+<span class="n">a1</span> <span class="o">=</span> <span class="n">MyList2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="n">MyList2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">MyList2</span><span class="o">.</span><span class="n">print_instance_counts</span><span class="p">()</span> <span class="c"># 2</span>
+<span class="n">MyList2</span><span class="o">.</span><span class="n">print_name</span><span class="p">()</span>
+</pre></div>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/library/functions.html#classmethod">classmethod</a> is
+bound to the class.</li>
+<li><a class="reference external" href="http://docs.python.org/library/functions.html#staticmethod">staticmethod</a> is
+not bound.</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique16">
+            
+            <header><h1>Decorators</h1></header>
+            
+            
+            <section><p>At the simplest, decorators are nothing but callables
+returning other callables, and the decorator syntax &#64;decorator is
+nothing but foo = bar(foo), where both bar and foo are callables.</p>
+<p><a class="reference external" href="http://agiliq.com/blog/2009/06/understanding-decorators/">http://agiliq.com/blog/2009/06/understanding-decorators/</a></p>
+<div class="highlight"><pre><span class="nd">@bar</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="n">foo</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</pre></div>
+<ul class="simple">
+<li>staticmethod and classmethod can be used as decorator</li>
+</ul>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MyList2</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">increase_instance_counts</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+        <span class="n">cls</span><span class="o">.</span><span class="n">instance_counts</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">print_name</span><span class="p">():</span>
+        <span class="k">print</span> <span class="s">&quot;MyList2&quot;</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique17">
+            
+            
+            <section><ul class="simple">
+<li><a class="reference external" href="http://docs.python.org/library/contextlib.html#contextlib.contextmanager">http://docs.python.org/library/contextlib.html#contextlib.contextmanager</a></li>
+</ul>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">my_file</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;file </span><span class="si">%s</span><span class="s"> is opened&quot;</span> <span class="o">%</span> <span class="n">name</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="n">f</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">print</span> <span class="s">&quot;file </span><span class="si">%s</span><span class="s"> is closed&quot;</span> <span class="o">%</span> <span class="n">name</span>
+
+<span class="k">with</span> <span class="n">my_file</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;123&quot;</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+
+      </div> <!-- slides -->
+    </div> <!-- presentation -->
+
+<!-- <script src="./mmm_files/js/slide-presentation.js"></script> -->
+
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="../aux/theme_jj2/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+
+</body></html>

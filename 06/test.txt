@@ -1,0 +1,4 @@
+# name ra dec
+source1  32.4 14.3
+source2  45.3 -3.5
+source32 81.1 5.3

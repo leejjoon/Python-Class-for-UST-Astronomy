@@ -1,0 +1,427 @@
+.. include:: ../aux/default_roles.rst
+
+.. container:: centeredtitle
+
+   Class and OOP
+
+----
+
+Class?
+------
+
+a simple example of the Complex class
+
+.. container:: leftside
+
+ .. code-block:: python
+
+    c1 = 2 + 3j
+    print c1
+    print c1.real # 2
+    print c1.imag # 3
+    print c1.conjugate # <built-in method conjugate of complex object ..
+    c2 = c1.conjugate() # call the method (function) "c1.conjugate"
+    print c2.imag
+    print 2+3j == complex(2, 3)
+
+ - Usually, a class has :red:`class attributes` which are shared among
+   instances of a same class.
+
+ - :red:`methods` are usually defined as :red:`class attributes`.
+
+
+.. container:: rightside
+
+    .. image:: ComplexDataType.png
+        :height: 400
+
+
+----
+
+Class definition
+----------------
+
+In python, defining a class can be interpreted as defining a
+:red:`namespace` of certain :red:`class attributes`.
+
+A simple form of class definition looks like this:
+
+.. code-block:: python
+
+    class ClassName:
+        <statement-1>
+        .
+        .
+        .
+        <statement-N>
+
+statement\-1 to \-N is executed in order, and the name bindings are
+stored in the class name space.
+
+----
+
+Module Namespace vs. Class Namespace
+------------------------------------
+
+- some_module.py
+
+  .. code-block:: python
+
+    some_attribute = ["circle", "ellipse", "box"]
+
+    def some_function():
+        return "test"
+
+  Usage
+
+  .. code-block:: python
+
+    import some_module
+    print some_module.some_attribute
+    print some_module.some_function()
+
+- class definition
+
+  .. code-block:: python
+
+    class SomeClass:
+
+        some_attribute = ["circle", "ellipse", "box"]
+
+        def some_function():
+            return "test"
+
+  Usage
+
+  .. code-block:: python
+
+    print SomeClass.some_attribute
+    print SomeClass.some_function
+    print SomeClass.some_function() # raise an TypeError
+
+----
+
+Functions in the Class definition are special
+---------------------------------------------
+
+- They are meant to be bound to an instance of the class, i.e.,
+  only an instance of the class can call the method.
+
+- They are not usual functions but instances of types.MethodType.
+
+- The method need to have at least one argument, which will be the
+  instance of the class. By convention, the first argument is named as
+  :red:`self`.
+
+----
+
+.. code-block:: python
+
+    class SomeClass2:
+
+        some_attribute = ["circle", "ellipse", "box"]
+
+        def print_some_attribute(self):
+            print self.some_attribute
+
+        def set_instance_attribute(self, value):
+            self.instance_attribute = value
+
+        def print_instance_attribute(self):
+            print self.instance_attribute
+
+
+    a_instance = SomeClass2() # create an instance of SomeClass2
+    print a_instance.some_attribute
+    SomeClass2.print_some_attribute(a_instance)
+    a_instance.print_some_attribute()
+
+    a_instance.print_instance_attribute() # AttributeError
+    a_instance.set_instance_attribute("test")
+    a_instance.print_instance_attribute()
+
+----
+
+Defining a Class
+----------------
+
+- The statement inside the class suite only defines class attributes.
+
+- Instance attributes are set/get via the :red:`self` argument.
+
+----
+
+Special Method Names
+--------------------
+
+- A class can implement certain operations that are invoked by special
+  syntax (such as arithmetic operations or subscripting and slicing)
+  by defining methods with special names.
+
+  See http://docs.python.org/reference/datamodel.html#special-method-names
+
+  - __init__(self[, ...]): called when an instance is created
+
+  - object.__call__(self[, args...]): Called when the instance is
+    "called" as a function.
+
+  - __getitem__(self, key), __setitem__(self, key, value) : used for indexing
+
+  - __iter__(self) : when an iterator is required.
+
+  - __add__(self, other), etc : to emulate numeric objects
+
+  - __enter__(self), __exit__(self, exc_type, exc_value, traceback) : with statement
+
+----
+
+
+OOP
+---
+
+http://www.tonymarston.net/php-mysql/what-is-oop.html
+
+- :red:`Encapsulation`: The act of placing data and the operations that
+  perform on that data in the same class. The class then becomes the
+  'capsule' or container for the data and operations.
+
+- :red:`Inheritance` The reuse of base classes (superclasses) to form
+  derived classes (subclasses). Methods and properties defined in the
+  superclass are automatically shared by any subclass.
+
+- :red:`Polymorphism` Same interface, different implementation. The
+  ability to substitute one class for another. This means that
+  different classes may contain the same method names, but the result
+  which is returned by each method will be different as the code
+  behind each method (the implementation) is different in each class.
+
+----
+
+Encapsulation
+-------------
+
+An object (instance) has
+
+  - data: instance attributes
+
+  - operations: methods defined as class attributes
+
+
+----
+
+Inheritance
+-----------
+
+
+Class attributes can be inherited. The syntax for a derived class
+definition looks like this
+
+.. container:: leftside
+
+  .. code-block:: python
+
+    class DerivedClassName(BaseClassName):
+       <statement-1>
+       .
+       <statement-N>
+
+  For example,
+
+  .. code-block:: python
+
+    class MyList(list):
+        def extend(self, iterable, n=1):
+            """
+            extend the list with iterable
+            by n times.
+            """
+            l = list(iterable)
+            for i in range(n):
+                list.extend(self, l)
+
+    a = MyList([1, 2, 3])
+    a.append(4)
+    a.extend([5, 6], n=3)
+
+.. container:: rightside
+
+   .. image:: ClassInheritance.png
+      :width: 400
+
+----
+
+Polymorphism
+------------
+
+.. code-block:: python
+
+    def qsort(L):
+        if L == []: return []
+
+        pivot = L[0]
+
+        left = qsort([x for x in L[1:] if x < pivot])
+        right = qsort([x for x in L[1:] if x >= pivot])
+
+        return left + [pivot] + right
+
+The code work for any list of objects that defines "<" and ">=" operators.
+
+.. code-block:: python
+
+   b = "python"
+   print qsort(b)
+
+----
+
+Class-related builtin functions
+-------------------------------
+
+- `isinstance <http://docs.python.org/library/functions.html#isinstance>`_
+
+- `issubclass <http://docs.python.org/library/functions.html#issubclass>`_
+
+- `super <http://docs.python.org/library/functions.html#super>`_
+
+   In MyList, instead of list.extend(self, l), we may better use
+   super(MyList, self).extend(l)
+
+   .. code-block:: python
+
+      class MyList(list):
+          def extend(self, iterable, n=1):
+              l = list(iterable)
+              for i in range(n):
+                  super(MyList, self).extend(l)
+
+----
+
+
+Property
+--------
+
+- property([fget[, fset[, fdel[, doc]]]])
+
+  Return a property attribute.
+
+  fget is a function for getting an attribute value, likewise fset is
+  a function for setting, and fdel a function for del'ing, an
+  attribute. Typical use is to define a managed attribute x:
+
+.. code-block:: python
+
+    class C(object):
+        def __init__(self):
+            self._x = None
+
+        def getx(self):
+            return self._x
+        def setx(self, value):
+            self._x = value
+        def delx(self):
+            del self._x
+        x = property(getx, setx, delx, "I'm the 'x' property.")
+
+    c = C()
+    print c.x # c.getx() is called
+    c.x = 5 # c.setx(5) is called
+
+----
+
+Static method and Class method
+------------------------------
+
+.. code-block:: python
+
+    class MyList2(list):
+        instance_counts = 0
+
+        def __init__(self, *kl):
+            super(MyList2, self).__init__(*kl)
+            self.increase_instance_counts()
+
+        def increase_instance_counts(cls):
+            cls.instance_counts += 1
+
+        increase_instance_counts = classmethod(increase_instance_counts)
+
+        def print_instance_counts(cls):
+            print cls.instance_counts
+
+        print_instance_counts = classmethod(print_instance_counts)
+
+        def print_name():
+            print "MyList2"
+
+        print_name = staticmethod(print_name)
+
+
+    a1 = MyList2([1, 2, 3])
+    a2 = MyList2([1, 2, 3])
+    MyList2.print_instance_counts() # 2
+    MyList2.print_name()
+
+- `classmethod
+  <http://docs.python.org/library/functions.html#classmethod>`_ is
+  bound to the class.
+
+- `staticmethod
+  <http://docs.python.org/library/functions.html#staticmethod>`_ is
+  not bound.
+
+----
+
+Decorators
+----------
+
+At the simplest, decorators are nothing but callables
+returning other callables, and the decorator syntax @decorator is
+nothing but foo = bar(foo), where both bar and foo are callables.
+
+http://agiliq.com/blog/2009/06/understanding-decorators/
+
+.. code-block:: python
+
+   @bar
+   def foo():
+       pass
+
+.. code-block:: python
+
+   def foo():
+       pass
+
+   foo = bar(foo)
+
+- staticmethod and classmethod can be used as decorator
+
+.. code-block:: python
+
+    class MyList2(list):
+        @classmethod
+        def increase_instance_counts(cls):
+            cls.instance_counts += 1
+
+        @staticmethod
+        def print_name():
+            print "MyList2"
+
+----
+
+- http://docs.python.org/library/contextlib.html#contextlib.contextmanager
+
+.. code-block:: python
+
+    from contextlib import contextmanager
+
+    @contextmanager
+    def my_file(name):
+        print "file %s is opened" % name
+        f = open(name)
+        yield f
+        f.close()
+        print "file %s is closed" % name
+
+    with my_file("test.txt") as f:
+        print "123"
+

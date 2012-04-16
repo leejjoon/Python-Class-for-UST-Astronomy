@@ -140,6 +140,17 @@ Functions in the Class definition are special
     a_instance.set_instance_attribute("test")
     a_instance.print_instance_attribute()
 
+An instance of certain class is created by calling the class (with
+optional arguments if required).
+
+When a user try to access an attribute of an :red:`object`, the attribute is
+
+ - first searched for within the object itself
+
+ - then the namespace of its class.
+
+ - If fails, raise an AttributeError exception.
+
 ----
 
 Defining a Class
@@ -175,6 +186,34 @@ Special Method Names
 
 ----
 
+Define your own iterator
+------------------------
+
+http://docs.python.org/library/stdtypes.html#iterator-types
+
+You need to define **__iter__** and **next** method. The **next**
+method must raise a **StopIteration** exception when there there is no
+more item to return.
+
+.. code-block:: python
+
+    class Reverse:
+        """Iterator for looping over a sequence backwards."""
+        def __init__(self, data):
+            self.data = data
+            self.index = len(data)
+        def __iter__(self):
+            return self
+        def next(self):
+            if self.index == 0:
+                raise StopIteration
+            self.index = self.index - 1
+            return self.data[self.index]
+
+    a = [1, 2, 3, 4, 5]
+    print [i for i in Reverse(a)]
+
+----
 
 OOP
 ---
@@ -274,6 +313,27 @@ The code work for any list of objects that defines "<" and ">=" operators.
 
 ----
 
+Exceptions Are Classes Too
+--------------------------
+
+http://docs.python.org/tutorial/errors.html#user-defined-exceptions
+
+.. code-block:: python
+
+    class MyError(Exception):
+        def __init__(self, value):
+            self.value = value
+        def __str__(self):
+            return repr(self.value)
+
+    try:
+        raise MyError(2*2)
+    except MyError as e:
+        print 'My exception occurred, value:', e.value
+
+
+----
+
 Class-related builtin functions
 -------------------------------
 
@@ -368,6 +428,10 @@ Static method and Class method
 - `staticmethod
   <http://docs.python.org/library/functions.html#staticmethod>`_ is
   not bound.
+
+----
+
+Read http://docs.python.org/tutorial/classes.html
 
 ----
 

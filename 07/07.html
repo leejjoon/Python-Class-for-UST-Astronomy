@@ -84,7 +84,7 @@ instances of a same class.</li>
 </ul>
 </div>
 <div class="rightside container">
-<img alt="../06/ComplexDataType.png" src="../06/ComplexDataType.png" style="height: 400px;" />
+<img alt="../07/ComplexDataType.png" src="../07/ComplexDataType.png" style="height: 400px;" />
 </div></section>
             
 </div>
@@ -198,7 +198,17 @@ instance of the class. By convention, the first argument is named as
 <span class="n">a_instance</span><span class="o">.</span><span class="n">print_instance_attribute</span><span class="p">()</span> <span class="c"># AttributeError</span>
 <span class="n">a_instance</span><span class="o">.</span><span class="n">set_instance_attribute</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
 <span class="n">a_instance</span><span class="o">.</span><span class="n">print_instance_attribute</span><span class="p">()</span>
-</pre></div></section>
+</pre></div>
+<p>An instance of certain class is created by calling the class (with
+optional arguments if required).</p>
+<p>When a user try to access an attribute of an <span class="red">object</span>, the attribute is</p>
+<blockquote>
+<ul class="simple">
+<li>first searched for within the object itself</li>
+<li>then the namespace of its class.</li>
+<li>If fails, raise an AttributeError exception.</li>
+</ul>
+</blockquote></section>
             
 </div>
 
@@ -249,6 +259,37 @@ by defining methods with special names.</p>
 
 <div class="slide transitionSlide far-far-past" id="qUnique9">
             
+            <header><h1>Define your own iterator</h1></header>
+            
+            
+            <section><p><a class="reference external" href="http://docs.python.org/library/stdtypes.html#iterator-types">http://docs.python.org/library/stdtypes.html#iterator-types</a></p>
+<p>You need to define <strong>__iter__</strong> and <strong>next</strong> method. The <strong>next</strong>
+method must raise a <strong>StopIteration</strong> exception when there there is no
+more item to return.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Reverse</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Iterator for looping over a sequence backwards.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Reverse</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique10">
+            
             <header><h1>OOP</h1></header>
             
             
@@ -272,7 +313,7 @@ behind each method (the implementation) is different in each class.</li>
 
       
 
-<div class="slide transitionSlide far-far-past" id="qUnique10">
+<div class="slide transitionSlide far-far-past" id="qUnique11">
             
             <header><h1>Encapsulation</h1></header>
             
@@ -290,7 +331,7 @@ behind each method (the implementation) is different in each class.</li>
 
       
 
-<div class="slide transitionSlide far-far-past" id="qUnique11">
+<div class="slide transitionSlide far-far-past" id="qUnique12">
             
             <header><h1>Inheritance</h1></header>
             
@@ -320,7 +361,7 @@ definition looks like this</p>
 </pre></div>
 </div>
 <div class="rightside container">
-<img alt="../06/ClassInheritance.png" src="../06/ClassInheritance.png" style="width: 400px;" />
+<img alt="../07/ClassInheritance.png" src="../07/ClassInheritance.png" style="width: 400px;" />
 </div></section>
             
 </div>
@@ -328,7 +369,7 @@ definition looks like this</p>
 
       
 
-<div class="slide transitionSlide far-far-past" id="qUnique12">
+<div class="slide transitionSlide far-far-past" id="qUnique13">
             
             <header><h1>Polymorphism</h1></header>
             
@@ -353,7 +394,30 @@ definition looks like this</p>
 
       
 
-<div class="slide transitionSlide far-far-past" id="qUnique13">
+<div class="slide transitionSlide far-far-past" id="qUnique14">
+            
+            <header><h1>Exceptions Are Classes Too</h1></header>
+            
+            
+            <section><p><a class="reference external" href="http://docs.python.org/tutorial/errors.html#user-defined-exceptions">http://docs.python.org/tutorial/errors.html#user-defined-exceptions</a></p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">MyError</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">MyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;My exception occurred, value:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique15">
             
             <header><h1>Class-related builtin functions</h1></header>
             
@@ -382,7 +446,7 @@ super(MyList, self).extend(l)</p>
 
       
 
-<div class="slide transitionSlide far-far-past" id="qUnique14">
+<div class="slide transitionSlide far-far-past" id="qUnique16">
             
             <header><h1>Property</h1></header>
             
@@ -417,7 +481,7 @@ attribute. Typical use is to define a managed attribute x:</p>
 
       
 
-<div class="slide transitionSlide far-far-past" id="qUnique15">
+<div class="slide transitionSlide far-far-past" id="qUnique17">
             
             <header><h1>Static method and Class method</h1></header>
             
@@ -462,7 +526,17 @@ not bound.</li>
 
       
 
-<div class="slide transitionSlide far-far-past" id="qUnique16">
+<div class="slide transitionSlide far-far-past" id="qUnique18">
+            
+            
+            <section><p>Read <a class="reference external" href="http://docs.python.org/tutorial/classes.html">http://docs.python.org/tutorial/classes.html</a></p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique19">
             
             <header><h1>Decorators</h1></header>
             
@@ -498,7 +572,7 @@ nothing but foo = bar(foo), where both bar and foo are callables.</p>
 
       
 
-<div class="slide transitionSlide far-far-past" id="qUnique17">
+<div class="slide transitionSlide far-far-past" id="qUnique20">
             
             
             <section><ul class="simple">

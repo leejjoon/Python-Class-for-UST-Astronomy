@@ -318,6 +318,20 @@ Exceptions Are Classes Too
 
 http://docs.python.org/tutorial/errors.html#user-defined-exceptions
 
+.. code-block:: python
+
+    class MyError(Exception):
+        def __init__(self, value):
+            self.value = value
+        def __str__(self):
+            return repr(self.value)
+
+    try:
+        raise MyError(2*2)
+    except MyError as e:
+        print 'My exception occurred, value:', e.value
+
+
 ----
 
 Class-related builtin functions
@@ -418,7 +432,6 @@ Static method and Class method
 ----
 
 Read http://docs.python.org/tutorial/classes.html
--------------------------------------------------
 
 ----
 

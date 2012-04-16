@@ -59,6 +59,9 @@ Week 06
 
 - Lecture 06 : `Errors and Exceptions, Functional Programing <06/06.html>`_
 
-- Lecture 06-1 : `Class and OOP <06/06_1.html>`_
+Week 07
+-------
+
+- Lecture 07 : `Class and OOP <07/07.html>`_
 
 

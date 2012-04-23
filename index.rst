@@ -65,3 +65,9 @@ Week 07
 - Lecture 07 : `Class and OOP <07/07.html>`_
 
 
+Week 08
+-------
+
+- Lecture 08-1 : Numpy Basic tutorial
+
+  - `tutorial files <08/lect08_01.tgz>`_

@@ -70,4 +70,11 @@ Week 08
 
 - Lecture 08-1 : Numpy Basic tutorial
 
-  - `tutorial files <08/lect08_01.tgz>`_
+  - `Lec. 08 tutorial files <08/lect08_01.tgz>`_
+
+Week 09
+-------
+
+- Lecture 09 : Numpy record array and & Basic plotting tutorial
+
+  - `Lec. 09 tutorial files <lec09.tgz>`_

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://html5-demos.appspot.com/static/html5storage/index.html#slide68 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title class="slidetitle">None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="../aux/theme_jj2/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../aux/theme_jj2/css/screen.css">
+    
+    
+    <!-- /Styles -->
+
+   <link rel="stylesheet" href="../aux/jj_common2.css" type="text/css">
+   <link rel="stylesheet" media="screen" href="../aux/jj_screen.css" type="text/css">
+   <link rel="stylesheet" media="print" href="../aux/jj_print.css" type="text/css">
+
+    <script>
+      window.URL = window.URL ? window.URL :
+                   window.webkitURL ? window.webkitURL : window;
+      window.BlobBuilder = window.WebKitBlobBuilder || window.MozBlobBuilder || window.BlobBuilder;
+      window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+    </script>
+
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  </head>
+
+  <style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+  <body class="composited">
+    <div class="presentation">
+      <div class="presentationCounter">0</div>
+      <div class="slides" style="display: block; ">
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique1">
+            
+            
+            <section><div class="centeredtitle container">
+Matplotlib II</div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique2">
+            
+            <header><h1>What does draw() do?</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>create a renderer if not exists</li>
+<li>call Figure.draw(renderer)<ul>
+<li>call Axes.draw(renderer) for axes instances in Figure.axes.<ul>
+<li>update the axes location accounting the aspect.</li>
+<li>call Artist.draw(renderer) for artists in the axes<ul>
+<li>update artist</li>
+<li>create a GC (color, line width etc.)</li>
+<li>draw using the renderer (e.g., Renderer.draw_path)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique3">
+            
+            
+            <section><div class="highlight"><pre><span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
+    <span class="s">&#39;Draw the :class:`Patch` to the given *renderer*.&#39;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span> <span class="k">return</span>
+
+    <span class="n">renderer</span><span class="o">.</span><span class="n">open_group</span><span class="p">(</span><span class="s">&#39;patch&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_gid</span><span class="p">())</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">new_gc</span><span class="p">()</span>
+
+    <span class="n">gc</span><span class="o">.</span><span class="n">set_foreground</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_edgecolor</span><span class="p">,</span> <span class="n">isRGB</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">lw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linewidth</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edgecolor</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">lw</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">gc</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="n">lw</span><span class="p">)</span>
+    <span class="n">gc</span><span class="o">.</span><span class="n">set_linestyle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_linestyle</span><span class="p">)</span>
+
+    <span class="c"># ....</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_path</span><span class="p">()</span>
+    <span class="n">transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_transform</span><span class="p">()</span>
+    <span class="n">tpath</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform_path_non_affine</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">affine</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">get_affine</span><span class="p">()</span>
+
+    <span class="c"># may use path_effects ..</span>
+    <span class="n">renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="n">tpath</span><span class="p">,</span> <span class="n">affine</span><span class="p">,</span> <span class="n">rgbFace</span><span class="p">)</span>
+
+    <span class="n">gc</span><span class="o">.</span><span class="n">restore</span><span class="p">()</span>
+    <span class="n">renderer</span><span class="o">.</span><span class="n">close_group</span><span class="p">(</span><span class="s">&#39;patch&#39;</span><span class="p">)</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique4">
+            
+            <header><h1>GridSpec : advanced subplot</h1></header>
+            
+            
+            <section><p>See <a class="reference external" href="http://matplotlib.sourceforge.net/users/gridspec.html">http://matplotlib.sourceforge.net/users/gridspec.html</a></p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="kn">as</span> <span class="nn">gridspec</span>
+
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax5</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+<img alt="http://matplotlib.sourceforge.net/plot_directive/users/plotting/examples/demo_gridspec02.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/users/plotting/examples/demo_gridspec02.hires.png" style="height: 300px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique5">
+            
+            <header><h2>Embedded subplots</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kn">from</span> <span class="nn">matplotlib.gridspec</span> <span class="kn">import</span> <span class="n">GridSpec</span><span class="p">,</span> <span class="n">GridSpecFromSubplotSpec</span>
+
+<span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">gs1</span> <span class="o">=</span> <span class="n">GridSpecFromSubplotSpec</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">subplot_spec</span><span class="o">=</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+<img alt="../10/demo_figure/demo02.jpg" src="../10/demo_figure/demo02.jpg" style="height: 300px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique6">
+            
+            <header><h1>Axes w/ a fixed aspec ratio</h1></header>
+            
+            
+            <section><h2>Axes positions are specified in normalized figure coordinate</h2>
+<ul class="simple">
+<li>This is good for interactive mode.</li>
+<li>But for axes with fixed aspect ratio, it's difficult to control the
+spacing between axes.</li>
+</ul>
+<img alt="../10/demo_figure/demo03.jpg" src="../10/demo_figure/demo03.jpg" style="height: 400px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique7">
+            
+            
+            <section><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax_list</span> <span class="o">=</span> <span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">ax_list</span><span class="o">.</span><span class="n">flat</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+<img alt="../10/demo_figure/demo04.jpg" src="../10/demo_figure/demo04.jpg" style="height: 400px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique8">
+            
+            <header><h1>mpl_toolkits.axes_grid1</h1></header>
+            
+            
+            <section><p><a class="reference external" href="http://matplotlib.sourceforge.net/mpl_toolkits/axes_grid/index.html#toolkit-axesgrid-index">http://matplotlib.sourceforge.net/mpl_toolkits/axes_grid/index.html#toolkit-axesgrid-index</a></p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">ImageGrid</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">ImageGrid</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="c"># similar to subplot(111)</span>
+                 <span class="n">nrows_ncols</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="c"># creates 2x2 grid of axes</span>
+                 <span class="n">axes_pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="c"># pad between axes in inch.</span>
+                 <span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span> <span class="c"># sequence-like interface for axes in the grid</span>
+   <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+<img alt="../10/demo_figure/demo05.jpg" src="../10/demo_figure/demo05.jpg" style="height: 300px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique9">
+            
+            
+            <section><img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_toolkits/axes_grid/examples/demo_axes_grid.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_toolkits/axes_grid/examples/demo_axes_grid.hires.png" style="height: 350px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique10">
+            
+            <header><h2>tight_layout &amp; savefig w/ bbox_inches=&quot;tight&quot;</h2></header>
+            
+            
+            <section><ul class="simple">
+<li>new in mpl v1.1</li>
+</ul>
+<div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">&quot;a.png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique11">
+            
+            <header><h1>Path</h1></header>
+            
+            
+            <section><p><a class="reference external" href="http://matplotlib.sourceforge.net/users/path_tutorial.html#path-tutorial">http://matplotlib.sourceforge.net/users/path_tutorial.html#path-tutorial</a></p>
+<img alt="http://matplotlib.sourceforge.net/_images/9f2e84e526.png" src="http://matplotlib.sourceforge.net/_images/9f2e84e526.png" style="height: 500px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique12">
+            
+            
+            <section><p><a class="reference external" href="http://matplotlib.sourceforge.net/examples/pylab_examples/dolphin.html">http://matplotlib.sourceforge.net/examples/pylab_examples/dolphin.html</a></p>
+<img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/dolphin.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/dolphin.hires.png" style="width: 550px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique13">
+            
+            <header><h1>Text &amp; TeX</h1></header>
+            
+            
+            <section><h2>matplotlib support TeX rendering (using TeX)</h2>
+<div class="highlight"><pre><span class="n">tex_string</span> <span class="o">=</span> <span class="s">r&#39;$\displaystyle \mathcal{F} = \int f\left( \phi, c \right)&#39;</span> \
+             <span class="s">r&#39;dV$, $\displaystyle\frac{ \partial \phi } { \partial t }&#39;</span> \
+             <span class="s">r&#39;= -M_{ \phi } \frac{ \delta \mathcal{F} }&#39;</span> \
+             <span class="s">r&#39;{ \delta \phi }$&#39;</span>
+
+<span class="n">bbox_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s">&quot;round&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s">&quot;0.9&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s">&quot;0.5&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">tex_string</span><span class="p">,</span>
+         <span class="p">{</span><span class="s">&#39;color&#39;</span> <span class="p">:</span> <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="s">&#39;fontsize&#39;</span> <span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
+         <span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
+</pre></div>
+<img alt="../10/demo_figure/demo07.jpg" src="../10/demo_figure/demo07.jpg" style="height: 300px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique14">
+            
+            <header><h1>Annotation</h1></header>
+            
+            
+            <section><p><a class="reference external" href="http://matplotlib.sourceforge.net/users/annotations_guide.html">http://matplotlib.sourceforge.net/users/annotations_guide.html</a></p>
+
+<h2>Box around Text</h2>
+<img alt="http://matplotlib.sourceforge.net/_images/fancybox_demo2.png" src="http://matplotlib.sourceforge.net/_images/fancybox_demo2.png" style="height: 400px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique15">
+            
+            
+            <section><img alt="http://matplotlib.sourceforge.net/_images/annotate_text_arrow.png" src="http://matplotlib.sourceforge.net/_images/annotate_text_arrow.png" style="height: 400px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique16">
+            
+            <header><h2>Annotation w/ Arrows</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">],</span> <span class="s">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">ann</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">,</span>
+                   <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s">&#39;data&#39;</span><span class="p">,</span>
+                   <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s">&#39;offset points&#39;</span><span class="p">,</span>
+                   <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">shrinkB</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                   <span class="n">connectionstyle</span><span class="o">=</span><span class="s">&quot;angle3&quot;</span><span class="p">),</span>
+                   <span class="n">size</span><span class="o">=</span><span class="mi">30</span>
+                   <span class="p">)</span>
+</pre></div>
+<img alt="../10/demo_figure/demo08.jpg" src="../10/demo_figure/demo08.jpg" style="height: 300px;" />
+<p>annoation are dragable.</p>
+<div class="highlight"><pre><span class="n">ann</span><span class="o">.</span><span class="n">dragable</span><span class="p">()</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique17">
+            
+            
+            <section><img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/fancyarrow_demo.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/fancyarrow_demo.hires.png" style="height: 500px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique18">
+            
+            
+            <section><img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/annotation_demo2_00.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/annotation_demo2_00.hires.png" style="height: 450px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique19">
+            
+            
+            <section><img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/annotation_demo2_01.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/annotation_demo2_01.hires.png" style="height: 450px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique20">
+            
+            <header><h2>Text as path</h2></header>
+            
+            
+            <section><ul class="simple">
+<li><a class="reference external" href="http://matplotlib.sourceforge.net/examples/pylab_examples/demo_text_path.html">http://matplotlib.sourceforge.net/examples/pylab_examples/demo_text_path.html</a></li>
+</ul>
+<img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/demo_text_path.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/demo_text_path.hires.png" style="height: 500px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique21">
+            
+            <header><h2>patheffects</h2></header>
+            
+            
+            <section><ul class="simple">
+<li>override draw_path method of the backends</li>
+</ul>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">matplotlib.patheffects</span> <span class="kn">import</span> <span class="n">withStroke</span>
+<span class="n">imshow</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="n">annotate</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+               <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s">&quot;-&gt;&quot;</span><span class="p">,</span>
+                               <span class="n">connectionstyle</span><span class="o">=</span><span class="s">&quot;angle3&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+               <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">txt</span><span class="o">.</span><span class="n">set_path_effects</span><span class="p">([</span><span class="n">withStroke</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s">&quot;w&quot;</span><span class="p">)])</span>
+<span class="n">txt</span><span class="o">.</span><span class="n">arrow_patch</span><span class="o">.</span><span class="n">set_path_effects</span><span class="p">([</span><span class="n">withStroke</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s">&quot;w&quot;</span><span class="p">)])</span>
+</pre></div>
+<img alt="http://matplotlib.sourceforge.net/_images/patheffect_demo.png" src="http://matplotlib.sourceforge.net/_images/patheffect_demo.png" style="width: 700px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique22">
+            
+            <header><h1>Legend</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>legend of complex plots : new in v1.1</li>
+<li><a class="reference external" href="http://matplotlib.sourceforge.net/rc/v1.1.0rc1/examples/pylab_examples/legend_demo4.html">example</a></li>
+</ul>
+<img alt="http://matplotlib.sourceforge.net/rc/v1.1.0rc1/mpl_examples/pylab_examples/legend_demo4.hires.png" src="http://matplotlib.sourceforge.net/rc/v1.1.0rc1/mpl_examples/pylab_examples/legend_demo4.hires.png" style="height: 400px;" />
+<ul class="simple">
+<li><a class="reference external" href="http://matplotlib.sourceforge.net/users/legend_guide.html">http://matplotlib.sourceforge.net/users/legend_guide.html</a></li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique23">
+            
+            
+            <section><ul class="simple">
+<li><a class="reference external" href="http://matplotlib.sourceforge.net/users/legend_guide.html#legend-location">http://matplotlib.sourceforge.net/users/legend_guide.html#legend-location</a></li>
+<li>use <strong>bbox_to_anchor</strong> and <strong>bbox_transform</strong> parameters to adjust the legend location.</li>
+</ul>
+<img alt="http://matplotlib.sourceforge.net/plot_directive/users/plotting/examples/simple_legend01.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/users/plotting/examples/simple_legend01.hires.png" style="height: 450px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique24">
+            
+            <header><h2>OffsetBox</h2></header>
+            
+            
+            <section><ul class="simple">
+<li>can be used for artists w/ mixed coordinate systems<ul>
+<li>size : data transform</li>
+<li>position : normalized axes transform</li>
+</ul>
+</li>
+<li><a class="reference external" href="http://matplotlib.sourceforge.net/examples/axes_grid/simple_anchored_artists.html">http://matplotlib.sourceforge.net/examples/axes_grid/simple_anchored_artists.html</a></li>
+</ul>
+<img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/axes_grid/simple_anchored_artists.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/axes_grid/simple_anchored_artists.hires.png" style="height: 400px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique25">
+            
+            <header><h1>Inset Axes</h1></header>
+            
+            
+            <section><ul class="simple">
+<li><a class="reference external" href="http://matplotlib.sourceforge.net/examples/axes_grid/inset_locator_demo.html">http://matplotlib.sourceforge.net/examples/axes_grid/inset_locator_demo.html</a></li>
+</ul>
+<img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/axes_grid/inset_locator_demo.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/axes_grid/inset_locator_demo.hires.png" style="width: 600px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique26">
+            
+            
+            <section><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.inset_locator</span> <span class="kn">import</span> <span class="n">inset_axes</span><span class="p">,</span> <span class="n">zoomed_inset_axes</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.anchored_artists</span> <span class="kn">import</span> <span class="n">AnchoredSizeBar</span>
+
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+
+<span class="n">axins</span> <span class="o">=</span> <span class="n">inset_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span>
+                   <span class="n">width</span><span class="o">=</span><span class="s">&quot;30%&quot;</span><span class="p">,</span> <span class="c"># width = 30% of parent_bbox</span>
+                   <span class="n">height</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="c"># height : 1 inch</span>
+                  <span class="n">loc</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">axins</span><span class="o">.</span><span class="n">axis</span><span class="p">[:]</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="n">ticklabels</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique27">
+            
+            <header><h2>Inset Axes w/ zoom</h2></header>
+            
+            
+            <section><ul class="simple">
+<li><a class="reference external" href="http://matplotlib.sourceforge.net/examples/axes_grid/inset_locator_demo2.html">http://matplotlib.sourceforge.net/examples/axes_grid/inset_locator_demo2.html</a></li>
+</ul>
+<div class="highlight"><pre><span class="n">axins</span> <span class="o">=</span> <span class="n">zoomed_inset_axes</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c"># zoom = 6</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique28">
+            
+            <header><h2>Agg filter</h2></header>
+            
+            
+            <section><ul class="simple">
+<li><a class="reference external" href="http://matplotlib.sourceforge.net/examples/pylab_examples/demo_agg_filter.html">http://matplotlib.sourceforge.net/examples/pylab_examples/demo_agg_filter.html</a></li>
+</ul>
+
+
+<h2>demo_aggfilter.py</h2>
+<img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/demo_agg_filter.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/pylab_examples/demo_agg_filter.hires.png" style="height: 450px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique29">
+            
+            <header><h2>Mixed-mode renderer</h2></header>
+            
+            
+            <section><ul class="simple">
+<li>pdf backend and ps backend</li>
+<li>During the vector backend, temporarily change into rasterization
+mode. The result is rendered as an image in the vector mode</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique30">
+            
+            <header><h1>mpl_toolkits</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>mplot3d</li>
+<li>axes_grid1</li>
+<li>axis_artist</li>
+<li>etc.</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique31">
+            
+            <header><h2>mplot3d</h2></header>
+            
+            
+            <section><img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/mplot3d/subplot3d_demo.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_examples/mplot3d/subplot3d_demo.hires.png" style="width: 750px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique32">
+            
+            <header><h2>axisartist</h2></header>
+            
+            
+            <section><img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_toolkits/axes_grid/examples/demo_floating_axis.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_toolkits/axes_grid/examples/demo_floating_axis.hires.png" style="height: 600px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique33">
+            
+            
+            <section><img alt="http://matplotlib.sourceforge.net/plot_directive/mpl_toolkits/axes_grid/examples/demo_floating_axes.hires.png" src="http://matplotlib.sourceforge.net/plot_directive/mpl_toolkits/axes_grid/examples/demo_floating_axes.hires.png" style="width: 750px;" /></section>
+            
+</div>
+
+
+      
+
+
+      </div> <!-- slides -->
+    </div> <!-- presentation -->
+
+<!-- <script src="./mmm_files/js/slide-presentation.js"></script> -->
+
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="../aux/theme_jj2/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+
+</body></html>

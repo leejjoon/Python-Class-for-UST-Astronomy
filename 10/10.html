@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://html5-demos.appspot.com/static/html5storage/index.html#slide68 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title class="slidetitle">None</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="../aux/theme_jj2/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="../aux/theme_jj2/css/screen.css">
+    
+    
+    <!-- /Styles -->
+
+   <link rel="stylesheet" href="../aux/jj_common2.css" type="text/css">
+   <link rel="stylesheet" media="screen" href="../aux/jj_screen.css" type="text/css">
+   <link rel="stylesheet" media="print" href="../aux/jj_print.css" type="text/css">
+
+    <script>
+      window.URL = window.URL ? window.URL :
+                   window.webkitURL ? window.webkitURL : window;
+      window.BlobBuilder = window.WebKitBlobBuilder || window.MozBlobBuilder || window.BlobBuilder;
+      window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+    </script>
+
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+   </script>
+
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/javascript" src="../aux/extensions/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  </head>
+
+  <style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+  <body class="composited">
+    <div class="presentation">
+      <div class="presentationCounter">0</div>
+      <div class="slides" style="display: block; ">
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique1">
+            
+            
+            <section><div class="centeredtitle container">
+Matplotlib</div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique2">
+            
+            <header><h1>matplotlib : a python 2D plotting library</h1></header>
+            
+            
+            <section><ul class="simple">
+<li>A python 2D plotting library that produces publication quality figures</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>in a variety of hardcopy formats (ps, pdf, svg, png, etc)</li>
+<li>and interactive environments (gtk, tk, qt, wx, html5, etc)</li>
+<li>across platforms (linux&amp;unix, mac os X, windows).</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>When integrated with ipython, provides a powerful interactive environment (ala MATLAB or Mathematica).</li>
+</ul>
+<p>Some contents are adopted from Mike Müller's scipy tutorial.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique3">
+            
+            <header><h2>IPython and the pylab mode</h2></header>
+            
+            
+            <section><p><a class="reference external" href="http://ipython.org/">IPython</a> is an enhanced interactive Python shell.</p>
+<blockquote>
+<ul class="simple">
+<li>access to shell commands</li>
+<li>improved debugging</li>
+<li>named inputs and outputs</li>
+<li>and many more.</li>
+</ul>
+</blockquote>
+<p>More importantly, ipython can be run with tight integration with Matplotlib.</p>
+<p>When we start ipython with the command line argument <tt class="docutils literal"><span class="pre">--pylab</span></tt>, it
+allows interactive <tt class="docutils literal">matplotlib</tt> sessions that has
+Matlab/Mathematica-like functionality.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique4">
+            
+            <header><h1>matplotlib tries to make easy things easy and hard things possible!</h1></header>
+            
+            
+            <section><p>Start an interactive session:</p>
+<pre class="literal-block">
+$ ipython --pylab
+</pre>
+<p>Then</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique5">
+            
+            
+            <section><img alt="../10/demo_figure/demo01.png" src="../10/demo_figure/demo01.png" style="height: 450px;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique6">
+            
+            <header><h2>pylab</h2></header>
+            
+            
+            <section><p><tt class="docutils literal">pylab</tt> provides a procedural interface to the <tt class="docutils literal">matplotlib</tt>
+object-oriented plotting library. It is modeled closely
+after Matlab(TM). Therefore, the majority of plotting
+commands in <tt class="docutils literal">pylab</tt> has Matlab(TM) analogs with similar arguments.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique7">
+            
+            
+            <section><p>Let's do some more plot.</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">instance</span> <span class="n">at</span> <span class="mh">0x01AA26E8</span><span class="o">&gt;</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+</pre></div>
+<p>The numbers form 0 through 9 are plotted:
+Once we have a plot, we can interactively add features to or plot.</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;measured&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span> <span class="n">instance</span> <span class="n">at</span> <span class="mh">0x01A9D210</span><span class="o">&gt;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;calculated&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span> <span class="n">instance</span> <span class="n">at</span> <span class="mh">0x01A9D918</span><span class="o">&gt;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;Measured vs. calculated&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">Text</span> <span class="n">instance</span> <span class="n">at</span> <span class="mh">0x01A9DF80</span><span class="o">&gt;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique8">
+            
+            <header><h1>Plot</h1></header>
+            
+            
+            <section><p>Plot command can take several keyword arguments as shown in the following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Property</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>alpha</td>
+<td>alpha transparency on 0-1 scale</td>
+</tr>
+<tr><td>antialiased</td>
+<td>True or False - use antialised rendering</td>
+</tr>
+<tr><td>color</td>
+<td>matplotlib color arg</td>
+</tr>
+<tr><td>data_clipping</td>
+<td>whether to use numeric to clip data</td>
+</tr>
+<tr><td>label</td>
+<td>string optionally used for legend</td>
+</tr>
+<tr><td>linestyle</td>
+<td>one of <tt class="docutils literal">-</tt> <tt class="docutils literal">:</tt> <tt class="docutils literal"><span class="pre">-.</span></tt> <tt class="docutils literal">-</tt></td>
+</tr>
+<tr><td>linewidth</td>
+<td>float, the line width in points</td>
+</tr>
+<tr><td>marker</td>
+<td>one of <tt class="docutils literal">+</tt> <tt class="docutils literal">,</tt> <tt class="docutils literal">o</tt> <tt class="docutils literal">.</tt> <tt class="docutils literal">s</tt> <tt class="docutils literal">v</tt> <tt class="docutils literal">x</tt> <tt class="docutils literal">&gt;</tt> <tt class="docutils literal">&lt;</tt>, etc</td>
+</tr>
+<tr><td>markeredgewidth</td>
+<td>line width around the marker symbol</td>
+</tr>
+<tr><td>markeredgecolor</td>
+<td>edge color if a marker is used</td>
+</tr>
+<tr><td>markerfacecolor</td>
+<td>face color if a marker is used</td>
+</tr>
+<tr><td>markersize</td>
+<td>size of the marker in points</td>
+</tr>
+</tbody>
+</table></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique9">
+            
+            
+            <section><p>There are many line styles that can be specified with symbols:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Symbol</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">-</tt></td>
+<td>solid line</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--</span></tt></td>
+<td>dashed line</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">-.</span></tt></td>
+<td>dash-dot line</td>
+</tr>
+<tr><td><tt class="docutils literal">:</tt></td>
+<td>dotted line</td>
+</tr>
+<tr><td><tt class="docutils literal">.</tt></td>
+<td>points</td>
+</tr>
+<tr><td><tt class="docutils literal">,</tt></td>
+<td>pixels</td>
+</tr>
+<tr><td><tt class="docutils literal">o</tt></td>
+<td>circle symbols</td>
+</tr>
+<tr><td><tt class="docutils literal">^</tt></td>
+<td>triangle up symbols</td>
+</tr>
+<tr><td><tt class="docutils literal">v</tt></td>
+<td>triangle down symbols</td>
+</tr>
+<tr><td><tt class="docutils literal">&lt;</tt></td>
+<td>triangle left symbols</td>
+</tr>
+<tr><td><tt class="docutils literal">&gt;</tt></td>
+<td>triangle right symbols</td>
+</tr>
+<tr><td><tt class="docutils literal">s</tt></td>
+<td>square symbols</td>
+</tr>
+<tr><td><tt class="docutils literal">+</tt></td>
+<td>plus symbols</td>
+</tr>
+<tr><td><tt class="docutils literal">x</tt></td>
+<td>cross symbols</td>
+</tr>
+</tbody>
+</table>
+<p>And lots more.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique10">
+            
+            
+            <section><p>Colors can be given in many ways: one-letter abbreviations, gray scale
+intensity from 0 to 1, RGB in hex and tuple format as well as
+any legal html color name.</p>
+<p>The one-letter abbreviations are very handy for quick work.
+With following you can get quite a few things done:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="57%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Abbreviation</th>
+<th class="head">Color</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>b</td>
+<td>blue</td>
+</tr>
+<tr><td>g</td>
+<td>green</td>
+</tr>
+<tr><td>r</td>
+<td>red</td>
+</tr>
+<tr><td>c</td>
+<td>cyan</td>
+</tr>
+<tr><td>m</td>
+<td>magenta</td>
+</tr>
+<tr><td>y</td>
+<td>yellow</td>
+</tr>
+<tr><td>k</td>
+<td>black</td>
+</tr>
+<tr><td>w</td>
+<td>white</td>
+</tr>
+</tbody>
+</table></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique11">
+            
+            <header><h2>A most common use of plot command</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;r-&quot;</span><span class="p">)</span>
+</pre></div>
+<p>The third (or second) argument can be a line format.</p>
+<blockquote>
+<ul class="simple">
+<li>color</li>
+<li>line style</li>
+<li>marker style</li>
+</ul>
+</blockquote></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique12">
+            
+            <header><h2>Text</h2></header>
+            
+            
+            <section><p>We've already used some commands to add text to our figure: <tt class="docutils literal">xlabel</tt>
+<tt class="docutils literal">ylabel</tt>, and <tt class="docutils literal">title</tt>.</p>
+<p>There are two functions to put text at a defined position.
+<tt class="docutils literal">text</tt> adds the text with data coordinates:</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">plot</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">text</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;Text in the middle&#39;</span><span class="p">)</span>
+</pre></div>
+<p><tt class="docutils literal">matplotlib</tt> supports TeX mathematical expression. So r&quot;$\pi$&quot;
+will show up as you expected.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique13">
+            
+            <header><h2>annotate</h2></header>
+            
+            
+            <section><p>If you want to get more control over where the text goes, you
+use annotations:</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">annotate</span><span class="p">(</span><span class="s">&#39;Here is something special&#39;</span><span class="p">,</span> <span class="n">xy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+<p>We will write the text at the position (1, 1) in terms of data.
+There are many optional arguments that help to customize
+the position of the text.  The arguments <tt class="docutils literal">xycoords</tt>
+specifies what <tt class="docutils literal">x</tt> and <tt class="docutils literal">y</tt> mean:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">argument</th>
+<th class="head">coordinate system</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>figure points</td>
+<td>points from the lower left corner of the figure</td>
+</tr>
+<tr><td>figure pixels</td>
+<td>pixels from the lower left corner of the figure</td>
+</tr>
+<tr><td>figure fraction</td>
+<td>0,0 is lower left of figure and 1,1 is upper, right</td>
+</tr>
+<tr><td>axes points</td>
+<td>points from lower left corner of axes</td>
+</tr>
+<tr><td>axes pixels</td>
+<td>pixels from lower left corner of axes</td>
+</tr>
+<tr><td>axes fraction</td>
+<td>0,1 is lower left of axes and 1,1 is upper right</td>
+</tr>
+<tr><td>data</td>
+<td>use the axes data coordinate system</td>
+</tr>
+</tbody>
+</table></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique14">
+            
+            
+            <section><p><tt class="docutils literal">annotate</tt> is meant to annoate something with text, i.e., you often
+need to draw arrows!</p>
+<div class="highlight"><pre><span class="n">annotate</span><span class="p">(</span><span class="s">&#39;Here is something special&#39;</span><span class="p">,</span> <span class="n">xy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+         <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;facecolor&#39;</span><span class="p">:</span> <span class="s">&#39;r&#39;</span><span class="p">})</span>
+</pre></div>
+<ul class="simple">
+<li>xy vs. xytext<ul>
+<li>xy : coordinate to be annotate</li>
+<li>xytext : coordinate of the annotating text.</li>
+</ul>
+</li>
+<li>xycoords</li>
+<li>textcoords</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique15">
+            
+            <header><h2>Figures, Subplots, and Axes</h2></header>
+            
+            
+            <section><h3>The Hierarchy</h3>
+<p>So far we have used implicit figure and axes creation.
+This is handy for fast plots. We can have more control over
+the display using <tt class="docutils literal">figure</tt>, <tt class="docutils literal">subplot</tt>, and <tt class="docutils literal">axes</tt> explicitly.</p>
+<ul class="simple">
+<li>A <tt class="docutils literal">figure</tt> in <tt class="docutils literal">matplotlib</tt> means the whole window in the
+user interface. Within this <tt class="docutils literal">figure</tt> there can be subplots or axes.</li>
+<li>Location of <tt class="docutils literal">axes</tt> are specified in normalized figure coordinates.</li>
+<li><tt class="docutils literal">subplot</tt> positions the plots in a regular grid.</li>
+</ul>
+<p>Both axes and subplot can
+be useful depending on your intention.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique16">
+            
+            
+            <section><p>We've already work with figures and subplots without explicitly
+calling them.</p>
+<p>When we call <tt class="docutils literal">plot</tt> <tt class="docutils literal">matplotlib</tt></p>
+<blockquote>
+<ul class="simple">
+<li>calls <tt class="docutils literal">gca()</tt> to get the current axes</li>
+<li><tt class="docutils literal">gca</tt> in turn calls <tt class="docutils literal">gcf()</tt> to get the current figure</li>
+<li>If there is none it calls <tt class="docutils literal">figure()</tt> to make one, strictly speaking, to make a <tt class="docutils literal">subplot(111)</tt>.</li>
+</ul>
+</blockquote></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique17">
+            
+            <header><h3>Figures</h3></header>
+            
+            
+            <section><p>A <tt class="docutils literal">figure</tt> is  the windows in the GUI that has &quot;Figure #&quot; as
+title.</p>
+<blockquote>
+<ul class="simple">
+<li>Figures are numbered starting from 1 as opposed to the
+normal Python way starting from 0. This is clearly MATLAB-style.</li>
+</ul>
+</blockquote>
+<p>There are several parameters that determine how the figure
+looks like:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="28%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Argument</th>
+<th class="head">Default</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">num</tt></td>
+<td><tt class="docutils literal">1</tt></td>
+<td>number of figure</td>
+</tr>
+<tr><td><tt class="docutils literal">figsize</tt></td>
+<td><tt class="docutils literal">figure.figsize</tt></td>
+<td>figure size in in inches (width, height)</td>
+</tr>
+<tr><td><tt class="docutils literal">dpi</tt></td>
+<td><tt class="docutils literal">figure.dpi</tt></td>
+<td>resolution in dots per inch</td>
+</tr>
+<tr><td><tt class="docutils literal">facecolor</tt></td>
+<td><tt class="docutils literal">figure.facecolor</tt></td>
+<td>color of the drawing background</td>
+</tr>
+<tr><td><tt class="docutils literal">edgecolor</tt></td>
+<td><tt class="docutils literal">figure.edgecolor</tt></td>
+<td>color of edge around the drawing background</td>
+</tr>
+<tr><td><tt class="docutils literal">frameon</tt></td>
+<td><tt class="docutils literal">True</tt></td>
+<td>draw figure frame or not</td>
+</tr>
+</tbody>
+</table></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique18">
+            
+            
+            <section><p>The defaults can be specified in the resource file and
+will be used most of the time. Only the number of the figure
+is frequently changed.</p>
+<p>When you work with the GUI you can close a figure by clicking on the
+x in the upper right corner. But you can close a figure
+programmatically by calling <tt class="docutils literal">close</tt>.</p>
+<p>Depending on the argument it closes</p>
+<blockquote>
+<ol class="arabic simple">
+<li>the current figure (no argument)</li>
+<li>a specific figure (figure number or figure instance as argument)</li>
+<li>all figures (<tt class="docutils literal">all</tt> as argument).</li>
+</ol>
+</blockquote></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique19">
+            
+            <header><h3>Subplots</h3></header>
+            
+            
+            <section><p>With <tt class="docutils literal">subplot</tt> you can arrange plots in regular grid. You need to
+specify the number of rows and columns and the number of the plot.</p>
+<p>A plot with two rows and one column is created with
+<tt class="docutils literal">subplot(211)</tt> and <tt class="docutils literal">subplot(212)</tt>. The result looks like this:</p>
+<img alt="../10/figures/subplots_horizontal.png" src="../10/figures/subplots_horizontal.png" style="width: 25%;" />
+<p>If you want two plots side by side, you create one row and two columns
+with <tt class="docutils literal">subplot(121)</tt> and <tt class="docutils literal">subplot(112)</tt>. The result looks like this:</p>
+<img alt="figures/subplots_vertical.png" src="figures/subplots_vertical.png" style="width: 25%;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique20">
+            
+            
+            <section><p>You can arrange as many figures as you want. A two-by-two arrangement can
+be created with <tt class="docutils literal">subplot(221)</tt>,  <tt class="docutils literal">subplot(222)</tt>, <tt class="docutils literal">subplot(223)</tt>, and
+<tt class="docutils literal">subplot(224)</tt>. The result looks like this:</p>
+<img alt="../10/figures/subplots_four.png" src="../10/figures/subplots_four.png" style="width: 25%;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique21">
+            
+            <header><h2>Subplots</h2></header>
+            
+            
+            <section><p>Unless you need fine control of each subplot, you may better use
+<tt class="docutils literal">subplots</tt> command.</p>
+<div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sca</span><span class="p">(</span><span class="n">ax1</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">sca</span><span class="p">(</span><span class="n">ax2</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique22">
+            
+            <header><h3>Axes</h3></header>
+            
+            
+            <section><p>Axes are very similar to subplots but allow placement of plots
+at any location in the figure.  So if we want to put a smaller
+plot inside a bigger one we do so with <tt class="docutils literal">axes</tt>:</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">instance</span> <span class="n">at</span> <span class="mh">0x02C9CE90</span><span class="o">&gt;</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">axes</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+<p>The result looks like this:</p>
+<img alt="../10/figures/axes.png" src="../10/figures/axes.png" style="width: 25%;" /></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique23">
+            
+            <header><h1>Images and Contours</h1></header>
+            
+            
+            <section><p>Check contour_image.py.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique24">
+            
+            <header><h1>There are lots more</h1></header>
+            
+            
+            <section><p>Take a look at the gallery.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique25">
+            
+            <header><h1>Matplotlib design</h1></header>
+            
+            
+            <section><p>The matplotlib code is conceptually divided into three parts:</p>
+<ul class="simple">
+<li>backends : drawing devices, aka renderers, that transform the frontend representation to hardcopy or a display device (ps, pdf, etc.)</li>
+<li>frontend (matplotlib API) : set of classes that do the heavy lifting, creating and managing figures, text, lines, plots and so on. This is an abstract interface that knows nothing about output.</li>
+<li>pylab interface : the set of functions which allow the user to create plots with code quite similar to MATLAB</li>
+</ul>
+<p>Behind the scene, they are all objects!</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique26">
+            
+            <header><h1>Backends</h1></header>
+            
+            
+            <section><p>An abstract base class to handle drawing/rendering operations.</p>
+<p>The following methods must be implemented in the backend</p>
+<ul class="simple">
+<li>draw_path</li>
+<li>draw_image</li>
+<li>draw_text (from v1.0, draw_tex is now optional)</li>
+<li>get_text_width_height_descent</li>
+</ul>
+<p>Matpotlib is vector-vased drawing library</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique27">
+            
+            <header><h2>The Figure Class</h2></header>
+            
+            
+            <section><p>The class <tt class="docutils literal">Figure</tt> lives in the module <tt class="docutils literal">matplotlib.figure</tt>.
+Its constructor takes these arguments:</p>
+<div class="highlight"><pre><span class="n">figsize</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+<span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">subplotpars</span><span class="o">=</span><span class="bp">None</span>
+</pre></div>
+<p><tt class="docutils literal">Figure</tt> provides lots of methods, many of them have equivalents in
+<tt class="docutils literal">pylab</tt>. The methods <tt class="docutils literal">add_axes</tt> and <tt class="docutils literal">add_subplot</tt> are called if new
+axes or subplot are created with <tt class="docutils literal">axes</tt> or <tt class="docutils literal">subplot</tt> in <tt class="docutils literal">pylab</tt>.
+Also the method <tt class="docutils literal">gca</tt> maps directly to <tt class="docutils literal">pylab</tt> as do <tt class="docutils literal">legend</tt>,
+<tt class="docutils literal">text</tt> and many others.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique28">
+            
+            <header><h3>The Classes Axes and Subplot</h3></header>
+            
+            
+            <section><p>In the class  <tt class="docutils literal">Axes</tt> we find most of the figure elements such as
+<tt class="docutils literal">Axis</tt>, <tt class="docutils literal">Tick</tt>, <tt class="docutils literal">Line2D</tt>, or <tt class="docutils literal">Text</tt>. It also sets the coordinate
+system. The class <tt class="docutils literal">Subplot</tt> inherits from <tt class="docutils literal">Axes</tt> and adds some
+more functionality to arrange the plots in a grid.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique29">
+            
+            <header><h2>Artists : Object who renders into a Figure</h2></header>
+            
+            
+            <section><ul class="simple">
+<li>texts</li>
+<li>lines (with markers)</li>
+<li>patches (e.g., rectangles in histogram)</li>
+<li>images</li>
+<li>collections</li>
+<li>etc.</li>
+</ul></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique30">
+            
+            <header><h2>Most pyplot commands returns artist objects.</h2></header>
+            
+            
+            <section><p>For example, plot returns Line2D object.</p></section>
+            
+</div>
+
+
+      
+
+<div class="slide transitionSlide far-far-past" id="qUnique31">
+            
+            <header><h2>set and get method</h2></header>
+            
+            
+            <section><p>Most of matplotlib objects have several <tt class="docutils literal">set_something</tt> method such
+as <tt class="docutils literal">set_facecolor</tt> or <tt class="docutils literal">set_edgecolor</tt>.</p>
+<p>These method can also called using <tt class="docutils literal">set</tt> method.</p>
+<p>From pylab, you may use <tt class="docutils literal">setp</tt> function.</p></section>
+            
+</div>
+
+
+      
+
+
+      </div> <!-- slides -->
+    </div> <!-- presentation -->
+
+<!-- <script src="./mmm_files/js/slide-presentation.js"></script> -->
+
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="../aux/theme_jj2/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+
+</body></html>

@@ -77,3 +77,50 @@ with, the following are all free, good options:
  - OSX: Text Wrangler, TextMate (not free)
 
  - Windows: Notepad++
+
+Installing virtualenv
+---------------------
+
+In Ubuntu/Debian,::
+
+    sudo apt-get install python-pip python-virtualenv virtualenvwrapper
+
+In Fedora,::
+
+    sudo yum -y install python-pip python-virtualenv python-virtualenvwrapper
+
+In Mac OS X,::
+
+    sudo pip install virtualenv virtualenvwrapper
+
+Depending on your installation, you may need to insert following line in your rc file ::
+
+    source /usr/local/bin/virtualenvwrapper.sh
+
+Once virtualenvwrapper is installed, 
+
+1. to create a virtual environment::
+
+    mkvirtualenv ENVNAME --system-site-packages
+
+   where ENVNAME is the name of the environment you want. This command
+   will populate "~/.virtualenvs/ENVNAME" with necessary files.
+
+
+2. to activate the environment::
+
+    workon ENVNAME
+
+3. Now, go ahead and install following packages using pip command::
+
+    pip install d2to1 stsci.distutils
+    pip install pyfits
+    pip install pywcs pywcsgrid2 pyparsing pyregion
+    pip install asciitable
+    pip install pandas
+    pip install http://dl.dropbox.com/u/178748/pysao/pysao-0.1b2.tar.gz
+
+You may encounter "timed out" error, if that happens just run the commands again.
+
+The last packages (pysao) is not fully tested (in particular in Mac). Contact me if installing it does not work.
+

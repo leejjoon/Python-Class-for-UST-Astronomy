@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.7: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
 <title>Install Python</title>
 <style type="text/css">
 
@@ -769,6 +769,52 @@ with, the following are all free, good options:</p>
 <li>Windows: Notepad++</li>
 </ul>
 </blockquote>
+</div>
+<div class="section" id="installing-virtualenv">
+<h1>Installing virtualenv</h1>
+<p>In Ubuntu/Debian,:</p>
+<pre class="literal-block">
+sudo apt-get install python-pip python-virtualenv virtualenvwrapper
+</pre>
+<p>In Fedora,:</p>
+<pre class="literal-block">
+sudo yum -y install python-pip python-virtualenv python-virtualenvwrapper
+</pre>
+<p>In Mac OS X,:</p>
+<pre class="literal-block">
+sudo pip install virtualenv virtualenvwrapper
+</pre>
+<p>Depending on your installation, you may need to insert following line in your rc file</p>
+<pre class="literal-block">
+source /usr/local/bin/virtualenvwrapper.sh
+</pre>
+<p>Once virtualenvwrapper is installed,</p>
+<ol class="arabic">
+<li><p class="first">to create a virtual environment:</p>
+<pre class="literal-block">
+mkvirtualenv ENVNAME --system-site-packages
+</pre>
+<p>where ENVNAME is the name of the environment you want. This command
+will populate &quot;~/.virtualenvs/ENVNAME&quot; with necessary files.</p>
+</li>
+<li><p class="first">to activate the environment:</p>
+<pre class="literal-block">
+workon ENVNAME
+</pre>
+</li>
+<li><p class="first">Now, go ahead and install following packages using pip command:</p>
+<pre class="literal-block">
+pip install d2to1 stsci.distutils
+pip install pyfits
+pip install pywcs pywcsgrid2 pyparsing pyregion
+pip install asciitable
+pip install pandas
+pip install http://dl.dropbox.com/u/178748/pysao/pysao-0.1b2.tar.gz
+</pre>
+</li>
+</ol>
+<p>You may encounter &quot;timed out&quot; error, if that happens just run the commands again.</p>
+<p>The last packages (pysao) is not fully tested (in particular in Mac). Contact me if installing it does not work.</p>
 </div>
 </div>
 </body>

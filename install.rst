@@ -113,11 +113,13 @@ Once virtualenvwrapper is installed,
 
 3. Now, go ahead and install following packages using pip command::
 
+    pip install pandas
     pip install d2to1 stsci.distutils
     pip install pyfits
     pip install pywcs pywcsgrid2 pyparsing pyregion
-    pip install asciitable
-    pip install pandas
+    pip install http://stsdas.stsci.edu/astrolib/vo-0.8.tar.gz
+    pip install asciitable atpy
+    pip install pyephem
     pip install http://dl.dropbox.com/u/178748/pysao/pysao-0.1b2.tar.gz
 
 You may encounter "timed out" error, if that happens just run the commands again.

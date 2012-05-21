@@ -78,3 +78,26 @@ Week 09
 - Lecture 09 : Numpy record array and & Basic plotting tutorial
 
   - `Lec. 09 tutorial files <lec09.tgz>`_
+
+
+Week 10
+-------
+
+- Lecture 10 : `Matplotlib <10/10.html>`_
+
+  - `contour_image.py <10/contour_image.py>`_
+
+- Lecture 10-1 : `Matplotlib II <10/10_1.html>`_
+
+Week 11
+-------
+
+- Lecture 11 : `Scipy Intro <11/scipy_intro.ipynb>`_
+
+Week 12
+-------
+
+- Lecture 11 : `Astro Modules Intro <12/12.html>`_
+
+    - ipython note book and data files : `demo <12/12_demo.tgz>`_
+
